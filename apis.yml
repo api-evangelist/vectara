@@ -1,0 +1,170 @@
+aid: vectara
+name: Vectara
+description: Vectara is a Retrieval Augmented Generation (RAG) as a service platform that provides grounded generative AI
+  for enterprises. The API-first platform exposes a unified REST API for managing corpora, ingesting documents, performing
+  semantic and hybrid search, generating answers with hallucination detection, and building agents and pipelines on top of
+  enterprise data.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/vectara/refs/heads/main/apis.yml
+created: '2026-05-23'
+modified: '2026-05-23'
+specificationVersion: '0.19'
+type: Index
+access: 3rd-Party
+tags:
+- AI
+- Agents
+- Corpora
+- Embeddings
+- Enterprise Search
+- Generative AI
+- Grounded Generation
+- Hallucination Detection
+- LLM
+- RAG
+- Retrieval
+- Search
+- Semantic Search
+apis:
+- aid: vectara:vectara-rest-api
+  name: Vectara REST API
+  description: The Vectara REST API v2 is the unified interface for the Vectara RAG platform. It exposes endpoints for managing
+    corpora, uploading and indexing documents, running semantic and hybrid queries with grounded generation, managing agents
+    and pipelines, configuring generation presets, evaluating hallucinations, controlling access, and reading analytics.
+  humanURL: https://docs.vectara.com/docs/rest-api/
+  baseURL: https://api.vectara.io/v2
+  tags:
+  - Agents
+  - Analytics
+  - Corpora
+  - Documents
+  - Generation
+  - Pipelines
+  - Query
+  - RAG
+  - Search
+  properties:
+  - type: Documentation
+    url: https://docs.vectara.com/docs/rest-api/
+  - type: Authentication
+    url: https://docs.vectara.com/docs/learn/authentication/oauth-2
+- aid: vectara:vectara-corpora-api
+  name: Vectara Corpora API
+  description: Create, list, update, and delete corpora that hold indexed documents for retrieval and grounded generation.
+  humanURL: https://docs.vectara.com/docs/api-reference/admin-apis/corpora
+  baseURL: https://api.vectara.io/v2
+  tags:
+  - Admin
+  - Corpora
+  - Index
+  properties:
+  - type: Documentation
+    url: https://docs.vectara.com/docs/api-reference/admin-apis/corpora
+- aid: vectara:vectara-indexing-api
+  name: Vectara Indexing API
+  description: Upload and index documents into a Vectara corpus using either structured Core indexing or unstructured file
+    upload. Supports add, replace, and delete operations on documents.
+  humanURL: https://docs.vectara.com/docs/api-reference/indexing-apis/indexing
+  baseURL: https://api.vectara.io/v2
+  tags:
+  - Documents
+  - Index
+  - Upload
+  properties:
+  - type: Documentation
+    url: https://docs.vectara.com/docs/api-reference/indexing-apis/indexing
+- aid: vectara:vectara-query-api
+  name: Vectara Query API
+  description: Run semantic, keyword, and hybrid queries across one or more corpora with optional grounded generation, citations,
+    and reranking.
+  humanURL: https://docs.vectara.com/docs/api-reference/search-apis/search
+  baseURL: https://api.vectara.io/v2
+  tags:
+  - Generation
+  - Grounded Generation
+  - Hybrid Search
+  - Query
+  - Search
+  properties:
+  - type: Documentation
+    url: https://docs.vectara.com/docs/api-reference/search-apis/search
+- aid: vectara:vectara-chat-api
+  name: Vectara Chat API
+  description: Multi-turn conversational interface over a Vectara corpus that maintains chat history and produces grounded,
+    cited answers.
+  humanURL: https://docs.vectara.com/docs/api-reference/chat-apis/chat-apis
+  baseURL: https://api.vectara.io/v2
+  tags:
+  - Chat
+  - Conversation
+  - Generation
+  - RAG
+  properties:
+  - type: Documentation
+    url: https://docs.vectara.com/docs/api-reference/chat-apis/chat-apis
+- aid: vectara:vectara-agents-api
+  name: Vectara Agents API
+  description: Build and operate agents over Vectara corpora with tools, planning, and grounded generation.
+  humanURL: https://docs.vectara.com/docs/api-reference/agents-api/agents
+  baseURL: https://api.vectara.io/v2
+  tags:
+  - Agents
+  - AI
+  - Tools
+  properties:
+  - type: Documentation
+    url: https://docs.vectara.com/docs/api-reference/agents-api/agents
+- aid: vectara:vectara-oauth2-api
+  name: Vectara OAuth 2.0 Token API
+  description: OAuth 2.0 client credentials flow used to obtain a short-lived JWT for calling the Vectara REST API.
+  humanURL: https://docs.vectara.com/docs/learn/authentication/oauth-2
+  baseURL: https://auth.vectara.io
+  tags:
+  - Authentication
+  - OAuth2
+  - Tokens
+  properties:
+  - type: Documentation
+    url: https://docs.vectara.com/docs/learn/authentication/oauth-2
+common:
+- type: Website
+  url: https://www.vectara.com/
+- type: Developer
+  url: https://docs.vectara.com/docs
+- type: Documentation
+  url: https://docs.vectara.com/docs/rest-api/
+- type: SDK
+  url: https://docs.vectara.com/docs/sdk/vectara-python-sdk
+- type: GitHub
+  url: https://github.com/vectara
+- type: Blog
+  url: https://www.vectara.com/blog
+- type: Pricing
+  url: https://www.vectara.com/pricing
+- type: StatusPage
+  url: https://status.vectara.com/
+- type: Support
+  url: https://docs.vectara.com/docs/support
+- type: PrivacyPolicy
+  url: https://vectara.com/legal/privacy-policy/
+- type: TermsOfService
+  url: https://vectara.com/legal/terms-of-service/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/vectara/
+- type: ChangeLog
+  url: https://docs.vectara.com/docs/release-notes
+- type: Integrations
+  url: https://docs.vectara.com/docs/integrations
+integrations:
+- name: LangChain
+- name: LlamaIndex
+- name: Airbyte
+- name: Unstructured
+- name: Slack
+- name: Snowflake
+- name: AWS
+- name: Google Cloud
+- name: Microsoft Azure
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
