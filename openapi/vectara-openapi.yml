@@ -1,0 +1,730 @@
+openapi: 3.1.0
+info:
+  title: Vectara REST API
+  description: |
+    Vectara REST API v2 is the unified interface for the Vectara Retrieval Augmented
+    Generation (RAG) platform. It exposes endpoints for managing corpora, uploading
+    and indexing documents, running semantic and hybrid queries with grounded
+    generation, managing agents, tools, pipelines, generation presets, and reading
+    metadata.
+
+    This OpenAPI 3.1 description is hand-curated from the public Vectara REST API
+    documentation at https://docs.vectara.com/docs/rest-api/ and the published
+    OpenAPI document at https://docs.vectara.com/vectara-oas-v2.yaml. It covers a
+    representative subset of endpoints across corpora, documents, query, agents,
+    tools, pipelines, and OAuth.
+  version: "2.0"
+  contact:
+    name: Vectara Support
+    url: https://docs.vectara.com/docs/support
+  license:
+    name: Proprietary
+servers:
+  - url: https://api.vectara.io
+    description: Vectara REST API production base URL
+  - url: https://auth.vectara.io
+    description: Vectara OAuth 2.0 token endpoint
+security:
+  - ApiKeyAuth: []
+  - OAuth2: []
+tags:
+  - name: Corpora
+    description: Create, list, update, and delete corpora that hold indexed documents.
+  - name: Documents
+    description: Upload, index, retrieve, update, and delete documents in a corpus.
+  - name: Query
+    description: Semantic, keyword, and hybrid queries with optional grounded generation.
+  - name: Agents
+    description: Build and operate agents over Vectara corpora.
+  - name: Tools
+    description: Manage tools and tool servers used by agents.
+  - name: Pipelines
+    description: Manage pipelines and inspect pipeline runs.
+  - name: Authentication
+    description: OAuth 2.0 client credentials flow for obtaining JWT tokens.
+paths:
+  /v2/corpora:
+    get:
+      tags: [Corpora]
+      summary: List corpora
+      operationId: listCorpora
+      parameters:
+        - in: query
+          name: limit
+          schema: { type: integer, default: 10 }
+        - in: query
+          name: page_key
+          schema: { type: string }
+        - in: query
+          name: filter
+          schema: { type: string }
+      responses:
+        "200":
+          description: A list of corpora.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListCorporaResponse"
+    post:
+      tags: [Corpora]
+      summary: Create a corpus
+      operationId: createCorpus
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateCorpusRequest"
+      responses:
+        "201":
+          description: Corpus created.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Corpus"
+  /v2/corpora/{corpus_key}:
+    parameters:
+      - $ref: "#/components/parameters/CorpusKey"
+    get:
+      tags: [Corpora]
+      summary: Retrieve corpus metadata
+      operationId: getCorpus
+      responses:
+        "200":
+          description: Corpus metadata.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Corpus"
+    patch:
+      tags: [Corpora]
+      summary: Update a corpus
+      operationId: updateCorpus
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateCorpusRequest"
+      responses:
+        "200":
+          description: Corpus updated.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Corpus"
+    delete:
+      tags: [Corpora]
+      summary: Delete a corpus
+      operationId: deleteCorpus
+      responses:
+        "204":
+          description: Corpus deleted.
+  /v2/corpora/{corpus_key}/reset:
+    parameters:
+      - $ref: "#/components/parameters/CorpusKey"
+    post:
+      tags: [Corpora]
+      summary: Reset a corpus
+      description: Remove all documents from the corpus while keeping the corpus itself.
+      operationId: resetCorpus
+      responses:
+        "204":
+          description: Corpus reset.
+  /v2/corpora/{corpus_key}/compute_size:
+    parameters:
+      - $ref: "#/components/parameters/CorpusKey"
+    post:
+      tags: [Corpora]
+      summary: Compute corpus size
+      operationId: computeCorpusSize
+      responses:
+        "200":
+          description: Corpus size information.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  size_bytes: { type: integer }
+                  document_count: { type: integer }
+  /v2/corpora/{corpus_key}/upload_file:
+    parameters:
+      - $ref: "#/components/parameters/CorpusKey"
+    post:
+      tags: [Documents]
+      summary: Upload a file
+      description: Upload an unstructured file (PDF, DOCX, HTML, etc.) to be parsed and indexed.
+      operationId: uploadFile
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                metadata:
+                  type: string
+      responses:
+        "201":
+          description: File uploaded and indexing started.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Document"
+  /v2/corpora/{corpus_key}/documents:
+    parameters:
+      - $ref: "#/components/parameters/CorpusKey"
+    get:
+      tags: [Documents]
+      summary: List corpus documents
+      operationId: listDocuments
+      parameters:
+        - in: query
+          name: limit
+          schema: { type: integer }
+        - in: query
+          name: page_key
+          schema: { type: string }
+        - in: query
+          name: metadata_filter
+          schema: { type: string }
+      responses:
+        "200":
+          description: List of documents.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListDocumentsResponse"
+    post:
+      tags: [Documents]
+      summary: Add a structured (Core) document
+      operationId: addDocument
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Document"
+      responses:
+        "201":
+          description: Document created.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Document"
+    delete:
+      tags: [Documents]
+      summary: Bulk delete documents
+      operationId: bulkDeleteDocuments
+      parameters:
+        - in: query
+          name: metadata_filter
+          required: true
+          schema: { type: string }
+      responses:
+        "204":
+          description: Documents deleted.
+  /v2/corpora/{corpus_key}/documents/{document_id}:
+    parameters:
+      - $ref: "#/components/parameters/CorpusKey"
+      - $ref: "#/components/parameters/DocumentId"
+    get:
+      tags: [Documents]
+      summary: Retrieve a document
+      operationId: getDocument
+      responses:
+        "200":
+          description: Document.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Document"
+    patch:
+      tags: [Documents]
+      summary: Update document metadata
+      operationId: updateDocument
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                metadata:
+                  type: object
+                  additionalProperties: true
+      responses:
+        "200":
+          description: Document updated.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Document"
+    delete:
+      tags: [Documents]
+      summary: Delete a document
+      operationId: deleteDocument
+      responses:
+        "204":
+          description: Document deleted.
+  /v2/corpora/{corpus_key}/documents/{document_id}/summarize:
+    parameters:
+      - $ref: "#/components/parameters/CorpusKey"
+      - $ref: "#/components/parameters/DocumentId"
+    post:
+      tags: [Documents]
+      summary: Summarize a document
+      operationId: summarizeDocument
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                llm_name: { type: string }
+                prompt_name: { type: string }
+      responses:
+        "200":
+          description: Summary.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  summary: { type: string }
+  /v2/corpora/{corpus_key}/query:
+    parameters:
+      - $ref: "#/components/parameters/CorpusKey"
+    post:
+      tags: [Query]
+      summary: Query a single corpus
+      operationId: queryCorpus
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QueryRequest"
+      responses:
+        "200":
+          description: Query results with optional grounded generation.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResponse"
+  /v2/corpora/{corpus_key}/search:
+    parameters:
+      - $ref: "#/components/parameters/CorpusKey"
+    post:
+      tags: [Query]
+      summary: Search a single corpus
+      operationId: searchCorpus
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QueryRequest"
+      responses:
+        "200":
+          description: Search results.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResponse"
+  /v2/corpora/{corpus_key}/queries:
+    parameters:
+      - $ref: "#/components/parameters/CorpusKey"
+    post:
+      tags: [Query]
+      summary: Run a multi-stage query
+      operationId: queriesCorpus
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QueryRequest"
+      responses:
+        "200":
+          description: Query results.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResponse"
+  /v2/agents:
+    get:
+      tags: [Agents]
+      summary: List agents
+      operationId: listAgents
+      responses:
+        "200":
+          description: List of agents.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  agents:
+                    type: array
+                    items: { $ref: "#/components/schemas/Agent" }
+    post:
+      tags: [Agents]
+      summary: Create an agent
+      operationId: createAgent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Agent"
+      responses:
+        "201":
+          description: Agent created.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Agent"
+  /v2/agents/{agent_id}:
+    parameters:
+      - in: path
+        name: agent_id
+        required: true
+        schema: { type: string }
+    get:
+      tags: [Agents]
+      summary: Retrieve an agent
+      operationId: getAgent
+      responses:
+        "200":
+          description: Agent.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Agent"
+    patch:
+      tags: [Agents]
+      summary: Update an agent
+      operationId: updateAgent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Agent"
+      responses:
+        "200":
+          description: Agent updated.
+    delete:
+      tags: [Agents]
+      summary: Delete an agent
+      operationId: deleteAgent
+      responses:
+        "204":
+          description: Agent deleted.
+  /v2/agents/{agent_id}/sessions:
+    parameters:
+      - in: path
+        name: agent_id
+        required: true
+        schema: { type: string }
+    get:
+      tags: [Agents]
+      summary: List agent sessions
+      operationId: listAgentSessions
+      responses:
+        "200":
+          description: Sessions.
+    post:
+      tags: [Agents]
+      summary: Create an agent session
+      operationId: createAgentSession
+      responses:
+        "201":
+          description: Session created.
+  /v2/agents/{agent_id}/sessions/{session_id}/turns:
+    parameters:
+      - in: path
+        name: agent_id
+        required: true
+        schema: { type: string }
+      - in: path
+        name: session_id
+        required: true
+        schema: { type: string }
+    post:
+      tags: [Agents]
+      summary: Add a turn to an agent session
+      operationId: addAgentTurn
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message: { type: string }
+      responses:
+        "200":
+          description: Turn response.
+  /v2/tools:
+    get:
+      tags: [Tools]
+      summary: List tools
+      operationId: listTools
+      responses:
+        "200":
+          description: Tools.
+    post:
+      tags: [Tools]
+      summary: Create a tool
+      operationId: createTool
+      responses:
+        "201":
+          description: Tool created.
+  /v2/tool-servers:
+    get:
+      tags: [Tools]
+      summary: List tool servers
+      operationId: listToolServers
+      responses:
+        "200":
+          description: Tool servers.
+    post:
+      tags: [Tools]
+      summary: Register a tool server
+      operationId: createToolServer
+      responses:
+        "201":
+          description: Tool server registered.
+  /v2/pipelines:
+    get:
+      tags: [Pipelines]
+      summary: List pipelines
+      operationId: listPipelines
+      responses:
+        "200":
+          description: Pipelines.
+    post:
+      tags: [Pipelines]
+      summary: Create a pipeline
+      operationId: createPipeline
+      responses:
+        "201":
+          description: Pipeline created.
+  /v2/pipeline-runs:
+    get:
+      tags: [Pipelines]
+      summary: List pipeline runs
+      operationId: listPipelineRuns
+      responses:
+        "200":
+          description: Pipeline runs.
+  /oauth2/token:
+    servers:
+      - url: https://auth.vectara.io
+    post:
+      tags: [Authentication]
+      summary: Obtain an OAuth 2.0 access token (client credentials)
+      operationId: getOauthToken
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [grant_type, client_id, client_secret]
+              properties:
+                grant_type:
+                  type: string
+                  enum: [client_credentials]
+                client_id: { type: string }
+                client_secret: { type: string }
+      responses:
+        "200":
+          description: Token response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token: { type: string }
+                  token_type: { type: string, example: Bearer }
+                  expires_in: { type: integer, example: 1800 }
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Vectara API key passed in the `x-api-key` header.
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 client credentials flow.
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.vectara.io/oauth2/token
+          scopes: {}
+  parameters:
+    CorpusKey:
+      in: path
+      name: corpus_key
+      required: true
+      schema:
+        type: string
+      description: The unique key identifying a corpus.
+    DocumentId:
+      in: path
+      name: document_id
+      required: true
+      schema:
+        type: string
+      description: The unique identifier of a document.
+  schemas:
+    Corpus:
+      type: object
+      properties:
+        key: { type: string }
+        name: { type: string }
+        description: { type: string }
+        queries_are_answers: { type: boolean }
+        documents_are_questions: { type: boolean }
+        encoder_id: { type: string }
+        filter_attributes:
+          type: array
+          items: { $ref: "#/components/schemas/FilterAttribute" }
+        custom_dimensions:
+          type: array
+          items:
+            type: object
+            properties:
+              name: { type: string }
+              description: { type: string }
+        enabled: { type: boolean }
+        created_at: { type: string, format: date-time }
+    CreateCorpusRequest:
+      allOf:
+        - $ref: "#/components/schemas/Corpus"
+        - type: object
+          required: [key, name]
+    UpdateCorpusRequest:
+      type: object
+      properties:
+        name: { type: string }
+        description: { type: string }
+        enabled: { type: boolean }
+    ListCorporaResponse:
+      type: object
+      properties:
+        corpora:
+          type: array
+          items: { $ref: "#/components/schemas/Corpus" }
+        metadata:
+          $ref: "#/components/schemas/PageMetadata"
+    FilterAttribute:
+      type: object
+      properties:
+        name: { type: string }
+        level:
+          type: string
+          enum: [document, document_part]
+        indexed: { type: boolean }
+        type:
+          type: string
+          enum: [text, integer, real, boolean]
+    Document:
+      type: object
+      properties:
+        id: { type: string }
+        type:
+          type: string
+          enum: [core, structured]
+        metadata:
+          type: object
+          additionalProperties: true
+        document_parts:
+          type: array
+          items:
+            type: object
+            properties:
+              text: { type: string }
+              metadata:
+                type: object
+                additionalProperties: true
+    ListDocumentsResponse:
+      type: object
+      properties:
+        documents:
+          type: array
+          items: { $ref: "#/components/schemas/Document" }
+        metadata:
+          $ref: "#/components/schemas/PageMetadata"
+    QueryRequest:
+      type: object
+      required: [query]
+      properties:
+        query:
+          type: string
+          description: The natural-language query string.
+        search:
+          type: object
+          properties:
+            limit: { type: integer, default: 10 }
+            offset: { type: integer, default: 0 }
+            metadata_filter: { type: string }
+            lexical_interpolation: { type: number }
+            reranker:
+              type: object
+              properties:
+                type: { type: string }
+        generation:
+          type: object
+          properties:
+            generation_preset_name: { type: string }
+            max_used_search_results: { type: integer }
+            response_language: { type: string }
+            enable_factual_consistency_score: { type: boolean }
+        stream_response: { type: boolean }
+    QueryResponse:
+      type: object
+      properties:
+        summary: { type: string }
+        factual_consistency_score: { type: number }
+        search_results:
+          type: array
+          items:
+            type: object
+            properties:
+              text: { type: string }
+              score: { type: number }
+              document_id: { type: string }
+              part_metadata:
+                type: object
+                additionalProperties: true
+              document_metadata:
+                type: object
+                additionalProperties: true
+    Agent:
+      type: object
+      properties:
+        id: { type: string }
+        name: { type: string }
+        description: { type: string }
+        instructions: { type: string }
+        tool_ids:
+          type: array
+          items: { type: string }
+        corpus_keys:
+          type: array
+          items: { type: string }
+        enabled: { type: boolean }
+    PageMetadata:
+      type: object
+      properties:
+        page_key: { type: string }
+        next_page_key: { type: string }
