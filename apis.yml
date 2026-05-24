@@ -155,6 +155,8 @@ common:
   url: https://docs.vectara.com/docs/release-notes
 - type: Integrations
   url: https://docs.vectara.com/docs/integrations
+- type: LLMsTxt
+  url: https://docs.vectara.com/llms.txt
 integrations:
 - name: LangChain
 - name: LlamaIndex
