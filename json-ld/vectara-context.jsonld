@@ -1,0 +1,45 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "vectara": "https://api.vectara.io/v2/",
+    "schema": "https://schema.org/",
+    "Corpus": "vectara:Corpus",
+    "Document": "vectara:Document",
+    "DocumentPart": "vectara:DocumentPart",
+    "Query": "vectara:Query",
+    "SearchResult": "vectara:SearchResult",
+    "Agent": "vectara:Agent",
+    "AgentSession": "vectara:AgentSession",
+    "Tool": "vectara:Tool",
+    "Pipeline": "vectara:Pipeline",
+    "GenerationPreset": "vectara:GenerationPreset",
+    "key": "schema:identifier",
+    "name": "schema:name",
+    "description": "schema:description",
+    "created_at": {
+      "@id": "schema:dateCreated",
+      "@type": "schema:DateTime"
+    },
+    "modified_at": {
+      "@id": "schema:dateModified",
+      "@type": "schema:DateTime"
+    },
+    "encoder_id": "vectara:encoderId",
+    "filter_attributes": "vectara:filterAttribute",
+    "document_parts": "vectara:documentPart",
+    "metadata": "vectara:metadata",
+    "text": "schema:text",
+    "score": "vectara:relevanceScore",
+    "factual_consistency_score": "vectara:factualConsistencyScore",
+    "summary": "schema:abstract",
+    "instructions": "vectara:instructions",
+    "tool_ids": {
+      "@id": "vectara:tool",
+      "@type": "@id"
+    },
+    "corpus_keys": {
+      "@id": "vectara:corpus",
+      "@type": "@id"
+    }
+  }
+}

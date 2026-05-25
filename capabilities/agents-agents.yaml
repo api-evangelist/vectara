@@ -1,0 +1,130 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Vectara Agents API — Agents
+  description: 'Vectara Agents API — Agents. Build and operate agents over Vectara corpora with tools, planning, and grounded
+    generation. Self-contained Naftiko capability.'
+  tags:
+  - Vectara
+  - Agents
+  - AI
+  - Tools
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    VECTARA_API_KEY: VECTARA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: agents-agents
+    baseUri: https://api.vectara.io
+    resources:
+    - name: v2-agents
+      path: /v2/agents
+      operations:
+      - name: listagents
+        method: GET
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createagent
+        method: POST
+        outputRawFormat: json
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+    - name: v2-agents-by-id
+      path: /v2/agents/{agent_id}
+      operations:
+      - name: getagent
+        method: GET
+        outputRawFormat: json
+        inputParameters:
+        - name: agent_id
+          in: path
+          type: string
+          required: true
+      - name: updateagent
+        method: PATCH
+        outputRawFormat: json
+        inputParameters:
+        - name: agent_id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          required: true
+      - name: deleteagent
+        method: DELETE
+        inputParameters:
+        - name: agent_id
+          in: path
+          type: string
+          required: true
+    - name: v2-agents-sessions
+      path: /v2/agents/{agent_id}/sessions
+      operations:
+      - name: listagentsessions
+        method: GET
+        outputRawFormat: json
+        inputParameters:
+        - name: agent_id
+          in: path
+          type: string
+          required: true
+      - name: createagentsession
+        method: POST
+        outputRawFormat: json
+        inputParameters:
+        - name: agent_id
+          in: path
+          type: string
+          required: true
+    - name: v2-agents-turns
+      path: /v2/agents/{agent_id}/sessions/{session_id}/turns
+      operations:
+      - name: addagentturn
+        method: POST
+        outputRawFormat: json
+        inputParameters:
+        - name: agent_id
+          in: path
+          type: string
+          required: true
+        - name: session_id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          required: true
+    authentication:
+      type: apikey
+      key: x-api-key
+      value: '{{env.VECTARA_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: agents-agents-rest
+    port: 8080
+    description: REST adapter for Vectara Agents.
+    resources:
+    - path: /v1/v2/agents
+      name: v2-agents
+      operations:
+      - method: GET
+        name: listagents
+        call: agents-agents.listagents
+      - method: POST
+        name: createagent
+        call: agents-agents.createagent
+        with:
+          body: rest.body

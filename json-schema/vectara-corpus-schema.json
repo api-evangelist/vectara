@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/vectara/main/json-schema/vectara-corpus-schema.json",
+  "title": "Vectara Corpus",
+  "description": "A Vectara corpus is a container of indexed documents used for retrieval and grounded generation.",
+  "type": "object",
+  "required": ["key", "name"],
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "Unique key identifying the corpus."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable corpus name."
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the corpus and its intended contents."
+    },
+    "queries_are_answers": {
+      "type": "boolean",
+      "description": "Whether stored queries should be treated as answers (question-answer corpora)."
+    },
+    "documents_are_questions": {
+      "type": "boolean",
+      "description": "Whether stored documents should be treated as questions."
+    },
+    "encoder_id": {
+      "type": "string",
+      "description": "Identifier of the embedding encoder used by the corpus."
+    },
+    "filter_attributes": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/FilterAttribute" }
+    },
+    "custom_dimensions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "Whether the corpus accepts indexing and queries."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "$defs": {
+    "FilterAttribute": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "level": { "type": "string", "enum": ["document", "document_part"] },
+        "indexed": { "type": "boolean" },
+        "type": { "type": "string", "enum": ["text", "integer", "real", "boolean"] }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.vectara.io/v2/corpora",
+    "headers": {
+      "x-api-key": "{VECTARA_API_KEY}",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "key": "product-docs",
+      "name": "Product Documentation",
+      "description": "All product documentation, release notes, and KB articles.",
+      "filter_attributes": [
+        { "name": "section", "level": "document_part", "indexed": true, "type": "text" },
+        { "name": "version",  "level": "document",      "indexed": true, "type": "text" }
+      ],
+      "enabled": true
+    }
+  },
+  "response": {
+    "status": 201,
+    "body": {
+      "key": "product-docs",
+      "name": "Product Documentation",
+      "description": "All product documentation, release notes, and KB articles.",
+      "enabled": true,
+      "created_at": "2026-05-25T12:00:00Z"
+    }
+  }
+}

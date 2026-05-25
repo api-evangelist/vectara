@@ -1,0 +1,46 @@
+extends:
+  - spectral:oas
+rules:
+  operation-tag-defined: true
+  operation-operationId: error
+  operation-operationId-unique: error
+  operation-summary: error
+  vectara-operation-summary-title-case:
+    description: Operation summaries must be in Title Case.
+    given: $.paths[*][get,post,patch,put,delete].summary
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: "^([A-Z][a-z0-9]*|A|An|And|At|But|By|For|From|In|Of|On|Or|The|To|With)(\\s+([A-Z][a-z0-9]*|a|an|and|at|but|by|for|from|in|of|on|or|the|to|with))*$"
+  vectara-path-kebab-or-snake:
+    description: Path segments use lowercase, hyphen, or underscore — never camelCase.
+    given: $.paths
+    severity: warn
+    then:
+      field: "@key"
+      function: pattern
+      functionOptions:
+        match: "^(/[a-z0-9_\\-{}.]+)+$"
+  vectara-uses-bearer-or-apikey:
+    description: Vectara endpoints must declare ApiKeyAuth or OAuth2 security.
+    given: $.security
+    severity: error
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+          minItems: 1
+  vectara-success-status-codes:
+    description: Operations must declare a 2xx success response.
+    given: $.paths[*][get,post,patch,put,delete].responses
+    severity: error
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          patternProperties:
+            "^2[0-9]{2}$": {}
+          minProperties: 1

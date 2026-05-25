@@ -1,0 +1,102 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Vectara Query API — Query
+  description: 'Vectara Query API — Query. Run semantic, keyword, and hybrid queries with grounded generation, citations,
+    reranking, and hallucination detection across one or more corpora. Self-contained Naftiko capability.'
+  tags:
+  - Vectara
+  - Query
+  - Search
+  - RAG
+  - Grounded Generation
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    VECTARA_API_KEY: VECTARA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: query-query
+    baseUri: https://api.vectara.io
+    resources:
+    - name: v2-corpora-query
+      path: /v2/corpora/{corpus_key}/query
+      operations:
+      - name: querycorpus
+        method: POST
+        description: Run a query with optional grounded generation against a single corpus.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: corpus_key
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          required: true
+    - name: v2-corpora-search
+      path: /v2/corpora/{corpus_key}/search
+      operations:
+      - name: searchcorpus
+        method: POST
+        description: Search a single corpus without generation.
+        outputRawFormat: json
+        inputParameters:
+        - name: corpus_key
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          required: true
+    - name: v2-corpora-queries
+      path: /v2/corpora/{corpus_key}/queries
+      operations:
+      - name: queriescorpus
+        method: POST
+        description: Run a multi-stage query (search + rerank + generation) against a corpus.
+        outputRawFormat: json
+        inputParameters:
+        - name: corpus_key
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          required: true
+    authentication:
+      type: apikey
+      key: x-api-key
+      value: '{{env.VECTARA_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: query-query-rest
+    port: 8080
+    description: REST adapter for Vectara Query.
+    resources:
+    - path: /v1/v2/corpora/{corpus_key}/query
+      name: v2-corpora-query
+      operations:
+      - method: POST
+        name: querycorpus
+        call: query-query.querycorpus
+        with:
+          body: rest.body
+    - path: /v1/v2/corpora/{corpus_key}/search
+      name: v2-corpora-search
+      operations:
+      - method: POST
+        name: searchcorpus
+        call: query-query.searchcorpus
+        with:
+          body: rest.body

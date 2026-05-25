@@ -1,0 +1,18 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://auth.vectara.io/oauth2/token",
+    "headers": {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    "body": "grant_type=client_credentials&client_id={VECTARA_CLIENT_ID}&client_secret={VECTARA_CLIENT_SECRET}"
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...",
+      "token_type": "Bearer",
+      "expires_in": 1800
+    }
+  }
+}

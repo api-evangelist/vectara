@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/vectara/main/json-schema/vectara-agent-schema.json",
+  "title": "Vectara Agent",
+  "description": "A Vectara agent encapsulates instructions, a set of tools, and the corpora it can query, to perform grounded conversational and tool-using workflows.",
+  "type": "object",
+  "required": ["name"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "description": { "type": "string" },
+    "instructions": {
+      "type": "string",
+      "description": "System-prompt-style instructions that govern agent behavior."
+    },
+    "tool_ids": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "IDs of tools the agent may call."
+    },
+    "corpus_keys": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Corpora the agent can retrieve from."
+    },
+    "enabled": { "type": "boolean" },
+    "model": {
+      "type": "object",
+      "properties": {
+        "llm_name": { "type": "string" },
+        "max_tokens": { "type": "integer" },
+        "temperature": { "type": "number" }
+      }
+    }
+  }
+}

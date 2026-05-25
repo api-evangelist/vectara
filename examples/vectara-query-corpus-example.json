@@ -1,0 +1,39 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.vectara.io/v2/corpora/product-docs/query",
+    "headers": {
+      "x-api-key": "{VECTARA_API_KEY}",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "query": "How do I rotate API keys?",
+      "search": {
+        "limit": 5,
+        "lexical_interpolation": 0.05,
+        "reranker": { "type": "customer_reranker" }
+      },
+      "generation": {
+        "max_used_search_results": 5,
+        "response_language": "eng",
+        "enable_factual_consistency_score": true,
+        "citations": { "style": "markdown" }
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "summary": "To rotate an API key, open the Vectara console, navigate to **Authentication > API Keys**, then click **Rotate** on the key you want to replace [1].",
+      "factual_consistency_score": 0.94,
+      "search_results": [
+        {
+          "text": "API keys can be rotated from the Authentication settings in the Vectara console...",
+          "score": 0.832,
+          "document_id": "auth-keys-guide",
+          "document_metadata": { "section": "Authentication", "version": "v2" }
+        }
+      ]
+    }
+  }
+}

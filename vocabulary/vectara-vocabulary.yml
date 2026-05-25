@@ -1,0 +1,87 @@
+name: Vectara
+providerId: vectara
+description: Vocabulary and taxonomy mapping for the Vectara grounded-RAG platform, covering corpora, documents, retrieval, grounded generation, agents, hallucination detection, and observability.
+created: '2026-05-25'
+modified: '2026-05-25'
+domain:
+  primary: Retrieval Augmented Generation
+  secondary:
+    - Semantic Search
+    - Grounded Generation
+    - AI Agents
+    - Hallucination Detection
+concepts:
+  - term: Corpus
+    definition: A container of indexed documents used for retrieval and grounded generation.
+    aliases: [index, knowledge base]
+  - term: Document
+    definition: A logical unit of content within a corpus. May be structured (Core) or unstructured (file-upload).
+    aliases: [item, record]
+  - term: Document Part
+    definition: A retrievable unit (section, chunk) inside a document.
+    aliases: [chunk, passage, segment]
+  - term: Encoder
+    definition: The embedding model used to vectorize documents and queries for a corpus.
+    aliases: [embedding model]
+  - term: Filter Attribute
+    definition: A typed, indexed metadata field on documents or document parts used for structured filtering at query time.
+    aliases: [facet, metadata field]
+  - term: Query
+    definition: A natural-language request executed against one or more corpora, optionally returning grounded generations.
+    aliases: [search request, ask]
+  - term: Hybrid Search
+    definition: A blend of lexical (BM25/keyword) and semantic (vector) retrieval controlled by a lexical interpolation weight.
+    aliases: [blended search]
+  - term: Reranker
+    definition: A post-retrieval stage that reorders results using a stronger model (customer_reranker, MMR, chain, user function).
+    aliases: [secondary ranker]
+  - term: Grounded Generation
+    definition: An LLM completion constrained to and cited against retrieved corpus content.
+    aliases: [RAG generation, grounded answer]
+  - term: Generation Preset
+    definition: A named configuration of LLM, system prompt, and generation parameters used by Query, Chat, and Agents.
+    aliases: [preset]
+  - term: Factual Consistency Score
+    definition: A 0-1 score produced by Vectara's Hughes Hallucination Evaluation Model (HHEM) estimating how grounded a generation is.
+    aliases: [HHEM score, hallucination score]
+  - term: Citation
+    definition: A reference from a generated answer back to the document parts that support it.
+    aliases: [source link]
+  - term: Chat Session
+    definition: A multi-turn conversation maintaining history over one or more corpora.
+    aliases: [conversation]
+  - term: Agent
+    definition: A reusable bundle of instructions, tools, and corpus access used for autonomous and conversational workflows.
+    aliases: [assistant]
+  - term: Tool
+    definition: A callable function exposed to an agent; tools may run inside Vectara or on a registered tool server.
+    aliases: [function, action]
+  - term: Tool Server
+    definition: An MCP-compatible server registered with Vectara to expose external tools to agents.
+    aliases: [MCP server]
+  - term: Pipeline
+    definition: A composable retrieval-and-generation flow executed as a single operation.
+    aliases: [flow]
+  - term: Pipeline Run
+    definition: A single invocation of a pipeline, with inputs, outputs, and telemetry.
+    aliases: [run, execution]
+operationalDimensions:
+  authentication: [api-key, oauth2-client-credentials, jwt]
+  authorization: [account, customer, corpus]
+  retrieval: [semantic, lexical, hybrid, mmr, customer-reranker]
+  generation: [grounded, streaming, citations, multilingual, presets]
+  observability: [usage, factual-consistency-score, query-history, audit-log]
+  governance: [rbac, api-key-rotation, deletion, privacy, region-residency]
+capabilityDimensions:
+  ingestion: [core-indexing, file-upload, crawler, connector]
+  retrieval: [single-corpus, multi-corpus, hybrid, reranking, filtering]
+  generation: [summary, multi-turn-chat, agents-with-tools, hallucination-scoring]
+  integration: [langchain, llamaindex, airbyte, unstructured, slack, snowflake, mcp]
+  evaluation: [hhem, open-rag-eval, faithbench]
+relatedStandards:
+  - name: Model Context Protocol (MCP)
+    relationship: Vectara exposes an MCP server (vectara-mcp) and supports MCP-compatible tool servers.
+  - name: OAuth 2.0 Client Credentials (RFC 6749)
+    relationship: Used to obtain JWT access tokens for the REST API.
+  - name: OpenAPI 3.1
+    relationship: Vectara publishes a public OAS document at docs.vectara.com/vectara-oas-v2.yaml.

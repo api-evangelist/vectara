@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/vectara/main/json-schema/vectara-document-schema.json",
+  "title": "Vectara Document",
+  "description": "A Vectara document is either a structured (Core) document with explicit parts, or an unstructured file that Vectara parses into parts.",
+  "type": "object",
+  "required": ["id"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Caller-assigned unique identifier within the corpus."
+    },
+    "type": {
+      "type": "string",
+      "enum": ["core", "structured"],
+      "description": "Whether the document was added via Core indexing or file upload."
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Document-level metadata used for filtering and presentation."
+    },
+    "document_parts": {
+      "type": "array",
+      "description": "Ordered list of document parts (sections, chunks) indexed for retrieval.",
+      "items": {
+        "type": "object",
+        "required": ["text"],
+        "properties": {
+          "text": { "type": "string" },
+          "metadata": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "context": { "type": "string" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Vectara Corpus",
+  "description": "Operational structure of a Vectara corpus and its relationships to documents, queries, and agents.",
+  "entity": "Corpus",
+  "fields": [
+    { "name": "key", "type": "string", "required": true, "role": "identifier" },
+    { "name": "name", "type": "string", "required": true, "role": "label" },
+    { "name": "description", "type": "string", "role": "description" },
+    { "name": "encoder_id", "type": "string", "role": "configuration" },
+    { "name": "filter_attributes", "type": "array<FilterAttribute>", "role": "schema" },
+    { "name": "custom_dimensions", "type": "array<CustomDimension>", "role": "schema" },
+    { "name": "enabled", "type": "boolean", "role": "state" },
+    { "name": "created_at", "type": "datetime", "role": "audit" }
+  ],
+  "relationships": [
+    { "from": "Corpus", "to": "Document", "type": "one-to-many", "via": "corpus_key" },
+    { "from": "Corpus", "to": "Query", "type": "one-to-many", "via": "corpus_key" },
+    { "from": "Corpus", "to": "Agent", "type": "many-to-many", "via": "corpus_keys" }
+  ],
+  "operations": [
+    "list", "create", "read", "update", "delete", "reset", "compute_size"
+  ]
+}

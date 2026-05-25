@@ -46,7 +46,7 @@ paths:
   /v2/corpora:
     get:
       tags: [Corpora]
-      summary: List corpora
+      summary: List Corpora
       operationId: listCorpora
       parameters:
         - in: query
@@ -67,7 +67,7 @@ paths:
                 $ref: "#/components/schemas/ListCorporaResponse"
     post:
       tags: [Corpora]
-      summary: Create a corpus
+      summary: Create A Corpus
       operationId: createCorpus
       requestBody:
         required: true
@@ -87,7 +87,7 @@ paths:
       - $ref: "#/components/parameters/CorpusKey"
     get:
       tags: [Corpora]
-      summary: Retrieve corpus metadata
+      summary: Retrieve Corpus Metadata
       operationId: getCorpus
       responses:
         "200":
@@ -98,7 +98,7 @@ paths:
                 $ref: "#/components/schemas/Corpus"
     patch:
       tags: [Corpora]
-      summary: Update a corpus
+      summary: Update A Corpus
       operationId: updateCorpus
       requestBody:
         required: true
@@ -115,7 +115,7 @@ paths:
                 $ref: "#/components/schemas/Corpus"
     delete:
       tags: [Corpora]
-      summary: Delete a corpus
+      summary: Delete A Corpus
       operationId: deleteCorpus
       responses:
         "204":
@@ -125,7 +125,7 @@ paths:
       - $ref: "#/components/parameters/CorpusKey"
     post:
       tags: [Corpora]
-      summary: Reset a corpus
+      summary: Reset A Corpus
       description: Remove all documents from the corpus while keeping the corpus itself.
       operationId: resetCorpus
       responses:
@@ -136,7 +136,7 @@ paths:
       - $ref: "#/components/parameters/CorpusKey"
     post:
       tags: [Corpora]
-      summary: Compute corpus size
+      summary: Compute Corpus Size
       operationId: computeCorpusSize
       responses:
         "200":
@@ -153,7 +153,7 @@ paths:
       - $ref: "#/components/parameters/CorpusKey"
     post:
       tags: [Documents]
-      summary: Upload a file
+      summary: Upload A File
       description: Upload an unstructured file (PDF, DOCX, HTML, etc.) to be parsed and indexed.
       operationId: uploadFile
       requestBody:
@@ -180,7 +180,7 @@ paths:
       - $ref: "#/components/parameters/CorpusKey"
     get:
       tags: [Documents]
-      summary: List corpus documents
+      summary: List Corpus Documents
       operationId: listDocuments
       parameters:
         - in: query
@@ -201,7 +201,7 @@ paths:
                 $ref: "#/components/schemas/ListDocumentsResponse"
     post:
       tags: [Documents]
-      summary: Add a structured (Core) document
+      summary: Add A Structured (Core) Document
       operationId: addDocument
       requestBody:
         required: true
@@ -218,7 +218,7 @@ paths:
                 $ref: "#/components/schemas/Document"
     delete:
       tags: [Documents]
-      summary: Bulk delete documents
+      summary: Bulk Delete Documents
       operationId: bulkDeleteDocuments
       parameters:
         - in: query
@@ -234,7 +234,7 @@ paths:
       - $ref: "#/components/parameters/DocumentId"
     get:
       tags: [Documents]
-      summary: Retrieve a document
+      summary: Retrieve A Document
       operationId: getDocument
       responses:
         "200":
@@ -245,7 +245,7 @@ paths:
                 $ref: "#/components/schemas/Document"
     patch:
       tags: [Documents]
-      summary: Update document metadata
+      summary: Update Document Metadata
       operationId: updateDocument
       requestBody:
         required: true
@@ -266,7 +266,7 @@ paths:
                 $ref: "#/components/schemas/Document"
     delete:
       tags: [Documents]
-      summary: Delete a document
+      summary: Delete A Document
       operationId: deleteDocument
       responses:
         "204":
@@ -277,7 +277,7 @@ paths:
       - $ref: "#/components/parameters/DocumentId"
     post:
       tags: [Documents]
-      summary: Summarize a document
+      summary: Summarize A Document
       operationId: summarizeDocument
       requestBody:
         content:
@@ -301,7 +301,7 @@ paths:
       - $ref: "#/components/parameters/CorpusKey"
     post:
       tags: [Query]
-      summary: Query a single corpus
+      summary: Query A Single Corpus
       operationId: queryCorpus
       requestBody:
         required: true
@@ -321,7 +321,7 @@ paths:
       - $ref: "#/components/parameters/CorpusKey"
     post:
       tags: [Query]
-      summary: Search a single corpus
+      summary: Search A Single Corpus
       operationId: searchCorpus
       requestBody:
         required: true
@@ -341,7 +341,7 @@ paths:
       - $ref: "#/components/parameters/CorpusKey"
     post:
       tags: [Query]
-      summary: Run a multi-stage query
+      summary: Run A Multi-Stage Query
       operationId: queriesCorpus
       requestBody:
         required: true
@@ -359,7 +359,7 @@ paths:
   /v2/agents:
     get:
       tags: [Agents]
-      summary: List agents
+      summary: List Agents
       operationId: listAgents
       responses:
         "200":
@@ -374,7 +374,7 @@ paths:
                     items: { $ref: "#/components/schemas/Agent" }
     post:
       tags: [Agents]
-      summary: Create an agent
+      summary: Create An Agent
       operationId: createAgent
       requestBody:
         required: true
@@ -397,7 +397,7 @@ paths:
         schema: { type: string }
     get:
       tags: [Agents]
-      summary: Retrieve an agent
+      summary: Retrieve An Agent
       operationId: getAgent
       responses:
         "200":
@@ -408,7 +408,7 @@ paths:
                 $ref: "#/components/schemas/Agent"
     patch:
       tags: [Agents]
-      summary: Update an agent
+      summary: Update An Agent
       operationId: updateAgent
       requestBody:
         required: true
@@ -421,7 +421,7 @@ paths:
           description: Agent updated.
     delete:
       tags: [Agents]
-      summary: Delete an agent
+      summary: Delete An Agent
       operationId: deleteAgent
       responses:
         "204":
@@ -434,14 +434,14 @@ paths:
         schema: { type: string }
     get:
       tags: [Agents]
-      summary: List agent sessions
+      summary: List Agent Sessions
       operationId: listAgentSessions
       responses:
         "200":
           description: Sessions.
     post:
       tags: [Agents]
-      summary: Create an agent session
+      summary: Create An Agent Session
       operationId: createAgentSession
       responses:
         "201":
@@ -458,7 +458,7 @@ paths:
         schema: { type: string }
     post:
       tags: [Agents]
-      summary: Add a turn to an agent session
+      summary: Add A Turn To An Agent Session
       operationId: addAgentTurn
       requestBody:
         required: true
@@ -474,14 +474,14 @@ paths:
   /v2/tools:
     get:
       tags: [Tools]
-      summary: List tools
+      summary: List Tools
       operationId: listTools
       responses:
         "200":
           description: Tools.
     post:
       tags: [Tools]
-      summary: Create a tool
+      summary: Create A Tool
       operationId: createTool
       responses:
         "201":
@@ -489,14 +489,14 @@ paths:
   /v2/tool-servers:
     get:
       tags: [Tools]
-      summary: List tool servers
+      summary: List Tool Servers
       operationId: listToolServers
       responses:
         "200":
           description: Tool servers.
     post:
       tags: [Tools]
-      summary: Register a tool server
+      summary: Register A Tool Server
       operationId: createToolServer
       responses:
         "201":
@@ -504,14 +504,14 @@ paths:
   /v2/pipelines:
     get:
       tags: [Pipelines]
-      summary: List pipelines
+      summary: List Pipelines
       operationId: listPipelines
       responses:
         "200":
           description: Pipelines.
     post:
       tags: [Pipelines]
-      summary: Create a pipeline
+      summary: Create A Pipeline
       operationId: createPipeline
       responses:
         "201":
@@ -519,7 +519,7 @@ paths:
   /v2/pipeline-runs:
     get:
       tags: [Pipelines]
-      summary: List pipeline runs
+      summary: List Pipeline Runs
       operationId: listPipelineRuns
       responses:
         "200":
@@ -529,7 +529,7 @@ paths:
       - url: https://auth.vectara.io
     post:
       tags: [Authentication]
-      summary: Obtain an OAuth 2.0 access token (client credentials)
+      summary: Obtain An OAuth 2.0 Access Token (Client Credentials)
       operationId: getOauthToken
       security: []
       requestBody:

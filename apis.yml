@@ -1,15 +1,18 @@
 aid: vectara
 name: Vectara
 description: Vectara is a Retrieval Augmented Generation (RAG) as a service platform that provides grounded generative AI
-  for enterprises. The API-first platform exposes a unified REST API for managing corpora, ingesting documents, performing
-  semantic and hybrid search, generating answers with hallucination detection, and building agents and pipelines on top of
-  enterprise data.
+  for enterprises. The API-first platform exposes a unified REST API v2 for managing corpora, ingesting documents, performing
+  semantic and hybrid search, generating answers with hallucination detection via the Hughes Hallucination Evaluation Model
+  (HHEM), and building agents and pipelines on top of enterprise data. Headquartered in Mountain View, California and
+  founded by former Google Search engineers, Vectara ships first-party Python and TypeScript SDKs, a public MCP server,
+  React UI widgets, and an open ingestion framework.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/vectara/refs/heads/main/apis.yml
 created: '2026-05-23'
-modified: '2026-05-23'
+modified: '2026-05-25'
 specificationVersion: '0.19'
 type: Index
+kind: contract
 access: 3rd-Party
 tags:
 - AI
@@ -21,10 +24,12 @@ tags:
 - Grounded Generation
 - Hallucination Detection
 - LLM
+- MCP
 - RAG
 - Retrieval
 - Search
 - Semantic Search
+- Vector Search
 apis:
 - aid: vectara:vectara-rest-api
   name: Vectara REST API
@@ -48,6 +53,10 @@ apis:
     url: https://docs.vectara.com/docs/rest-api/
   - type: Authentication
     url: https://docs.vectara.com/docs/learn/authentication/oauth-2
+  - type: OpenAPI
+    url: openapi/vectara-openapi.yml
+  - type: OpenAPI
+    url: https://docs.vectara.com/vectara-oas-v2.yaml
 - aid: vectara:vectara-corpora-api
   name: Vectara Corpora API
   description: Create, list, update, and delete corpora that hold indexed documents for retrieval and grounded generation.
@@ -60,6 +69,16 @@ apis:
   properties:
   - type: Documentation
     url: https://docs.vectara.com/docs/api-reference/admin-apis/corpora
+  - type: OpenAPI
+    url: openapi/vectara-openapi.yml
+  - type: JSONSchema
+    url: json-schema/vectara-corpus-schema.json
+  - type: JSONStructure
+    url: json-structure/vectara-corpus-structure.json
+  - type: JSONLD
+    url: json-ld/vectara-context.jsonld
+  - type: NaftikoCapability
+    url: capabilities/corpora-corpora.yaml
 - aid: vectara:vectara-indexing-api
   name: Vectara Indexing API
   description: Upload and index documents into a Vectara corpus using either structured Core indexing or unstructured file
@@ -73,10 +92,16 @@ apis:
   properties:
   - type: Documentation
     url: https://docs.vectara.com/docs/api-reference/indexing-apis/indexing
+  - type: OpenAPI
+    url: openapi/vectara-openapi.yml
+  - type: JSONSchema
+    url: json-schema/vectara-document-schema.json
+  - type: NaftikoCapability
+    url: capabilities/indexing-documents.yaml
 - aid: vectara:vectara-query-api
   name: Vectara Query API
   description: Run semantic, keyword, and hybrid queries across one or more corpora with optional grounded generation, citations,
-    and reranking.
+    reranking, and Hughes Hallucination Evaluation Model (HHEM) factual-consistency scoring.
   humanURL: https://docs.vectara.com/docs/api-reference/search-apis/search
   baseURL: https://api.vectara.io/v2
   tags:
@@ -88,10 +113,16 @@ apis:
   properties:
   - type: Documentation
     url: https://docs.vectara.com/docs/api-reference/search-apis/search
+  - type: OpenAPI
+    url: openapi/vectara-openapi.yml
+  - type: JSONSchema
+    url: json-schema/vectara-query-schema.json
+  - type: NaftikoCapability
+    url: capabilities/query-query.yaml
 - aid: vectara:vectara-chat-api
   name: Vectara Chat API
   description: Multi-turn conversational interface over a Vectara corpus that maintains chat history and produces grounded,
-    cited answers.
+    cited answers with optional streaming.
   humanURL: https://docs.vectara.com/docs/api-reference/chat-apis/chat-apis
   baseURL: https://api.vectara.io/v2
   tags:
@@ -104,7 +135,8 @@ apis:
     url: https://docs.vectara.com/docs/api-reference/chat-apis/chat-apis
 - aid: vectara:vectara-agents-api
   name: Vectara Agents API
-  description: Build and operate agents over Vectara corpora with tools, planning, and grounded generation.
+  description: Build and operate agents over Vectara corpora with tools, tool servers (MCP-compatible), planning, sessions,
+    and grounded generation.
   humanURL: https://docs.vectara.com/docs/api-reference/agents-api/agents
   baseURL: https://api.vectara.io/v2
   tags:
@@ -114,6 +146,12 @@ apis:
   properties:
   - type: Documentation
     url: https://docs.vectara.com/docs/api-reference/agents-api/agents
+  - type: OpenAPI
+    url: openapi/vectara-openapi.yml
+  - type: JSONSchema
+    url: json-schema/vectara-agent-schema.json
+  - type: NaftikoCapability
+    url: capabilities/agents-agents.yaml
 - aid: vectara:vectara-oauth2-api
   name: Vectara OAuth 2.0 Token API
   description: OAuth 2.0 client credentials flow used to obtain a short-lived JWT for calling the Vectara REST API.
@@ -126,6 +164,8 @@ apis:
   properties:
   - type: Documentation
     url: https://docs.vectara.com/docs/learn/authentication/oauth-2
+  - type: NaftikoCapability
+    url: capabilities/oauth2-tokens.yaml
 common:
 - type: Website
   url: https://www.vectara.com/
@@ -133,8 +173,62 @@ common:
   url: https://docs.vectara.com/docs
 - type: Documentation
   url: https://docs.vectara.com/docs/rest-api/
+- type: OpenAPI
+  url: https://docs.vectara.com/vectara-oas-v2.yaml
 - type: SDK
-  url: https://docs.vectara.com/docs/sdk/vectara-python-sdk
+  name: Vectara Python SDK
+  url: https://github.com/vectara/python-sdk
+- type: SDK
+  name: Vectara TypeScript SDK
+  url: https://github.com/vectara/typescript-sdk
+- type: SDK
+  name: Vectara Agentic (Python)
+  url: https://github.com/vectara/py-vectara-agentic
+- type: SDK
+  name: LangChain Vectara
+  url: https://github.com/vectara/langchain-vectara
+- type: Tools
+  name: Vectara MCP Server
+  url: https://github.com/vectara/vectara-mcp
+- type: Tools
+  name: Vectara Ingest
+  url: https://github.com/vectara/vectara-ingest
+- type: Tools
+  name: Vectara UI
+  url: https://github.com/vectara/vectara-ui
+- type: Tools
+  name: React Search Widget
+  url: https://github.com/vectara/react-search
+- type: Tools
+  name: React Chatbot Widget
+  url: https://github.com/vectara/react-chatbot
+- type: Tools
+  name: Stream Query Client
+  url: https://github.com/vectara/stream-query-client
+- type: Tools
+  name: Create UI Generator
+  url: https://github.com/vectara/create-ui
+- type: Tools
+  name: Vectara Answer Reference App
+  url: https://github.com/vectara/vectara-answer
+- type: Tools
+  name: Open RAG Evaluation
+  url: https://github.com/vectara/open-rag-eval
+- type: Tools
+  name: Hallucination Leaderboard (HHEM)
+  url: https://github.com/vectara/hallucination-leaderboard
+- type: Tools
+  name: Vectara Agent Skills
+  url: https://github.com/vectara/agent-skills
+- type: Samples
+  name: Getting Started Examples
+  url: https://github.com/vectara/getting-started
+- type: Samples
+  name: Example Notebooks
+  url: https://github.com/vectara/example-notebooks
+- type: Samples
+  name: Design Patterns
+  url: https://github.com/vectara/design-patterns
 - type: GitHub
   url: https://github.com/vectara
 - type: Blog
@@ -157,6 +251,16 @@ common:
   url: https://docs.vectara.com/docs/integrations
 - type: LLMsTxt
   url: https://docs.vectara.com/llms.txt
+- type: RateLimits
+  url: rate-limits/vectara-rate-limits.yml
+- type: Plans
+  url: plans/vectara-plans-pricing.yml
+- type: FinOps
+  url: finops/vectara-finops.yml
+- type: Rules
+  url: rules/vectara-rules.yml
+- type: Vocabulary
+  url: vocabulary/vectara-vocabulary.yml
 integrations:
 - name: LangChain
 - name: LlamaIndex
@@ -167,6 +271,16 @@ integrations:
 - name: AWS
 - name: Google Cloud
 - name: Microsoft Azure
+- name: Model Context Protocol
+solutions:
+- name: Enterprise Search over Private Data
+- name: Customer Support Assistants
+- name: Internal Knowledge Bases
+- name: Conversational Product Documentation
+- name: Compliance and Policy Question Answering
+- name: Sales and Marketing Content Discovery
+- name: Hallucination-Scored RAG Pipelines
+- name: Agentic Workflows over Corporate Data
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

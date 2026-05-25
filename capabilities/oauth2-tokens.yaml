@@ -1,0 +1,66 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Vectara OAuth 2.0 Token API — Tokens
+  description: 'Vectara OAuth 2.0 Token API. Exchange client_id + client_secret for a short-lived JWT used to call the Vectara
+    REST API. Self-contained Naftiko capability.'
+  tags:
+  - Vectara
+  - Authentication
+  - OAuth2
+  - Tokens
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    VECTARA_CLIENT_ID: VECTARA_CLIENT_ID
+    VECTARA_CLIENT_SECRET: VECTARA_CLIENT_SECRET
+capability:
+  consumes:
+  - type: http
+    namespace: oauth2-tokens
+    baseUri: https://auth.vectara.io
+    resources:
+    - name: oauth2-token
+      path: /oauth2/token
+      operations:
+      - name: getoauthtoken
+        method: POST
+        description: Obtain an OAuth 2.0 access token via client credentials.
+        outputRawFormat: json
+        outputParameters:
+        - name: access_token
+          type: string
+          value: $.access_token
+        - name: expires_in
+          type: integer
+          value: $.expires_in
+        inputParameters:
+        - name: grant_type
+          in: form
+          type: string
+          required: true
+        - name: client_id
+          in: form
+          type: string
+          required: true
+        - name: client_secret
+          in: form
+          type: string
+          required: true
+    authentication:
+      type: none
+  exposes:
+  - type: rest
+    namespace: oauth2-tokens-rest
+    port: 8080
+    description: REST adapter for Vectara OAuth.
+    resources:
+    - path: /v1/oauth2/token
+      name: oauth2-token
+      operations:
+      - method: POST
+        name: getoauthtoken
+        call: oauth2-tokens.getoauthtoken
+        with:
+          body: rest.body
