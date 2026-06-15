@@ -1,0 +1,3501 @@
+{
+  "item": [
+    {
+      "id": "edb44f12-7a96-48a6-89f1-3fbbff28d623",
+      "name": "Corpora",
+      "description": {
+        "content": "Create, list, update, and delete corpora that hold indexed documents.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d3a323f8-d660-4422-98c9-f5925085fdf7",
+          "name": "List Corpora",
+          "request": {
+            "name": "List Corpora",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "corpora"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_key",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8cdd0bdb-f57b-4276-bfce-3ee858fa0dd3",
+              "name": "A list of corpora.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "corpora"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"corpora\": [\n    {\n      \"key\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"queries_are_answers\": false,\n      \"documents_are_questions\": true,\n      \"encoder_id\": \"string\",\n      \"filter_attributes\": [\n        {\n          \"name\": \"string\",\n          \"level\": \"document_part\",\n          \"indexed\": true,\n          \"type\": \"boolean\"\n        },\n        {\n          \"name\": \"string\",\n          \"level\": \"document_part\",\n          \"indexed\": false,\n          \"type\": \"boolean\"\n        }\n      ],\n      \"custom_dimensions\": [\n        {\n          \"name\": \"string\",\n          \"description\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"description\": \"string\"\n        }\n      ],\n      \"enabled\": false,\n      \"created_at\": \"2023-03-23T16:06:43.396Z\"\n    },\n    {\n      \"key\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"queries_are_answers\": false,\n      \"documents_are_questions\": true,\n      \"encoder_id\": \"string\",\n      \"filter_attributes\": [\n        {\n          \"name\": \"string\",\n          \"level\": \"document_part\",\n          \"indexed\": true,\n          \"type\": \"text\"\n        },\n        {\n          \"name\": \"string\",\n          \"level\": \"document\",\n          \"indexed\": true,\n          \"type\": \"real\"\n        }\n      ],\n      \"custom_dimensions\": [\n        {\n          \"name\": \"string\",\n          \"description\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"description\": \"string\"\n        }\n      ],\n      \"enabled\": false,\n      \"created_at\": \"1999-10-11T15:15:28.522Z\"\n    }\n  ],\n  \"metadata\": {\n    \"page_key\": \"string\",\n    \"next_page_key\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "246c03a5-2811-46d4-8f47-b126ef69dc63",
+          "name": "Create A Corpus",
+          "request": {
+            "name": "Create A Corpus",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "corpora"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "465e9780-77aa-4232-83c3-fca9edec49ef",
+              "name": "Corpus created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "corpora"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"queries_are_answers\": true,\n  \"documents_are_questions\": false,\n  \"encoder_id\": \"string\",\n  \"filter_attributes\": [\n    {\n      \"name\": \"string\",\n      \"level\": \"document\",\n      \"indexed\": false,\n      \"type\": \"real\"\n    },\n    {\n      \"name\": \"string\",\n      \"level\": \"document\",\n      \"indexed\": false,\n      \"type\": \"text\"\n    }\n  ],\n  \"custom_dimensions\": [\n    {\n      \"name\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"description\": \"string\"\n    }\n  ],\n  \"enabled\": true,\n  \"created_at\": \"1970-04-03T04:07:53.836Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "465a3790-a10c-46f3-bed2-ca2298ebfc1d",
+          "name": "Retrieve Corpus Metadata",
+          "request": {
+            "name": "Retrieve Corpus Metadata",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "corpora",
+                ":corpus_key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "corpus_key",
+                  "description": "(Required) The unique key identifying a corpus."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f274aa99-dd0e-4e88-92e3-888635b7e195",
+              "name": "Corpus metadata.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "corpora",
+                    ":corpus_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "corpus_key",
+                      "description": "(Required) The unique key identifying a corpus."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"queries_are_answers\": true,\n  \"documents_are_questions\": false,\n  \"encoder_id\": \"string\",\n  \"filter_attributes\": [\n    {\n      \"name\": \"string\",\n      \"level\": \"document\",\n      \"indexed\": false,\n      \"type\": \"real\"\n    },\n    {\n      \"name\": \"string\",\n      \"level\": \"document\",\n      \"indexed\": false,\n      \"type\": \"text\"\n    }\n  ],\n  \"custom_dimensions\": [\n    {\n      \"name\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"description\": \"string\"\n    }\n  ],\n  \"enabled\": true,\n  \"created_at\": \"1970-04-03T04:07:53.836Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cd01896e-6c6f-4c36-92e3-92654dc83417",
+          "name": "Update A Corpus",
+          "request": {
+            "name": "Update A Corpus",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "corpora",
+                ":corpus_key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "corpus_key",
+                  "description": "(Required) The unique key identifying a corpus."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8984dacf-b480-469d-95e1-c00504e0cc60",
+              "name": "Corpus updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "corpora",
+                    ":corpus_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "corpus_key",
+                      "description": "(Required) The unique key identifying a corpus."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"queries_are_answers\": true,\n  \"documents_are_questions\": false,\n  \"encoder_id\": \"string\",\n  \"filter_attributes\": [\n    {\n      \"name\": \"string\",\n      \"level\": \"document\",\n      \"indexed\": false,\n      \"type\": \"real\"\n    },\n    {\n      \"name\": \"string\",\n      \"level\": \"document\",\n      \"indexed\": false,\n      \"type\": \"text\"\n    }\n  ],\n  \"custom_dimensions\": [\n    {\n      \"name\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"description\": \"string\"\n    }\n  ],\n  \"enabled\": true,\n  \"created_at\": \"1970-04-03T04:07:53.836Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "06c53116-8d17-44f5-84f4-005129c63619",
+          "name": "Delete A Corpus",
+          "request": {
+            "name": "Delete A Corpus",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "corpora",
+                ":corpus_key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "corpus_key",
+                  "description": "(Required) The unique key identifying a corpus."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d27a2996-91e2-4cf0-8587-1dc3ed8363f3",
+              "name": "Corpus deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "corpora",
+                    ":corpus_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "corpus_key",
+                      "description": "(Required) The unique key identifying a corpus."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c9ccc98-e3c3-41bf-84dc-936259621a24",
+          "name": "Reset A Corpus",
+          "request": {
+            "name": "Reset A Corpus",
+            "description": {
+              "content": "Remove all documents from the corpus while keeping the corpus itself.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "corpora",
+                ":corpus_key",
+                "reset"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "corpus_key",
+                  "description": "(Required) The unique key identifying a corpus."
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "37a1ae46-1792-435a-b23a-ef977c8c9391",
+              "name": "Corpus reset.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "corpora",
+                    ":corpus_key",
+                    "reset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "corpus_key",
+                      "description": "(Required) The unique key identifying a corpus."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f989bf77-4984-4d73-bcf2-f45d5982a520",
+          "name": "Compute Corpus Size",
+          "request": {
+            "name": "Compute Corpus Size",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "corpora",
+                ":corpus_key",
+                "compute_size"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "corpus_key",
+                  "description": "(Required) The unique key identifying a corpus."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e5a01637-a840-4a29-8e1d-6259515b80e1",
+              "name": "Corpus size information.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "corpora",
+                    ":corpus_key",
+                    "compute_size"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "corpus_key",
+                      "description": "(Required) The unique key identifying a corpus."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"size_bytes\": 8752,\n  \"document_count\": 2369\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "74e5700c-dea9-411a-9f7c-d7deb4fe9909",
+      "name": "Documents",
+      "description": {
+        "content": "Upload, index, retrieve, update, and delete documents in a corpus.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b3cd7027-ae61-4823-b3fe-944832919b14",
+          "name": "Upload A File",
+          "request": {
+            "name": "Upload A File",
+            "description": {
+              "content": "Upload an unstructured file (PDF, DOCX, HTML, etc.) to be parsed and indexed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "corpora",
+                ":corpus_key",
+                "upload_file"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "corpus_key",
+                  "description": "(Required) The unique key identifying a corpus."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": ""
+                },
+                {
+                  "key": "metadata",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1f40cd7c-a19f-4ff0-b8ee-78ca80288d35",
+              "name": "File uploaded and indexing started.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "corpora",
+                    ":corpus_key",
+                    "upload_file"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "corpus_key",
+                      "description": "(Required) The unique key identifying a corpus."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"type\": \"core\",\n  \"metadata\": {\n    \"key_0\": \"string\",\n    \"key_1\": false\n  },\n  \"document_parts\": [\n    {\n      \"text\": \"string\",\n      \"metadata\": {\n        \"key_0\": 7570,\n        \"key_1\": 6023.501725253099,\n        \"key_2\": false\n      }\n    },\n    {\n      \"text\": \"string\",\n      \"metadata\": {\n        \"key_0\": 5762.862250090174\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6b105b71-33ce-4050-acbd-b59a870f7505",
+          "name": "List Corpus Documents",
+          "request": {
+            "name": "List Corpus Documents",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "corpora",
+                ":corpus_key",
+                "documents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_key",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "metadata_filter",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "corpus_key",
+                  "description": "(Required) The unique key identifying a corpus."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9c181989-ced5-4bda-9ef9-f0f5fe8a1c57",
+              "name": "List of documents.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "corpora",
+                    ":corpus_key",
+                    "documents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metadata_filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "corpus_key",
+                      "description": "(Required) The unique key identifying a corpus."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"documents\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"core\",\n      \"metadata\": {\n        \"key_0\": 6170,\n        \"key_1\": \"string\",\n        \"key_2\": 2165,\n        \"key_3\": 6776.022862830062\n      },\n      \"document_parts\": [\n        {\n          \"text\": \"string\",\n          \"metadata\": {\n            \"key_0\": 6713,\n            \"key_1\": \"string\"\n          }\n        },\n        {\n          \"text\": \"string\",\n          \"metadata\": {\n            \"key_0\": \"string\",\n            \"key_1\": true,\n            \"key_2\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"core\",\n      \"metadata\": {\n        \"key_0\": 5476,\n        \"key_1\": 726.1611527197509,\n        \"key_2\": false\n      },\n      \"document_parts\": [\n        {\n          \"text\": \"string\",\n          \"metadata\": {\n            \"key_0\": 4025,\n            \"key_1\": \"string\"\n          }\n        },\n        {\n          \"text\": \"string\",\n          \"metadata\": {\n            \"key_0\": \"string\"\n          }\n        }\n      ]\n    }\n  ],\n  \"metadata\": {\n    \"page_key\": \"string\",\n    \"next_page_key\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c45a3561-5fd9-4264-b2f2-de8126f1f2ae",
+          "name": "Add A Structured (Core) Document",
+          "request": {
+            "name": "Add A Structured (Core) Document",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "corpora",
+                ":corpus_key",
+                "documents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "corpus_key",
+                  "description": "(Required) The unique key identifying a corpus."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"type\": \"<string>\",\n  \"metadata\": {\n    \"key_0\": 8622,\n    \"key_1\": \"string\",\n    \"key_2\": 6157.628435910199\n  },\n  \"document_parts\": [\n    {\n      \"text\": \"<string>\",\n      \"metadata\": {\n        \"key_0\": 8254,\n        \"key_1\": 8215\n      }\n    },\n    {\n      \"text\": \"<string>\",\n      \"metadata\": {\n        \"key_0\": 871,\n        \"key_1\": \"string\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b8873e6d-3f99-4730-aa62-c06464d403c7",
+              "name": "Document created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "corpora",
+                    ":corpus_key",
+                    "documents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "corpus_key",
+                      "description": "(Required) The unique key identifying a corpus."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"type\": \"<string>\",\n  \"metadata\": {\n    \"key_0\": 3916,\n    \"key_1\": 1613.5505466119582,\n    \"key_2\": 8403.728873662438\n  },\n  \"document_parts\": [\n    {\n      \"text\": \"<string>\",\n      \"metadata\": {\n        \"key_0\": false,\n        \"key_1\": \"string\"\n      }\n    },\n    {\n      \"text\": \"<string>\",\n      \"metadata\": {\n        \"key_0\": 337\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"type\": \"core\",\n  \"metadata\": {\n    \"key_0\": \"string\",\n    \"key_1\": false\n  },\n  \"document_parts\": [\n    {\n      \"text\": \"string\",\n      \"metadata\": {\n        \"key_0\": 7570,\n        \"key_1\": 6023.501725253099,\n        \"key_2\": false\n      }\n    },\n    {\n      \"text\": \"string\",\n      \"metadata\": {\n        \"key_0\": 5762.862250090174\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f6f5ac0-bf6b-4404-be60-ff672b76ed01",
+          "name": "Bulk Delete Documents",
+          "request": {
+            "name": "Bulk Delete Documents",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "corpora",
+                ":corpus_key",
+                "documents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "metadata_filter",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "corpus_key",
+                  "description": "(Required) The unique key identifying a corpus."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "87c30943-3178-43b7-afc5-7454942e1d0d",
+              "name": "Documents deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "corpora",
+                    ":corpus_key",
+                    "documents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "metadata_filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "corpus_key",
+                      "description": "(Required) The unique key identifying a corpus."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2360df9b-c53f-4395-8736-76fa2dae2611",
+          "name": "Retrieve A Document",
+          "request": {
+            "name": "Retrieve A Document",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "corpora",
+                ":corpus_key",
+                "documents",
+                ":document_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "corpus_key",
+                  "description": "(Required) The unique key identifying a corpus."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "document_id",
+                  "description": "(Required) The unique identifier of a document."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "060e3c2a-c800-4488-abcd-c4adb0970dd8",
+              "name": "Document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "corpora",
+                    ":corpus_key",
+                    "documents",
+                    ":document_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "corpus_key",
+                      "description": "(Required) The unique key identifying a corpus."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "document_id",
+                      "description": "(Required) The unique identifier of a document."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"type\": \"core\",\n  \"metadata\": {\n    \"key_0\": \"string\",\n    \"key_1\": false\n  },\n  \"document_parts\": [\n    {\n      \"text\": \"string\",\n      \"metadata\": {\n        \"key_0\": 7570,\n        \"key_1\": 6023.501725253099,\n        \"key_2\": false\n      }\n    },\n    {\n      \"text\": \"string\",\n      \"metadata\": {\n        \"key_0\": 5762.862250090174\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "90e5a3fc-3696-4e0d-bcde-bd403cb60945",
+          "name": "Update Document Metadata",
+          "request": {
+            "name": "Update Document Metadata",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "corpora",
+                ":corpus_key",
+                "documents",
+                ":document_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "corpus_key",
+                  "description": "(Required) The unique key identifying a corpus."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "document_id",
+                  "description": "(Required) The unique identifier of a document."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"metadata\": {\n    \"key_0\": 4006.7495388077846,\n    \"key_1\": 8604,\n    \"key_2\": 8954\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c8c2b519-087d-46c1-b6f0-60dbe4782e45",
+              "name": "Document updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "corpora",
+                    ":corpus_key",
+                    "documents",
+                    ":document_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "corpus_key",
+                      "description": "(Required) The unique key identifying a corpus."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "document_id",
+                      "description": "(Required) The unique identifier of a document."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metadata\": {\n    \"key_0\": false,\n    \"key_1\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"type\": \"core\",\n  \"metadata\": {\n    \"key_0\": \"string\",\n    \"key_1\": false\n  },\n  \"document_parts\": [\n    {\n      \"text\": \"string\",\n      \"metadata\": {\n        \"key_0\": 7570,\n        \"key_1\": 6023.501725253099,\n        \"key_2\": false\n      }\n    },\n    {\n      \"text\": \"string\",\n      \"metadata\": {\n        \"key_0\": 5762.862250090174\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93a9a60e-201e-4882-802f-f46de5caa730",
+          "name": "Delete A Document",
+          "request": {
+            "name": "Delete A Document",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "corpora",
+                ":corpus_key",
+                "documents",
+                ":document_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "corpus_key",
+                  "description": "(Required) The unique key identifying a corpus."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "document_id",
+                  "description": "(Required) The unique identifier of a document."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7e057127-4412-4d5c-8376-5dceca2be519",
+              "name": "Document deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "corpora",
+                    ":corpus_key",
+                    "documents",
+                    ":document_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "corpus_key",
+                      "description": "(Required) The unique key identifying a corpus."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "document_id",
+                      "description": "(Required) The unique identifier of a document."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6a2ba104-d0ee-488e-a8fc-d4ebda3ab09d",
+          "name": "Summarize A Document",
+          "request": {
+            "name": "Summarize A Document",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "corpora",
+                ":corpus_key",
+                "documents",
+                ":document_id",
+                "summarize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "corpus_key",
+                  "description": "(Required) The unique key identifying a corpus."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "document_id",
+                  "description": "(Required) The unique identifier of a document."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"llm_name\": \"<string>\",\n  \"prompt_name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8893725e-b5fc-488c-b1c0-1928975f60ae",
+              "name": "Summary.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "corpora",
+                    ":corpus_key",
+                    "documents",
+                    ":document_id",
+                    "summarize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "corpus_key",
+                      "description": "(Required) The unique key identifying a corpus."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "document_id",
+                      "description": "(Required) The unique identifier of a document."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"llm_name\": \"<string>\",\n  \"prompt_name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "218cd0e3-2b49-428a-9ed1-e5a79727fdcf",
+      "name": "Query",
+      "description": {
+        "content": "Semantic, keyword, and hybrid queries with optional grounded generation.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "26fff527-a3ef-49b2-873a-6d76daefb43a",
+          "name": "Query A Single Corpus",
+          "request": {
+            "name": "Query A Single Corpus",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "corpora",
+                ":corpus_key",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "corpus_key",
+                  "description": "(Required) The unique key identifying a corpus."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"search\": {\n    \"limit\": 10,\n    \"offset\": 0,\n    \"metadata_filter\": \"<string>\",\n    \"lexical_interpolation\": \"<number>\",\n    \"reranker\": {\n      \"type\": \"<string>\"\n    }\n  },\n  \"generation\": {\n    \"generation_preset_name\": \"<string>\",\n    \"max_used_search_results\": \"<integer>\",\n    \"response_language\": \"<string>\",\n    \"enable_factual_consistency_score\": \"<boolean>\"\n  },\n  \"stream_response\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fb78e5f8-bb0b-4e85-a51a-d8c584440abd",
+              "name": "Query results with optional grounded generation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "corpora",
+                    ":corpus_key",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "corpus_key",
+                      "description": "(Required) The unique key identifying a corpus."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"search\": {\n    \"limit\": 10,\n    \"offset\": 0,\n    \"metadata_filter\": \"<string>\",\n    \"lexical_interpolation\": \"<number>\",\n    \"reranker\": {\n      \"type\": \"<string>\"\n    }\n  },\n  \"generation\": {\n    \"generation_preset_name\": \"<string>\",\n    \"max_used_search_results\": \"<integer>\",\n    \"response_language\": \"<string>\",\n    \"enable_factual_consistency_score\": \"<boolean>\"\n  },\n  \"stream_response\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": \"string\",\n  \"factual_consistency_score\": 5663.883271066139,\n  \"search_results\": [\n    {\n      \"text\": \"string\",\n      \"score\": 3274.171353108701,\n      \"document_id\": \"string\",\n      \"part_metadata\": {\n        \"key_0\": 1391.9331169868533\n      },\n      \"document_metadata\": {\n        \"key_0\": 2495,\n        \"key_1\": \"string\",\n        \"key_2\": 4481,\n        \"key_3\": false\n      }\n    },\n    {\n      \"text\": \"string\",\n      \"score\": 2914.3355802364235,\n      \"document_id\": \"string\",\n      \"part_metadata\": {\n        \"key_0\": false\n      },\n      \"document_metadata\": {\n        \"key_0\": true,\n        \"key_1\": 3852.3465259978075,\n        \"key_2\": true\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8b5a60ba-4019-40ae-9043-7e5c4a7ddbbc",
+          "name": "Search A Single Corpus",
+          "request": {
+            "name": "Search A Single Corpus",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "corpora",
+                ":corpus_key",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "corpus_key",
+                  "description": "(Required) The unique key identifying a corpus."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"search\": {\n    \"limit\": 10,\n    \"offset\": 0,\n    \"metadata_filter\": \"<string>\",\n    \"lexical_interpolation\": \"<number>\",\n    \"reranker\": {\n      \"type\": \"<string>\"\n    }\n  },\n  \"generation\": {\n    \"generation_preset_name\": \"<string>\",\n    \"max_used_search_results\": \"<integer>\",\n    \"response_language\": \"<string>\",\n    \"enable_factual_consistency_score\": \"<boolean>\"\n  },\n  \"stream_response\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "123312c4-95e0-4bbe-b339-2e69f6c26122",
+              "name": "Search results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "corpora",
+                    ":corpus_key",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "corpus_key",
+                      "description": "(Required) The unique key identifying a corpus."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"search\": {\n    \"limit\": 10,\n    \"offset\": 0,\n    \"metadata_filter\": \"<string>\",\n    \"lexical_interpolation\": \"<number>\",\n    \"reranker\": {\n      \"type\": \"<string>\"\n    }\n  },\n  \"generation\": {\n    \"generation_preset_name\": \"<string>\",\n    \"max_used_search_results\": \"<integer>\",\n    \"response_language\": \"<string>\",\n    \"enable_factual_consistency_score\": \"<boolean>\"\n  },\n  \"stream_response\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": \"string\",\n  \"factual_consistency_score\": 5663.883271066139,\n  \"search_results\": [\n    {\n      \"text\": \"string\",\n      \"score\": 3274.171353108701,\n      \"document_id\": \"string\",\n      \"part_metadata\": {\n        \"key_0\": 1391.9331169868533\n      },\n      \"document_metadata\": {\n        \"key_0\": 2495,\n        \"key_1\": \"string\",\n        \"key_2\": 4481,\n        \"key_3\": false\n      }\n    },\n    {\n      \"text\": \"string\",\n      \"score\": 2914.3355802364235,\n      \"document_id\": \"string\",\n      \"part_metadata\": {\n        \"key_0\": false\n      },\n      \"document_metadata\": {\n        \"key_0\": true,\n        \"key_1\": 3852.3465259978075,\n        \"key_2\": true\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "35871b7a-1aeb-4092-8899-6c4531d6798a",
+          "name": "Run A Multi-Stage Query",
+          "request": {
+            "name": "Run A Multi-Stage Query",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "corpora",
+                ":corpus_key",
+                "queries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "corpus_key",
+                  "description": "(Required) The unique key identifying a corpus."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"search\": {\n    \"limit\": 10,\n    \"offset\": 0,\n    \"metadata_filter\": \"<string>\",\n    \"lexical_interpolation\": \"<number>\",\n    \"reranker\": {\n      \"type\": \"<string>\"\n    }\n  },\n  \"generation\": {\n    \"generation_preset_name\": \"<string>\",\n    \"max_used_search_results\": \"<integer>\",\n    \"response_language\": \"<string>\",\n    \"enable_factual_consistency_score\": \"<boolean>\"\n  },\n  \"stream_response\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f477dea8-c640-4868-b967-35d6ddf6c403",
+              "name": "Query results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "corpora",
+                    ":corpus_key",
+                    "queries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "corpus_key",
+                      "description": "(Required) The unique key identifying a corpus."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"search\": {\n    \"limit\": 10,\n    \"offset\": 0,\n    \"metadata_filter\": \"<string>\",\n    \"lexical_interpolation\": \"<number>\",\n    \"reranker\": {\n      \"type\": \"<string>\"\n    }\n  },\n  \"generation\": {\n    \"generation_preset_name\": \"<string>\",\n    \"max_used_search_results\": \"<integer>\",\n    \"response_language\": \"<string>\",\n    \"enable_factual_consistency_score\": \"<boolean>\"\n  },\n  \"stream_response\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": \"string\",\n  \"factual_consistency_score\": 5663.883271066139,\n  \"search_results\": [\n    {\n      \"text\": \"string\",\n      \"score\": 3274.171353108701,\n      \"document_id\": \"string\",\n      \"part_metadata\": {\n        \"key_0\": 1391.9331169868533\n      },\n      \"document_metadata\": {\n        \"key_0\": 2495,\n        \"key_1\": \"string\",\n        \"key_2\": 4481,\n        \"key_3\": false\n      }\n    },\n    {\n      \"text\": \"string\",\n      \"score\": 2914.3355802364235,\n      \"document_id\": \"string\",\n      \"part_metadata\": {\n        \"key_0\": false\n      },\n      \"document_metadata\": {\n        \"key_0\": true,\n        \"key_1\": 3852.3465259978075,\n        \"key_2\": true\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "0f337eec-5709-4ea0-b272-f18da63d40a0",
+      "name": "Agents",
+      "description": {
+        "content": "Build and operate agents over Vectara corpora.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c5ed3f94-d6d5-431c-bbbe-857a8fc9de44",
+          "name": "List Agents",
+          "request": {
+            "name": "List Agents",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "agents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7f360583-bd09-4ea1-9b21-d1d21d062f45",
+              "name": "List of agents.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"agents\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"instructions\": \"string\",\n      \"tool_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"corpus_keys\": [\n        \"string\",\n        \"string\"\n      ],\n      \"enabled\": false\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"instructions\": \"string\",\n      \"tool_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"corpus_keys\": [\n        \"string\",\n        \"string\"\n      ],\n      \"enabled\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "06e58f33-380f-4783-acb8-7b48eb965eab",
+          "name": "Create An Agent",
+          "request": {
+            "name": "Create An Agent",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "agents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"instructions\": \"<string>\",\n  \"tool_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"corpus_keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"enabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "49064404-746f-4f8f-9aee-b09c85e6f57e",
+              "name": "Agent created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"instructions\": \"<string>\",\n  \"tool_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"corpus_keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"instructions\": \"string\",\n  \"tool_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"corpus_keys\": [\n    \"string\",\n    \"string\"\n  ],\n  \"enabled\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aa888209-8cb3-417d-af2c-f2b0b9d52413",
+          "name": "Retrieve An Agent",
+          "request": {
+            "name": "Retrieve An Agent",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "agents",
+                ":agent_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "agent_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eca56f6e-4dc0-4a75-82e5-c2e373406c81",
+              "name": "Agent.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agent_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"instructions\": \"string\",\n  \"tool_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"corpus_keys\": [\n    \"string\",\n    \"string\"\n  ],\n  \"enabled\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "363a7c86-9ea6-43c7-b631-efd65985c921",
+          "name": "Update An Agent",
+          "request": {
+            "name": "Update An Agent",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "agents",
+                ":agent_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "agent_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"instructions\": \"<string>\",\n  \"tool_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"corpus_keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"enabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3e2f7ff5-a060-4d9c-b11c-beb52753c269",
+              "name": "Agent updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agent_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"instructions\": \"<string>\",\n  \"tool_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"corpus_keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10af39cd-3a78-4b5f-94de-ae38eae01b81",
+          "name": "Delete An Agent",
+          "request": {
+            "name": "Delete An Agent",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "agents",
+                ":agent_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "agent_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d0fb5f76-bc9c-4bbb-a56a-1f181ab5afb5",
+              "name": "Agent deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agent_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6f71ab32-079d-4345-9244-f8930a165415",
+          "name": "List Agent Sessions",
+          "request": {
+            "name": "List Agent Sessions",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "agents",
+                ":agent_id",
+                "sessions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "agent_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "171829d7-25c4-439a-b76a-3ffad7e0bd6a",
+              "name": "Sessions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id",
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agent_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "349bc6c9-07f1-4234-a238-dd2c4364dce0",
+          "name": "Create An Agent Session",
+          "request": {
+            "name": "Create An Agent Session",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "agents",
+                ":agent_id",
+                "sessions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "agent_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8369c2b2-9032-499c-8cc1-c44cef5cd359",
+              "name": "Session created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id",
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agent_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "357a3dc0-b43b-4da9-bf43-dceaeb14c43d",
+          "name": "Add A Turn To An Agent Session",
+          "request": {
+            "name": "Add A Turn To An Agent Session",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "agents",
+                ":agent_id",
+                "sessions",
+                ":session_id",
+                "turns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "agent_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "session_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dd293fe0-861c-4722-bfb9-bc9e5d1974e0",
+              "name": "Turn response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id",
+                    "sessions",
+                    ":session_id",
+                    "turns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agent_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "session_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "faf75416-53a3-4950-a59e-acf2195b0df3",
+      "name": "Tools",
+      "description": {
+        "content": "Manage tools and tool servers used by agents.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f335c797-7dcc-4640-a0e7-fa7e655b8d7f",
+          "name": "List Tools",
+          "request": {
+            "name": "List Tools",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "tools"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4d5eb3b6-1d16-43f3-b461-5a052b3f8979",
+              "name": "Tools.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tools"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a84ac59b-2d1a-4362-9080-44f4de099ab2",
+          "name": "Create A Tool",
+          "request": {
+            "name": "Create A Tool",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "tools"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "698a9c8a-0e5a-4057-916d-16770d441541",
+              "name": "Tool created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tools"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e566e759-3183-49ad-9607-5174ea171568",
+          "name": "List Tool Servers",
+          "request": {
+            "name": "List Tool Servers",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "tool-servers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9b4c6ebf-41a5-4cbb-91b1-b915e84def27",
+              "name": "Tool servers.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tool-servers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b5a3c9ff-057c-4da0-9ed3-0c77ed511dd0",
+          "name": "Register A Tool Server",
+          "request": {
+            "name": "Register A Tool Server",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "tool-servers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0a83719b-7985-4e5d-ba25-4e38feffa5e9",
+              "name": "Tool server registered.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tool-servers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "29520a80-ecb4-42ab-a2cc-110cb8cc283a",
+      "name": "Pipelines",
+      "description": {
+        "content": "Manage pipelines and inspect pipeline runs.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "36f977b0-468c-4d20-a764-ce848fe4569f",
+          "name": "List Pipelines",
+          "request": {
+            "name": "List Pipelines",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "pipelines"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "559e7952-be68-4e1c-9e48-bf881abab84d",
+              "name": "Pipelines.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "pipelines"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d12be579-e037-48cf-8ee4-0ac9595c6b1a",
+          "name": "Create A Pipeline",
+          "request": {
+            "name": "Create A Pipeline",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "pipelines"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e95bcbdd-2018-42f6-be02-604a9e93d10c",
+              "name": "Pipeline created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "pipelines"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d45f399-afce-4d4f-a29e-4fcf3338cd7d",
+          "name": "List Pipeline Runs",
+          "request": {
+            "name": "List Pipeline Runs",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "pipeline-runs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1980de51-523d-4416-b88b-99bd27d89f1e",
+              "name": "Pipeline runs.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "pipeline-runs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d8468d33-ee69-46be-9473-43007a78413e",
+      "name": "Authentication",
+      "description": {
+        "content": "OAuth 2.0 client credentials flow for obtaining JWT tokens.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "30d27f62-580c-4771-a9b6-29e5b0c5d109",
+          "name": "Obtain An OAuth 2.0 Access Token (Client Credentials)",
+          "request": {
+            "name": "Obtain An OAuth 2.0 Access Token (Client Credentials)",
+            "description": {},
+            "url": {
+              "path": [
+                "oauth2",
+                "token"
+              ],
+              "host": [
+                "{{oauth2-token-Url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "grant_type",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "client_secret",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a9c030f9-9ea3-4ec8-91b8-cff5f7fdc366",
+              "name": "Token response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "token"
+                  ],
+                  "host": [
+                    "{{oauth2-token-Url}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "client_secret",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_token\": \"string\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 1800\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.vectara.io",
+      "key": "baseUrl"
+    },
+    {
+      "type": "string",
+      "value": "https://auth.vectara.io",
+      "key": "oauth2-token-Url"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "634304c9-177e-4137-921d-947e80382f04",
+    "name": "Vectara REST API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Vectara REST API v2 is the unified interface for the Vectara Retrieval Augmented\nGeneration (RAG) platform. It exposes endpoints for managing corpora, uploading\nand indexing documents, running semantic and hybrid queries with grounded\ngeneration, managing agents, tools, pipelines, generation presets, and reading\nmetadata.\n\nThis OpenAPI 3.1 description is hand-curated from the public Vectara REST API\ndocumentation at https://docs.vectara.com/docs/rest-api/ and the published\nOpenAPI document at https://docs.vectara.com/vectara-oas-v2.yaml. It covers a\nrepresentative subset of endpoints across corpora, documents, query, agents,\ntools, pipelines, and OAuth.\n\n\nContact Support:\n Name: Vectara Support",
+      "type": "text/plain"
+    }
+  }
+}

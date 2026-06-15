@@ -1,0 +1,760 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Vectara REST API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Corpora",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Corpora",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.vectara.io/v2/corpora",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page_key",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Corpora"
+        },
+        {
+          "info": {
+            "name": "Create A Corpus",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/corpora",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create A Corpus"
+        },
+        {
+          "info": {
+            "name": "Retrieve Corpus Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              }
+            ]
+          },
+          "docs": "Retrieve Corpus Metadata"
+        },
+        {
+          "info": {
+            "name": "Update A Corpus",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update A Corpus"
+        },
+        {
+          "info": {
+            "name": "Delete A Corpus",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              }
+            ]
+          },
+          "docs": "Delete A Corpus"
+        },
+        {
+          "info": {
+            "name": "Reset A Corpus",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key/reset",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              }
+            ]
+          },
+          "docs": "Remove all documents from the corpus while keeping the corpus itself."
+        },
+        {
+          "info": {
+            "name": "Compute Corpus Size",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key/compute_size",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              }
+            ]
+          },
+          "docs": "Compute Corpus Size"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Documents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Upload A File",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key/upload_file",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "metadata",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Upload an unstructured file (PDF, DOCX, HTML, etc.) to be parsed and indexed."
+        },
+        {
+          "info": {
+            "name": "List Corpus Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key/documents",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page_key",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metadata_filter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Corpus Documents"
+        },
+        {
+          "info": {
+            "name": "Add A Structured (Core) Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key/documents",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add A Structured (Core) Document"
+        },
+        {
+          "info": {
+            "name": "Bulk Delete Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key/documents",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              },
+              {
+                "name": "metadata_filter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Bulk Delete Documents"
+        },
+        {
+          "info": {
+            "name": "Retrieve A Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key/documents/:document_id",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              },
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of a document."
+              }
+            ]
+          },
+          "docs": "Retrieve A Document"
+        },
+        {
+          "info": {
+            "name": "Update Document Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key/documents/:document_id",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              },
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of a document."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Document Metadata"
+        },
+        {
+          "info": {
+            "name": "Delete A Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key/documents/:document_id",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              },
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of a document."
+              }
+            ]
+          },
+          "docs": "Delete A Document"
+        },
+        {
+          "info": {
+            "name": "Summarize A Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key/documents/:document_id/summarize",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              },
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of a document."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Summarize A Document"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Query",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query A Single Corpus",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key/query",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Query A Single Corpus"
+        },
+        {
+          "info": {
+            "name": "Search A Single Corpus",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key/search",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search A Single Corpus"
+        },
+        {
+          "info": {
+            "name": "Run A Multi-Stage Query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key/queries",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run A Multi-Stage Query"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Agents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.vectara.io/v2/agents"
+          },
+          "docs": "List Agents"
+        },
+        {
+          "info": {
+            "name": "Create An Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/agents",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create An Agent"
+        },
+        {
+          "info": {
+            "name": "Retrieve An Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.vectara.io/v2/agents/:agent_id",
+            "params": [
+              {
+                "name": "agent_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve An Agent"
+        },
+        {
+          "info": {
+            "name": "Update An Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.vectara.io/v2/agents/:agent_id",
+            "params": [
+              {
+                "name": "agent_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update An Agent"
+        },
+        {
+          "info": {
+            "name": "Delete An Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.vectara.io/v2/agents/:agent_id",
+            "params": [
+              {
+                "name": "agent_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete An Agent"
+        },
+        {
+          "info": {
+            "name": "List Agent Sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.vectara.io/v2/agents/:agent_id/sessions",
+            "params": [
+              {
+                "name": "agent_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List Agent Sessions"
+        },
+        {
+          "info": {
+            "name": "Create An Agent Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/agents/:agent_id/sessions",
+            "params": [
+              {
+                "name": "agent_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Create An Agent Session"
+        },
+        {
+          "info": {
+            "name": "Add A Turn To An Agent Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/agents/:agent_id/sessions/:session_id/turns",
+            "params": [
+              {
+                "name": "agent_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add A Turn To An Agent Session"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tools",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Tools",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.vectara.io/v2/tools"
+          },
+          "docs": "List Tools"
+        },
+        {
+          "info": {
+            "name": "Create A Tool",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/tools"
+          },
+          "docs": "Create A Tool"
+        },
+        {
+          "info": {
+            "name": "List Tool Servers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.vectara.io/v2/tool-servers"
+          },
+          "docs": "List Tool Servers"
+        },
+        {
+          "info": {
+            "name": "Register A Tool Server",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/tool-servers"
+          },
+          "docs": "Register A Tool Server"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Pipelines",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Pipelines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.vectara.io/v2/pipelines"
+          },
+          "docs": "List Pipelines"
+        },
+        {
+          "info": {
+            "name": "Create A Pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/pipelines"
+          },
+          "docs": "Create A Pipeline"
+        },
+        {
+          "info": {
+            "name": "List Pipeline Runs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.vectara.io/v2/pipeline-runs"
+          },
+          "docs": "List Pipeline Runs"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Obtain An OAuth 2.0 Access Token (Client Credentials)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/oauth2/token",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "grant_type",
+                  "value": ""
+                },
+                {
+                  "name": "client_id",
+                  "value": ""
+                },
+                {
+                  "name": "client_secret",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Obtain An OAuth 2.0 Access Token (Client Credentials)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
