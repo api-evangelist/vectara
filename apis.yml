@@ -172,16 +172,16 @@ common:
     url: https://docs.vectara.com/docs/rest-api/
   - type: OpenAPI
     url: https://docs.vectara.com/vectara-oas-v2.yaml
-  - type: SDK
+  - type: SDKs
     name: Vectara Python SDK
     url: https://github.com/vectara/python-sdk
-  - type: SDK
+  - type: SDKs
     name: Vectara TypeScript SDK
     url: https://github.com/vectara/typescript-sdk
-  - type: SDK
+  - type: SDKs
     name: Vectara Agentic (Python)
     url: https://github.com/vectara/py-vectara-agentic
-  - type: SDK
+  - type: SDKs
     name: LangChain Vectara
     url: https://github.com/vectara/langchain-vectara
   - type: Tools
@@ -246,7 +246,7 @@ common:
     url: https://docs.vectara.com/docs/release-notes
   - type: Integrations
     url: https://docs.vectara.com/docs/integrations
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://docs.vectara.com/llms.txt
   - type: RateLimits
     url: rate-limits/vectara-rate-limits.yml
