@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/vectara-openapi.yml
+docs: https://docs.vectara.com/docs/security/authentication/oauth-2
+note: >-
+  Vectara's OAuth 2.0 supports only the client credentials grant and does not
+  use or document OAuth scopes; permissions are governed by role-based access
+  assigned to app clients at creation
+  (https://docs.vectara.com/docs/security/authentication/oauth-2).
+schemes:
+- name: OAuth2
+  source: openapi/vectara-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://auth.vectara.io/oauth2/token
+  description: OAuth 2.0 client credentials flow.
+scopes: []

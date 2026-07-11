@@ -164,6 +164,10 @@ apis:
       - type: Documentation
         url: https://docs.vectara.com/docs/learn/authentication/oauth-2
 common:
+  - type: Authentication
+    url: authentication/vectara-authentication.yml
+  - type: OAuthScopes
+    url: scopes/vectara-scopes.yml
   - type: Website
     url: https://www.vectara.com/
   - type: Developer
