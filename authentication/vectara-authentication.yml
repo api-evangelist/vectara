@@ -1,0 +1,28 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/vectara-openapi.yml
+summary:
+  types:
+  - apiKey
+  - oauth2
+  api_key_in:
+  - header
+  oauth2_flows:
+  - clientCredentials
+schemes:
+- name: ApiKeyAuth
+  type: apiKey
+  in: header
+  parameter: x-api-key
+  description: Vectara API key passed in the `x-api-key` header.
+  sources:
+  - openapi/vectara-openapi.yml
+- name: OAuth2
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://auth.vectara.io/oauth2/token
+    scopes: 0
+  description: OAuth 2.0 client credentials flow.
+  sources:
+  - openapi/vectara-openapi.yml

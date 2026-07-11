@@ -1,0 +1,33 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.vectara.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  4 20:52:20 2026 GMT
+  hsts: true
+  hsts_max_age: 63072000
+- host: docs.vectara.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 14 17:15:19 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: api.vectara.io
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep  4 09:03:05 2026 GMT
+  hsts: null
+domains:
+- domain: vectara.com
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine
+- domain: vectara.io
+  dnssec: true
+  caa: []
+  spf: false
+  dmarc: false
