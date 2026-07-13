@@ -2,13 +2,14 @@
   "repo": "vectara",
   "feeds": [
     {
-      "source": "https://www.vectara.com/blog",
-      "feed_url": "",
-      "saved": 1,
-      "method": "agent-scrape"
+      "source": "https://github.com/vectara",
+      "feed_url": "https://github.com/vectara",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
   "post_count": 4,
-  "fetched": "2026-06-27T13:19:38Z",
+  "fetched": "2026-07-11T11:50:51Z",
   "agent_pulled": "2026-06-27"
 }
