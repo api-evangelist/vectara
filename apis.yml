@@ -164,6 +164,8 @@ apis:
       - type: Documentation
         url: https://docs.vectara.com/docs/learn/authentication/oauth-2
 common:
+  - type: AgenticAccess
+    url: agentic-access/vectara-agentic-access.yml
   - type: TrustCenter
     url: security/vectara-trust-center.yml
   - type: DomainSecurity
