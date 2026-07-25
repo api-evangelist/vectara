@@ -1,0 +1,268 @@
+openapi: 3.1.0
+info:
+  title: Vectara REST Agents Corpora API
+  description: 'Vectara REST API v2 is the unified interface for the Vectara Retrieval Augmented
+
+    Generation (RAG) platform. It exposes endpoints for managing corpora, uploading
+
+    and indexing documents, running semantic and hybrid queries with grounded
+
+    generation, managing agents, tools, pipelines, generation presets, and reading
+
+    metadata.
+
+
+    This OpenAPI 3.1 description is hand-curated from the public Vectara REST API
+
+    documentation at https://docs.vectara.com/docs/rest-api/ and the published
+
+    OpenAPI document at https://docs.vectara.com/vectara-oas-v2.yaml. It covers a
+
+    representative subset of endpoints across corpora, documents, query, agents,
+
+    tools, pipelines, and OAuth.
+
+    '
+  version: '2.0'
+  contact:
+    name: Vectara Support
+    url: https://docs.vectara.com/docs/support
+  license:
+    name: Proprietary
+servers:
+- url: https://api.vectara.io
+  description: Vectara REST API production base URL
+- url: https://auth.vectara.io
+  description: Vectara OAuth 2.0 token endpoint
+security:
+- ApiKeyAuth: []
+- OAuth2: []
+tags:
+- name: Corpora
+  description: Create, list, update, and delete corpora that hold indexed documents.
+paths:
+  /v2/corpora:
+    get:
+      tags:
+      - Corpora
+      summary: List Corpora
+      operationId: listCorpora
+      parameters:
+      - in: query
+        name: limit
+        schema:
+          type: integer
+          default: 10
+      - in: query
+        name: page_key
+        schema:
+          type: string
+      - in: query
+        name: filter
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A list of corpora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListCorporaResponse'
+    post:
+      tags:
+      - Corpora
+      summary: Create A Corpus
+      operationId: createCorpus
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCorpusRequest'
+      responses:
+        '201':
+          description: Corpus created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Corpus'
+  /v2/corpora/{corpus_key}:
+    parameters:
+    - $ref: '#/components/parameters/CorpusKey'
+    get:
+      tags:
+      - Corpora
+      summary: Retrieve Corpus Metadata
+      operationId: getCorpus
+      responses:
+        '200':
+          description: Corpus metadata.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Corpus'
+    patch:
+      tags:
+      - Corpora
+      summary: Update A Corpus
+      operationId: updateCorpus
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCorpusRequest'
+      responses:
+        '200':
+          description: Corpus updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Corpus'
+    delete:
+      tags:
+      - Corpora
+      summary: Delete A Corpus
+      operationId: deleteCorpus
+      responses:
+        '204':
+          description: Corpus deleted.
+  /v2/corpora/{corpus_key}/reset:
+    parameters:
+    - $ref: '#/components/parameters/CorpusKey'
+    post:
+      tags:
+      - Corpora
+      summary: Reset A Corpus
+      description: Remove all documents from the corpus while keeping the corpus itself.
+      operationId: resetCorpus
+      responses:
+        '204':
+          description: Corpus reset.
+  /v2/corpora/{corpus_key}/compute_size:
+    parameters:
+    - $ref: '#/components/parameters/CorpusKey'
+    post:
+      tags:
+      - Corpora
+      summary: Compute Corpus Size
+      operationId: computeCorpusSize
+      responses:
+        '200':
+          description: Corpus size information.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  size_bytes:
+                    type: integer
+                  document_count:
+                    type: integer
+components:
+  schemas:
+    PageMetadata:
+      type: object
+      properties:
+        page_key:
+          type: string
+        next_page_key:
+          type: string
+    CreateCorpusRequest:
+      allOf:
+      - $ref: '#/components/schemas/Corpus'
+      - type: object
+        required:
+        - key
+        - name
+    UpdateCorpusRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        enabled:
+          type: boolean
+    FilterAttribute:
+      type: object
+      properties:
+        name:
+          type: string
+        level:
+          type: string
+          enum:
+          - document
+          - document_part
+        indexed:
+          type: boolean
+        type:
+          type: string
+          enum:
+          - text
+          - integer
+          - real
+          - boolean
+    ListCorporaResponse:
+      type: object
+      properties:
+        corpora:
+          type: array
+          items:
+            $ref: '#/components/schemas/Corpus'
+        metadata:
+          $ref: '#/components/schemas/PageMetadata'
+    Corpus:
+      type: object
+      properties:
+        key:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        queries_are_answers:
+          type: boolean
+        documents_are_questions:
+          type: boolean
+        encoder_id:
+          type: string
+        filter_attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/FilterAttribute'
+        custom_dimensions:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              description:
+                type: string
+        enabled:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+  parameters:
+    CorpusKey:
+      in: path
+      name: corpus_key
+      required: true
+      schema:
+        type: string
+      description: The unique key identifying a corpus.
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Vectara API key passed in the `x-api-key` header.
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 client credentials flow.
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.vectara.io/oauth2/token
+          scopes: {}

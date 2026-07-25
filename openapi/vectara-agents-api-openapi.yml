@@ -1,0 +1,208 @@
+openapi: 3.1.0
+info:
+  title: Vectara REST Agents API
+  description: 'Vectara REST API v2 is the unified interface for the Vectara Retrieval Augmented
+
+    Generation (RAG) platform. It exposes endpoints for managing corpora, uploading
+
+    and indexing documents, running semantic and hybrid queries with grounded
+
+    generation, managing agents, tools, pipelines, generation presets, and reading
+
+    metadata.
+
+
+    This OpenAPI 3.1 description is hand-curated from the public Vectara REST API
+
+    documentation at https://docs.vectara.com/docs/rest-api/ and the published
+
+    OpenAPI document at https://docs.vectara.com/vectara-oas-v2.yaml. It covers a
+
+    representative subset of endpoints across corpora, documents, query, agents,
+
+    tools, pipelines, and OAuth.
+
+    '
+  version: '2.0'
+  contact:
+    name: Vectara Support
+    url: https://docs.vectara.com/docs/support
+  license:
+    name: Proprietary
+servers:
+- url: https://api.vectara.io
+  description: Vectara REST API production base URL
+- url: https://auth.vectara.io
+  description: Vectara OAuth 2.0 token endpoint
+security:
+- ApiKeyAuth: []
+- OAuth2: []
+tags:
+- name: Agents
+  description: Build and operate agents over Vectara corpora.
+paths:
+  /v2/agents:
+    get:
+      tags:
+      - Agents
+      summary: List Agents
+      operationId: listAgents
+      responses:
+        '200':
+          description: List of agents.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  agents:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Agent'
+    post:
+      tags:
+      - Agents
+      summary: Create An Agent
+      operationId: createAgent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Agent'
+      responses:
+        '201':
+          description: Agent created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Agent'
+  /v2/agents/{agent_id}:
+    parameters:
+    - in: path
+      name: agent_id
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Agents
+      summary: Retrieve An Agent
+      operationId: getAgent
+      responses:
+        '200':
+          description: Agent.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Agent'
+    patch:
+      tags:
+      - Agents
+      summary: Update An Agent
+      operationId: updateAgent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Agent'
+      responses:
+        '200':
+          description: Agent updated.
+    delete:
+      tags:
+      - Agents
+      summary: Delete An Agent
+      operationId: deleteAgent
+      responses:
+        '204':
+          description: Agent deleted.
+  /v2/agents/{agent_id}/sessions:
+    parameters:
+    - in: path
+      name: agent_id
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Agents
+      summary: List Agent Sessions
+      operationId: listAgentSessions
+      responses:
+        '200':
+          description: Sessions.
+    post:
+      tags:
+      - Agents
+      summary: Create An Agent Session
+      operationId: createAgentSession
+      responses:
+        '201':
+          description: Session created.
+  /v2/agents/{agent_id}/sessions/{session_id}/turns:
+    parameters:
+    - in: path
+      name: agent_id
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: session_id
+      required: true
+      schema:
+        type: string
+    post:
+      tags:
+      - Agents
+      summary: Add A Turn To An Agent Session
+      operationId: addAgentTurn
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+      responses:
+        '200':
+          description: Turn response.
+components:
+  schemas:
+    Agent:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        instructions:
+          type: string
+        tool_ids:
+          type: array
+          items:
+            type: string
+        corpus_keys:
+          type: array
+          items:
+            type: string
+        enabled:
+          type: boolean
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Vectara API key passed in the `x-api-key` header.
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 client credentials flow.
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.vectara.io/oauth2/token
+          scopes: {}

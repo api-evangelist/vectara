@@ -1,0 +1,275 @@
+openapi: 3.1.0
+info:
+  title: Vectara REST Agents Documents API
+  description: 'Vectara REST API v2 is the unified interface for the Vectara Retrieval Augmented
+
+    Generation (RAG) platform. It exposes endpoints for managing corpora, uploading
+
+    and indexing documents, running semantic and hybrid queries with grounded
+
+    generation, managing agents, tools, pipelines, generation presets, and reading
+
+    metadata.
+
+
+    This OpenAPI 3.1 description is hand-curated from the public Vectara REST API
+
+    documentation at https://docs.vectara.com/docs/rest-api/ and the published
+
+    OpenAPI document at https://docs.vectara.com/vectara-oas-v2.yaml. It covers a
+
+    representative subset of endpoints across corpora, documents, query, agents,
+
+    tools, pipelines, and OAuth.
+
+    '
+  version: '2.0'
+  contact:
+    name: Vectara Support
+    url: https://docs.vectara.com/docs/support
+  license:
+    name: Proprietary
+servers:
+- url: https://api.vectara.io
+  description: Vectara REST API production base URL
+- url: https://auth.vectara.io
+  description: Vectara OAuth 2.0 token endpoint
+security:
+- ApiKeyAuth: []
+- OAuth2: []
+tags:
+- name: Documents
+  description: Upload, index, retrieve, update, and delete documents in a corpus.
+paths:
+  /v2/corpora/{corpus_key}/upload_file:
+    parameters:
+    - $ref: '#/components/parameters/CorpusKey'
+    post:
+      tags:
+      - Documents
+      summary: Upload A File
+      description: Upload an unstructured file (PDF, DOCX, HTML, etc.) to be parsed and indexed.
+      operationId: uploadFile
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                metadata:
+                  type: string
+      responses:
+        '201':
+          description: File uploaded and indexing started.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+  /v2/corpora/{corpus_key}/documents:
+    parameters:
+    - $ref: '#/components/parameters/CorpusKey'
+    get:
+      tags:
+      - Documents
+      summary: List Corpus Documents
+      operationId: listDocuments
+      parameters:
+      - in: query
+        name: limit
+        schema:
+          type: integer
+      - in: query
+        name: page_key
+        schema:
+          type: string
+      - in: query
+        name: metadata_filter
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of documents.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDocumentsResponse'
+    post:
+      tags:
+      - Documents
+      summary: Add A Structured (Core) Document
+      operationId: addDocument
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Document'
+      responses:
+        '201':
+          description: Document created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+    delete:
+      tags:
+      - Documents
+      summary: Bulk Delete Documents
+      operationId: bulkDeleteDocuments
+      parameters:
+      - in: query
+        name: metadata_filter
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Documents deleted.
+  /v2/corpora/{corpus_key}/documents/{document_id}:
+    parameters:
+    - $ref: '#/components/parameters/CorpusKey'
+    - $ref: '#/components/parameters/DocumentId'
+    get:
+      tags:
+      - Documents
+      summary: Retrieve A Document
+      operationId: getDocument
+      responses:
+        '200':
+          description: Document.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+    patch:
+      tags:
+      - Documents
+      summary: Update Document Metadata
+      operationId: updateDocument
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                metadata:
+                  type: object
+                  additionalProperties: true
+      responses:
+        '200':
+          description: Document updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+    delete:
+      tags:
+      - Documents
+      summary: Delete A Document
+      operationId: deleteDocument
+      responses:
+        '204':
+          description: Document deleted.
+  /v2/corpora/{corpus_key}/documents/{document_id}/summarize:
+    parameters:
+    - $ref: '#/components/parameters/CorpusKey'
+    - $ref: '#/components/parameters/DocumentId'
+    post:
+      tags:
+      - Documents
+      summary: Summarize A Document
+      operationId: summarizeDocument
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                llm_name:
+                  type: string
+                prompt_name:
+                  type: string
+      responses:
+        '200':
+          description: Summary.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  summary:
+                    type: string
+components:
+  schemas:
+    Document:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum:
+          - core
+          - structured
+        metadata:
+          type: object
+          additionalProperties: true
+        document_parts:
+          type: array
+          items:
+            type: object
+            properties:
+              text:
+                type: string
+              metadata:
+                type: object
+                additionalProperties: true
+    PageMetadata:
+      type: object
+      properties:
+        page_key:
+          type: string
+        next_page_key:
+          type: string
+    ListDocumentsResponse:
+      type: object
+      properties:
+        documents:
+          type: array
+          items:
+            $ref: '#/components/schemas/Document'
+        metadata:
+          $ref: '#/components/schemas/PageMetadata'
+  parameters:
+    CorpusKey:
+      in: path
+      name: corpus_key
+      required: true
+      schema:
+        type: string
+      description: The unique key identifying a corpus.
+    DocumentId:
+      in: path
+      name: document_id
+      required: true
+      schema:
+        type: string
+      description: The unique identifier of a document.
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Vectara API key passed in the `x-api-key` header.
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 client credentials flow.
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.vectara.io/oauth2/token
+          scopes: {}

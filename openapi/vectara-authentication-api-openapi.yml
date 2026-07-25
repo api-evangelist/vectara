@@ -1,0 +1,101 @@
+openapi: 3.1.0
+info:
+  title: Vectara REST Agents Authentication API
+  description: 'Vectara REST API v2 is the unified interface for the Vectara Retrieval Augmented
+
+    Generation (RAG) platform. It exposes endpoints for managing corpora, uploading
+
+    and indexing documents, running semantic and hybrid queries with grounded
+
+    generation, managing agents, tools, pipelines, generation presets, and reading
+
+    metadata.
+
+
+    This OpenAPI 3.1 description is hand-curated from the public Vectara REST API
+
+    documentation at https://docs.vectara.com/docs/rest-api/ and the published
+
+    OpenAPI document at https://docs.vectara.com/vectara-oas-v2.yaml. It covers a
+
+    representative subset of endpoints across corpora, documents, query, agents,
+
+    tools, pipelines, and OAuth.
+
+    '
+  version: '2.0'
+  contact:
+    name: Vectara Support
+    url: https://docs.vectara.com/docs/support
+  license:
+    name: Proprietary
+servers:
+- url: https://api.vectara.io
+  description: Vectara REST API production base URL
+- url: https://auth.vectara.io
+  description: Vectara OAuth 2.0 token endpoint
+security:
+- ApiKeyAuth: []
+- OAuth2: []
+tags:
+- name: Authentication
+  description: OAuth 2.0 client credentials flow for obtaining JWT tokens.
+paths:
+  /oauth2/token:
+    servers:
+    - url: https://auth.vectara.io
+    post:
+      tags:
+      - Authentication
+      summary: Obtain An OAuth 2.0 Access Token (Client Credentials)
+      operationId: getOauthToken
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - grant_type
+              - client_id
+              - client_secret
+              properties:
+                grant_type:
+                  type: string
+                  enum:
+                  - client_credentials
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+      responses:
+        '200':
+          description: Token response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                  token_type:
+                    type: string
+                    example: Bearer
+                  expires_in:
+                    type: integer
+                    example: 1800
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Vectara API key passed in the `x-api-key` header.
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 client credentials flow.
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.vectara.io/oauth2/token
+          scopes: {}

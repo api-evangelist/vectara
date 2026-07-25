@@ -1,0 +1,192 @@
+openapi: 3.1.0
+info:
+  title: Vectara REST Agents Query API
+  description: 'Vectara REST API v2 is the unified interface for the Vectara Retrieval Augmented
+
+    Generation (RAG) platform. It exposes endpoints for managing corpora, uploading
+
+    and indexing documents, running semantic and hybrid queries with grounded
+
+    generation, managing agents, tools, pipelines, generation presets, and reading
+
+    metadata.
+
+
+    This OpenAPI 3.1 description is hand-curated from the public Vectara REST API
+
+    documentation at https://docs.vectara.com/docs/rest-api/ and the published
+
+    OpenAPI document at https://docs.vectara.com/vectara-oas-v2.yaml. It covers a
+
+    representative subset of endpoints across corpora, documents, query, agents,
+
+    tools, pipelines, and OAuth.
+
+    '
+  version: '2.0'
+  contact:
+    name: Vectara Support
+    url: https://docs.vectara.com/docs/support
+  license:
+    name: Proprietary
+servers:
+- url: https://api.vectara.io
+  description: Vectara REST API production base URL
+- url: https://auth.vectara.io
+  description: Vectara OAuth 2.0 token endpoint
+security:
+- ApiKeyAuth: []
+- OAuth2: []
+tags:
+- name: Query
+  description: Semantic, keyword, and hybrid queries with optional grounded generation.
+paths:
+  /v2/corpora/{corpus_key}/query:
+    parameters:
+    - $ref: '#/components/parameters/CorpusKey'
+    post:
+      tags:
+      - Query
+      summary: Query A Single Corpus
+      operationId: queryCorpus
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryRequest'
+      responses:
+        '200':
+          description: Query results with optional grounded generation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResponse'
+  /v2/corpora/{corpus_key}/search:
+    parameters:
+    - $ref: '#/components/parameters/CorpusKey'
+    post:
+      tags:
+      - Query
+      summary: Search A Single Corpus
+      operationId: searchCorpus
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryRequest'
+      responses:
+        '200':
+          description: Search results.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResponse'
+  /v2/corpora/{corpus_key}/queries:
+    parameters:
+    - $ref: '#/components/parameters/CorpusKey'
+    post:
+      tags:
+      - Query
+      summary: Run A Multi-Stage Query
+      operationId: queriesCorpus
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryRequest'
+      responses:
+        '200':
+          description: Query results.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResponse'
+components:
+  schemas:
+    QueryResponse:
+      type: object
+      properties:
+        summary:
+          type: string
+        factual_consistency_score:
+          type: number
+        search_results:
+          type: array
+          items:
+            type: object
+            properties:
+              text:
+                type: string
+              score:
+                type: number
+              document_id:
+                type: string
+              part_metadata:
+                type: object
+                additionalProperties: true
+              document_metadata:
+                type: object
+                additionalProperties: true
+    QueryRequest:
+      type: object
+      required:
+      - query
+      properties:
+        query:
+          type: string
+          description: The natural-language query string.
+        search:
+          type: object
+          properties:
+            limit:
+              type: integer
+              default: 10
+            offset:
+              type: integer
+              default: 0
+            metadata_filter:
+              type: string
+            lexical_interpolation:
+              type: number
+            reranker:
+              type: object
+              properties:
+                type:
+                  type: string
+        generation:
+          type: object
+          properties:
+            generation_preset_name:
+              type: string
+            max_used_search_results:
+              type: integer
+            response_language:
+              type: string
+            enable_factual_consistency_score:
+              type: boolean
+        stream_response:
+          type: boolean
+  parameters:
+    CorpusKey:
+      in: path
+      name: corpus_key
+      required: true
+      schema:
+        type: string
+      description: The unique key identifying a corpus.
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Vectara API key passed in the `x-api-key` header.
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 client credentials flow.
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.vectara.io/oauth2/token
+          scopes: {}
