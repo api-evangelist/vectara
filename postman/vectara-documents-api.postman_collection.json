@@ -1,0 +1,1013 @@
+{
+  "info": {
+    "_postman_id": "780e642c-7771-4bd9-ab58-e46dfe190cee",
+    "name": "Vectara REST Agents Documents API",
+    "description": "Vectara REST API v2 is the unified interface for the Vectara Retrieval Augmented\nGeneration (RAG) platform. It exposes endpoints for managing corpora, uploading\nand indexing documents, running semantic and hybrid queries with grounded\ngeneration, managing agents, tools, pipelines, generation presets, and reading\nmetadata.\n\nThis OpenAPI 3.1 description is hand-curated from the public Vectara REST API\ndocumentation at https://docs.vectara.com/docs/rest-api/ and the published\nOpenAPI document at https://docs.vectara.com/vectara-oas-v2.yaml. It covers a\nrepresentative subset of endpoints across corpora, documents, query, agents,\ntools, pipelines, and OAuth.\n\n\nContact Support:\n Name: Vectara Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:26:47.000Z",
+    "updatedAt": "2026-07-28T03:26:47.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-780e642c-7771-4bd9-ab58-e46dfe190cee"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "corpora",
+          "item": [
+            {
+              "name": "{corpus_key}",
+              "item": [
+                {
+                  "name": "upload_file",
+                  "item": [
+                    {
+                      "name": "Upload A File",
+                      "id": "77eea956-e637-4f9d-9398-897a825101b1",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "key": "file",
+                              "type": "file",
+                              "value": null
+                            },
+                            {
+                              "key": "metadata",
+                              "value": "<string>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/corpora/:corpus_key/upload_file",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "corpora",
+                            ":corpus_key",
+                            "upload_file"
+                          ],
+                          "variable": [
+                            {
+                              "id": "7252c916-a328-4ab6-b872-c1a41c1895c0",
+                              "key": "corpus_key",
+                              "value": "<string>",
+                              "description": "(Required) The unique key identifying a corpus."
+                            }
+                          ]
+                        },
+                        "description": "Upload an unstructured file (PDF, DOCX, HTML, etc.) to be parsed and indexed."
+                      },
+                      "response": [
+                        {
+                          "id": "998b4060-6296-4dd0-ab29-3eff7bcda966",
+                          "name": "File uploaded and indexing started.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "multipart/form-data"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "formdata",
+                              "formdata": [
+                                {
+                                  "key": "file",
+                                  "type": "file"
+                                },
+                                {
+                                  "key": "metadata",
+                                  "value": "<string>",
+                                  "type": "text"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/corpora/:corpus_key/upload_file",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "corpora",
+                                ":corpus_key",
+                                "upload_file"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "corpus_key"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"type\": \"core\",\n  \"metadata\": {\n    \"eiusmod_e5\": true,\n    \"ut8e8\": \"ali\",\n    \"laborum_2c\": \"deserunt sed commodo consequat\"\n  },\n  \"document_parts\": [\n    {\n      \"text\": \"<string>\",\n      \"metadata\": {\n        \"pariatur39c\": -60927030\n      }\n    },\n    {\n      \"text\": \"<string>\",\n      \"metadata\": {\n        \"laborumb\": 97317131\n      }\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:26:48.000Z",
+                          "updatedAt": "2026-07-28T03:26:48.000Z",
+                          "uid": "35240-998b4060-6296-4dd0-ab29-3eff7bcda966"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:26:48.000Z",
+                      "updatedAt": "2026-07-28T03:26:48.000Z",
+                      "uid": "35240-77eea956-e637-4f9d-9398-897a825101b1"
+                    }
+                  ],
+                  "id": "27c09851-1c97-4eb0-a9cd-b4dd873ef27d",
+                  "createdAt": "2026-07-28T03:26:48.000Z",
+                  "updatedAt": "2026-07-28T03:26:48.000Z",
+                  "uid": "35240-27c09851-1c97-4eb0-a9cd-b4dd873ef27d"
+                },
+                {
+                  "name": "documents",
+                  "item": [
+                    {
+                      "name": "{document_id}",
+                      "item": [
+                        {
+                          "name": "summarize",
+                          "item": [
+                            {
+                              "name": "Summarize A Document",
+                              "id": "a936417c-65b4-4e38-a6b9-c92d9e4c2882",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"llm_name\": \"<string>\",\n  \"prompt_name\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/corpora/:corpus_key/documents/:document_id/summarize",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "corpora",
+                                    ":corpus_key",
+                                    "documents",
+                                    ":document_id",
+                                    "summarize"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "207c69a6-0d8d-464c-a350-826f4b1624cd",
+                                      "key": "corpus_key",
+                                      "value": "<string>",
+                                      "description": "(Required) The unique key identifying a corpus."
+                                    },
+                                    {
+                                      "id": "3a98d708-4ce2-44d1-b1ba-1dab4e180e5a",
+                                      "key": "document_id",
+                                      "value": "<string>",
+                                      "description": "(Required) The unique identifier of a document."
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "2695d5c9-1c3b-4d71-b3ac-0dc86599e6a7",
+                                  "name": "Summary.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "x-api-key",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"llm_name\": \"<string>\",\n  \"prompt_name\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/corpora/:corpus_key/documents/:document_id/summarize",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "corpora",
+                                        ":corpus_key",
+                                        "documents",
+                                        ":document_id",
+                                        "summarize"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "corpus_key"
+                                        },
+                                        {
+                                          "key": "document_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"summary\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T03:26:48.000Z",
+                                  "updatedAt": "2026-07-28T03:26:48.000Z",
+                                  "uid": "35240-2695d5c9-1c3b-4d71-b3ac-0dc86599e6a7"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:26:48.000Z",
+                              "updatedAt": "2026-07-28T03:26:48.000Z",
+                              "uid": "35240-a936417c-65b4-4e38-a6b9-c92d9e4c2882"
+                            }
+                          ],
+                          "id": "95547c63-b2ce-49a7-b7a0-98e16b9e4395",
+                          "createdAt": "2026-07-28T03:26:48.000Z",
+                          "updatedAt": "2026-07-28T03:26:48.000Z",
+                          "uid": "35240-95547c63-b2ce-49a7-b7a0-98e16b9e4395"
+                        },
+                        {
+                          "name": "Retrieve A Document",
+                          "id": "d923cbdb-daf8-4ce4-b033-9c7beaa6b78c",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/corpora/:corpus_key/documents/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "corpora",
+                                ":corpus_key",
+                                "documents",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "cc6c3f9a-69f5-46b6-bd46-c97cd2c77f89",
+                                  "key": "corpus_key",
+                                  "value": "<string>",
+                                  "description": "(Required) The unique key identifying a corpus."
+                                },
+                                {
+                                  "id": "e9144cf3-83ef-4824-93de-87afbd5e7a66",
+                                  "key": "document_id",
+                                  "value": "<string>",
+                                  "description": "(Required) The unique identifier of a document."
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "8293b0ff-a4e2-4f03-99d9-085da0dbcc67",
+                              "name": "Document.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "x-api-key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/corpora/:corpus_key/documents/:document_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "corpora",
+                                    ":corpus_key",
+                                    "documents",
+                                    ":document_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "corpus_key"
+                                    },
+                                    {
+                                      "key": "document_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"type\": \"core\",\n  \"metadata\": {\n    \"eiusmod_e5\": true,\n    \"ut8e8\": \"ali\",\n    \"laborum_2c\": \"deserunt sed commodo consequat\"\n  },\n  \"document_parts\": [\n    {\n      \"text\": \"<string>\",\n      \"metadata\": {\n        \"pariatur39c\": -60927030\n      }\n    },\n    {\n      \"text\": \"<string>\",\n      \"metadata\": {\n        \"laborumb\": 97317131\n      }\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T03:26:48.000Z",
+                              "updatedAt": "2026-07-28T03:26:48.000Z",
+                              "uid": "35240-8293b0ff-a4e2-4f03-99d9-085da0dbcc67"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:26:48.000Z",
+                          "updatedAt": "2026-07-28T03:26:48.000Z",
+                          "uid": "35240-d923cbdb-daf8-4ce4-b033-9c7beaa6b78c"
+                        },
+                        {
+                          "name": "Update Document Metadata",
+                          "id": "d1166560-e874-44e6-a293-29cd0593b882",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"metadata\": {\n    \"exercitationf9c\": 26422442.84420556,\n    \"irure4ac\": \"laboris nisi exercitation\",\n    \"dolordca\": \"pariatur do\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/corpora/:corpus_key/documents/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "corpora",
+                                ":corpus_key",
+                                "documents",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "b91d351e-52fe-4a8a-997d-b2b5fd7fadcd",
+                                  "key": "corpus_key",
+                                  "value": "<string>",
+                                  "description": "(Required) The unique key identifying a corpus."
+                                },
+                                {
+                                  "id": "db7edf88-f1ed-41e5-993a-f35795de1e18",
+                                  "key": "document_id",
+                                  "value": "<string>",
+                                  "description": "(Required) The unique identifier of a document."
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "d3aa3371-aa5b-4a9a-b051-ba5a9391fdbe",
+                              "name": "Document updated.",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "x-api-key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"metadata\": {\n    \"exercitationf9c\": 26422442.84420556,\n    \"irure4ac\": \"laboris nisi exercitation\",\n    \"dolordca\": \"pariatur do\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/corpora/:corpus_key/documents/:document_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "corpora",
+                                    ":corpus_key",
+                                    "documents",
+                                    ":document_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "corpus_key"
+                                    },
+                                    {
+                                      "key": "document_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"type\": \"core\",\n  \"metadata\": {\n    \"eiusmod_e5\": true,\n    \"ut8e8\": \"ali\",\n    \"laborum_2c\": \"deserunt sed commodo consequat\"\n  },\n  \"document_parts\": [\n    {\n      \"text\": \"<string>\",\n      \"metadata\": {\n        \"pariatur39c\": -60927030\n      }\n    },\n    {\n      \"text\": \"<string>\",\n      \"metadata\": {\n        \"laborumb\": 97317131\n      }\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T03:26:48.000Z",
+                              "updatedAt": "2026-07-28T03:26:48.000Z",
+                              "uid": "35240-d3aa3371-aa5b-4a9a-b051-ba5a9391fdbe"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:26:48.000Z",
+                          "updatedAt": "2026-07-28T03:26:48.000Z",
+                          "uid": "35240-d1166560-e874-44e6-a293-29cd0593b882"
+                        },
+                        {
+                          "name": "Delete A Document",
+                          "id": "e6f2ee04-429f-41c1-b467-8a928f74734b",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/corpora/:corpus_key/documents/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "corpora",
+                                ":corpus_key",
+                                "documents",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "f0f46610-b23c-4d07-af0b-b35e30fe0bb6",
+                                  "key": "corpus_key",
+                                  "value": "<string>",
+                                  "description": "(Required) The unique key identifying a corpus."
+                                },
+                                {
+                                  "id": "9ae1fbbe-6b63-4d1b-903f-ee05581469f8",
+                                  "key": "document_id",
+                                  "value": "<string>",
+                                  "description": "(Required) The unique identifier of a document."
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "5b65d135-8903-45b3-af21-1e50f9ae570e",
+                              "name": "Document deleted.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "x-api-key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/corpora/:corpus_key/documents/:document_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "corpora",
+                                    ":corpus_key",
+                                    "documents",
+                                    ":document_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "corpus_key"
+                                    },
+                                    {
+                                      "key": "document_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:26:48.000Z",
+                              "updatedAt": "2026-07-28T03:26:48.000Z",
+                              "uid": "35240-5b65d135-8903-45b3-af21-1e50f9ae570e"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:26:48.000Z",
+                          "updatedAt": "2026-07-28T03:26:48.000Z",
+                          "uid": "35240-e6f2ee04-429f-41c1-b467-8a928f74734b"
+                        }
+                      ],
+                      "id": "9397ced5-7cbf-4144-8c82-6ae4b4d1cefe",
+                      "createdAt": "2026-07-28T03:26:48.000Z",
+                      "updatedAt": "2026-07-28T03:26:48.000Z",
+                      "uid": "35240-9397ced5-7cbf-4144-8c82-6ae4b4d1cefe"
+                    },
+                    {
+                      "name": "List Corpus Documents",
+                      "id": "ce3a10ed-6151-4023-a2bb-d9660e5c2282",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/corpora/:corpus_key/documents?limit=<integer>&page_key=<string>&metadata_filter=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "corpora",
+                            ":corpus_key",
+                            "documents"
+                          ],
+                          "query": [
+                            {
+                              "key": "limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "page_key",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "metadata_filter",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "5737761c-27ef-438b-8a27-431bfae3d417",
+                              "key": "corpus_key",
+                              "value": "<string>",
+                              "description": "(Required) The unique key identifying a corpus."
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "2bce5b87-1b98-41ce-af4d-e751acc2932f",
+                          "name": "List of documents.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/corpora/:corpus_key/documents?limit=<integer>&page_key=<string>&metadata_filter=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "corpora",
+                                ":corpus_key",
+                                "documents"
+                              ],
+                              "query": [
+                                {
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "key": "page_key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "metadata_filter",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "corpus_key"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"structured\",\n      \"metadata\": {\n        \"Ut_7_3\": -39321818\n      },\n      \"document_parts\": [\n        {\n          \"text\": \"<string>\",\n          \"metadata\": {\n            \"in_68\": false,\n            \"officia_4\": 31195020,\n            \"non_fec\": false\n          }\n        },\n        {\n          \"text\": \"<string>\",\n          \"metadata\": {\n            \"veniamb9\": \"irure in aliqua\",\n            \"ex_0\": -90199797.11256805\n          }\n        }\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"structured\",\n      \"metadata\": {\n        \"Lorem_a\": \"nostrud esse laborum Duis\",\n        \"ut_0\": false\n      },\n      \"document_parts\": [\n        {\n          \"text\": \"<string>\",\n          \"metadata\": {\n            \"voluptate_63\": false\n          }\n        },\n        {\n          \"text\": \"<string>\",\n          \"metadata\": {\n            \"anime\": true,\n            \"deserunt_b2\": true,\n            \"incididuntef\": \"labore dolor est Duis\",\n            \"incididunt_757\": true\n          }\n        }\n      ]\n    }\n  ],\n  \"metadata\": {\n    \"page_key\": \"<string>\",\n    \"next_page_key\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T03:26:48.000Z",
+                          "updatedAt": "2026-07-28T03:26:48.000Z",
+                          "uid": "35240-2bce5b87-1b98-41ce-af4d-e751acc2932f"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:26:48.000Z",
+                      "updatedAt": "2026-07-28T03:26:48.000Z",
+                      "uid": "35240-ce3a10ed-6151-4023-a2bb-d9660e5c2282"
+                    },
+                    {
+                      "name": "Add A Structured (Core) Document",
+                      "id": "0cc9ef57-92a4-4e30-9253-6950ed25f927",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": \"<string>\",\n  \"type\": \"core\",\n  \"metadata\": {\n    \"eiusmod_e5\": true,\n    \"ut8e8\": \"ali\",\n    \"laborum_2c\": \"deserunt sed commodo consequat\"\n  },\n  \"document_parts\": [\n    {\n      \"text\": \"<string>\",\n      \"metadata\": {\n        \"pariatur39c\": -60927030\n      }\n    },\n    {\n      \"text\": \"<string>\",\n      \"metadata\": {\n        \"laborumb\": 97317131\n      }\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/corpora/:corpus_key/documents",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "corpora",
+                            ":corpus_key",
+                            "documents"
+                          ],
+                          "variable": [
+                            {
+                              "id": "a1e3aef8-27c5-4843-930c-91a0c77fe5c1",
+                              "key": "corpus_key",
+                              "value": "<string>",
+                              "description": "(Required) The unique key identifying a corpus."
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "19eb26aa-7a46-484c-a4c2-aa72e6a7bf60",
+                          "name": "Document created.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"id\": \"<string>\",\n  \"type\": \"core\",\n  \"metadata\": {\n    \"eiusmod_e5\": true,\n    \"ut8e8\": \"ali\",\n    \"laborum_2c\": \"deserunt sed commodo consequat\"\n  },\n  \"document_parts\": [\n    {\n      \"text\": \"<string>\",\n      \"metadata\": {\n        \"pariatur39c\": -60927030\n      }\n    },\n    {\n      \"text\": \"<string>\",\n      \"metadata\": {\n        \"laborumb\": 97317131\n      }\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/corpora/:corpus_key/documents",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "corpora",
+                                ":corpus_key",
+                                "documents"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "corpus_key"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"type\": \"core\",\n  \"metadata\": {\n    \"eiusmod_e5\": true,\n    \"ut8e8\": \"ali\",\n    \"laborum_2c\": \"deserunt sed commodo consequat\"\n  },\n  \"document_parts\": [\n    {\n      \"text\": \"<string>\",\n      \"metadata\": {\n        \"pariatur39c\": -60927030\n      }\n    },\n    {\n      \"text\": \"<string>\",\n      \"metadata\": {\n        \"laborumb\": 97317131\n      }\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:26:48.000Z",
+                          "updatedAt": "2026-07-28T03:26:48.000Z",
+                          "uid": "35240-19eb26aa-7a46-484c-a4c2-aa72e6a7bf60"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:26:48.000Z",
+                      "updatedAt": "2026-07-28T03:26:48.000Z",
+                      "uid": "35240-0cc9ef57-92a4-4e30-9253-6950ed25f927"
+                    },
+                    {
+                      "name": "Bulk Delete Documents",
+                      "id": "33e2a744-0165-4839-9779-9788dae271de",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/corpora/:corpus_key/documents?metadata_filter=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "corpora",
+                            ":corpus_key",
+                            "documents"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "metadata_filter",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "db86154f-dcf7-4f97-83f3-52c5910b57e2",
+                              "key": "corpus_key",
+                              "value": "<string>",
+                              "description": "(Required) The unique key identifying a corpus."
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "17f4563c-ca6b-406b-89e5-bab008bf0ac1",
+                          "name": "Documents deleted.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/corpora/:corpus_key/documents?metadata_filter=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "corpora",
+                                ":corpus_key",
+                                "documents"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "metadata_filter",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "corpus_key"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:26:48.000Z",
+                          "updatedAt": "2026-07-28T03:26:48.000Z",
+                          "uid": "35240-17f4563c-ca6b-406b-89e5-bab008bf0ac1"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:26:48.000Z",
+                      "updatedAt": "2026-07-28T03:26:48.000Z",
+                      "uid": "35240-33e2a744-0165-4839-9779-9788dae271de"
+                    }
+                  ],
+                  "id": "d0dc49b4-5a90-454e-a7ae-09b74d56a4bd",
+                  "createdAt": "2026-07-28T03:26:48.000Z",
+                  "updatedAt": "2026-07-28T03:26:48.000Z",
+                  "uid": "35240-d0dc49b4-5a90-454e-a7ae-09b74d56a4bd"
+                }
+              ],
+              "id": "db23052e-fb65-42e8-bff4-1377a372929f",
+              "createdAt": "2026-07-28T03:26:48.000Z",
+              "updatedAt": "2026-07-28T03:26:48.000Z",
+              "uid": "35240-db23052e-fb65-42e8-bff4-1377a372929f"
+            }
+          ],
+          "id": "8b724d39-3281-4672-95cb-c6fb4b23bdbf",
+          "createdAt": "2026-07-28T03:26:48.000Z",
+          "updatedAt": "2026-07-28T03:26:48.000Z",
+          "uid": "35240-8b724d39-3281-4672-95cb-c6fb4b23bdbf"
+        }
+      ],
+      "id": "1f083740-0d76-4bc3-ba37-f1e1453eaf44",
+      "createdAt": "2026-07-28T03:26:48.000Z",
+      "updatedAt": "2026-07-28T03:26:48.000Z",
+      "uid": "35240-1f083740-0d76-4bc3-ba37-f1e1453eaf44"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.vectara.io"
+    }
+  ]
+}

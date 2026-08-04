@@ -1,0 +1,739 @@
+{
+  "info": {
+    "_postman_id": "66595ef2-5409-4d60-bbfa-795ffe1c4e50",
+    "name": "Vectara REST Agents Corpora API",
+    "description": "Vectara REST API v2 is the unified interface for the Vectara Retrieval Augmented\nGeneration (RAG) platform. It exposes endpoints for managing corpora, uploading\nand indexing documents, running semantic and hybrid queries with grounded\ngeneration, managing agents, tools, pipelines, generation presets, and reading\nmetadata.\n\nThis OpenAPI 3.1 description is hand-curated from the public Vectara REST API\ndocumentation at https://docs.vectara.com/docs/rest-api/ and the published\nOpenAPI document at https://docs.vectara.com/vectara-oas-v2.yaml. It covers a\nrepresentative subset of endpoints across corpora, documents, query, agents,\ntools, pipelines, and OAuth.\n\n\nContact Support:\n Name: Vectara Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:26:46.000Z",
+    "updatedAt": "2026-07-28T03:26:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-66595ef2-5409-4d60-bbfa-795ffe1c4e50"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "corpora",
+          "item": [
+            {
+              "name": "{corpus_key}",
+              "item": [
+                {
+                  "name": "reset",
+                  "item": [
+                    {
+                      "name": "Reset A Corpus",
+                      "id": "91bcf776-d790-46f6-9e1b-239b7c6b32a8",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/corpora/:corpus_key/reset",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "corpora",
+                            ":corpus_key",
+                            "reset"
+                          ],
+                          "variable": [
+                            {
+                              "id": "6130c177-704a-42ed-9f7a-ba63ea1487d4",
+                              "key": "corpus_key",
+                              "value": "<string>",
+                              "description": "(Required) The unique key identifying a corpus."
+                            }
+                          ]
+                        },
+                        "description": "Remove all documents from the corpus while keeping the corpus itself."
+                      },
+                      "response": [
+                        {
+                          "id": "679249ec-5647-404b-ba90-95ab82874643",
+                          "name": "Corpus reset.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/corpora/:corpus_key/reset",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "corpora",
+                                ":corpus_key",
+                                "reset"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "corpus_key"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:26:47.000Z",
+                          "updatedAt": "2026-07-28T03:26:47.000Z",
+                          "uid": "35240-679249ec-5647-404b-ba90-95ab82874643"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:26:47.000Z",
+                      "updatedAt": "2026-07-28T03:26:47.000Z",
+                      "uid": "35240-91bcf776-d790-46f6-9e1b-239b7c6b32a8"
+                    }
+                  ],
+                  "id": "b756cddf-ae5a-4031-8b7c-09ea036a2dcf",
+                  "createdAt": "2026-07-28T03:26:47.000Z",
+                  "updatedAt": "2026-07-28T03:26:47.000Z",
+                  "uid": "35240-b756cddf-ae5a-4031-8b7c-09ea036a2dcf"
+                },
+                {
+                  "name": "compute_size",
+                  "item": [
+                    {
+                      "name": "Compute Corpus Size",
+                      "id": "3e11565e-0229-4170-b412-a9c5fc301050",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/corpora/:corpus_key/compute_size",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "corpora",
+                            ":corpus_key",
+                            "compute_size"
+                          ],
+                          "variable": [
+                            {
+                              "id": "9bc33271-76f4-474d-b1f7-ce255d58dfd3",
+                              "key": "corpus_key",
+                              "value": "<string>",
+                              "description": "(Required) The unique key identifying a corpus."
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "bbd86525-3ee4-4d24-96f6-00e4f7c6c71c",
+                          "name": "Corpus size information.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/corpora/:corpus_key/compute_size",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "corpora",
+                                ":corpus_key",
+                                "compute_size"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "corpus_key"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"size_bytes\": \"<integer>\",\n  \"document_count\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T03:26:47.000Z",
+                          "updatedAt": "2026-07-28T03:26:47.000Z",
+                          "uid": "35240-bbd86525-3ee4-4d24-96f6-00e4f7c6c71c"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:26:47.000Z",
+                      "updatedAt": "2026-07-28T03:26:47.000Z",
+                      "uid": "35240-3e11565e-0229-4170-b412-a9c5fc301050"
+                    }
+                  ],
+                  "id": "3e8e14b5-f72c-49f4-8d05-f0774d8fd35c",
+                  "createdAt": "2026-07-28T03:26:47.000Z",
+                  "updatedAt": "2026-07-28T03:26:47.000Z",
+                  "uid": "35240-3e8e14b5-f72c-49f4-8d05-f0774d8fd35c"
+                },
+                {
+                  "name": "Retrieve Corpus Metadata",
+                  "id": "824825f5-4cc0-455c-a6b3-11d9d28755c1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/corpora/:corpus_key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "corpora",
+                        ":corpus_key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "7ca112eb-611c-4053-90c1-dcd3b70072ea",
+                          "key": "corpus_key",
+                          "value": "<string>",
+                          "description": "(Required) The unique key identifying a corpus."
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "1f8e0127-ea1d-4443-811e-f2a601261233",
+                      "name": "Corpus metadata.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/corpora/:corpus_key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "corpora",
+                            ":corpus_key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "corpus_key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"queries_are_answers\": \"<boolean>\",\n  \"documents_are_questions\": \"<boolean>\",\n  \"encoder_id\": \"<string>\",\n  \"filter_attributes\": [\n    {\n      \"name\": \"<string>\",\n      \"level\": \"document_part\",\n      \"indexed\": \"<boolean>\",\n      \"type\": \"text\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"level\": \"document_part\",\n      \"indexed\": \"<boolean>\",\n      \"type\": \"boolean\"\n    }\n  ],\n  \"custom_dimensions\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\"\n    }\n  ],\n  \"enabled\": \"<boolean>\",\n  \"created_at\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T03:26:47.000Z",
+                      "updatedAt": "2026-07-28T03:26:47.000Z",
+                      "uid": "35240-1f8e0127-ea1d-4443-811e-f2a601261233"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:26:47.000Z",
+                  "updatedAt": "2026-07-28T03:26:47.000Z",
+                  "uid": "35240-824825f5-4cc0-455c-a6b3-11d9d28755c1"
+                },
+                {
+                  "name": "Update A Corpus",
+                  "id": "bd430e48-d15d-44c1-b77d-97c12679b537",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/corpora/:corpus_key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "corpora",
+                        ":corpus_key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "0b488146-c85a-4b41-9fbf-fe47212363cc",
+                          "key": "corpus_key",
+                          "value": "<string>",
+                          "description": "(Required) The unique key identifying a corpus."
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "db7f20a0-7377-4015-b5ba-9429d65c95cc",
+                      "name": "Corpus updated.",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/corpora/:corpus_key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "corpora",
+                            ":corpus_key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "corpus_key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"queries_are_answers\": \"<boolean>\",\n  \"documents_are_questions\": \"<boolean>\",\n  \"encoder_id\": \"<string>\",\n  \"filter_attributes\": [\n    {\n      \"name\": \"<string>\",\n      \"level\": \"document_part\",\n      \"indexed\": \"<boolean>\",\n      \"type\": \"text\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"level\": \"document_part\",\n      \"indexed\": \"<boolean>\",\n      \"type\": \"boolean\"\n    }\n  ],\n  \"custom_dimensions\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\"\n    }\n  ],\n  \"enabled\": \"<boolean>\",\n  \"created_at\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T03:26:47.000Z",
+                      "updatedAt": "2026-07-28T03:26:47.000Z",
+                      "uid": "35240-db7f20a0-7377-4015-b5ba-9429d65c95cc"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:26:47.000Z",
+                  "updatedAt": "2026-07-28T03:26:47.000Z",
+                  "uid": "35240-bd430e48-d15d-44c1-b77d-97c12679b537"
+                },
+                {
+                  "name": "Delete A Corpus",
+                  "id": "e0e5987f-093f-41ad-ba1b-0d71188dd4e4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/corpora/:corpus_key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "corpora",
+                        ":corpus_key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "73da50e0-40e8-4d16-bc06-938977e62591",
+                          "key": "corpus_key",
+                          "value": "<string>",
+                          "description": "(Required) The unique key identifying a corpus."
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "a7e79097-d66e-4de4-b172-cdfb9d4805a3",
+                      "name": "Corpus deleted.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/corpora/:corpus_key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "corpora",
+                            ":corpus_key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "corpus_key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:26:47.000Z",
+                      "updatedAt": "2026-07-28T03:26:47.000Z",
+                      "uid": "35240-a7e79097-d66e-4de4-b172-cdfb9d4805a3"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:26:47.000Z",
+                  "updatedAt": "2026-07-28T03:26:47.000Z",
+                  "uid": "35240-e0e5987f-093f-41ad-ba1b-0d71188dd4e4"
+                }
+              ],
+              "id": "5dd9bf85-f914-4fd7-a255-0d7d6906e2a6",
+              "createdAt": "2026-07-28T03:26:47.000Z",
+              "updatedAt": "2026-07-28T03:26:47.000Z",
+              "uid": "35240-5dd9bf85-f914-4fd7-a255-0d7d6906e2a6"
+            },
+            {
+              "name": "List Corpora",
+              "id": "ce104114-9c0b-4050-a4b3-21ccd16a1862",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/corpora?limit=10&page_key=<string>&filter=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "corpora"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "b623d1d7-d245-44db-a93e-d126598068d8",
+                  "name": "A list of corpora.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/corpora?limit=10&page_key=<string>&filter=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "corpora"
+                      ],
+                      "query": [
+                        {
+                          "key": "limit",
+                          "value": "10"
+                        },
+                        {
+                          "key": "page_key",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "filter",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"corpora\": [\n    {\n      \"key\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"queries_are_answers\": \"<boolean>\",\n      \"documents_are_questions\": \"<boolean>\",\n      \"encoder_id\": \"<string>\",\n      \"filter_attributes\": [\n        {\n          \"name\": \"<string>\",\n          \"level\": \"document_part\",\n          \"indexed\": \"<boolean>\",\n          \"type\": \"integer\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"level\": \"document_part\",\n          \"indexed\": \"<boolean>\",\n          \"type\": \"boolean\"\n        }\n      ],\n      \"custom_dimensions\": [\n        {\n          \"name\": \"<string>\",\n          \"description\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"description\": \"<string>\"\n        }\n      ],\n      \"enabled\": \"<boolean>\",\n      \"created_at\": \"<dateTime>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"queries_are_answers\": \"<boolean>\",\n      \"documents_are_questions\": \"<boolean>\",\n      \"encoder_id\": \"<string>\",\n      \"filter_attributes\": [\n        {\n          \"name\": \"<string>\",\n          \"level\": \"document_part\",\n          \"indexed\": \"<boolean>\",\n          \"type\": \"real\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"level\": \"document_part\",\n          \"indexed\": \"<boolean>\",\n          \"type\": \"integer\"\n        }\n      ],\n      \"custom_dimensions\": [\n        {\n          \"name\": \"<string>\",\n          \"description\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"description\": \"<string>\"\n        }\n      ],\n      \"enabled\": \"<boolean>\",\n      \"created_at\": \"<dateTime>\"\n    }\n  ],\n  \"metadata\": {\n    \"page_key\": \"<string>\",\n    \"next_page_key\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T03:26:47.000Z",
+                  "updatedAt": "2026-07-28T03:26:47.000Z",
+                  "uid": "35240-b623d1d7-d245-44db-a93e-d126598068d8"
+                }
+              ],
+              "createdAt": "2026-07-28T03:26:47.000Z",
+              "updatedAt": "2026-07-28T03:26:47.000Z",
+              "uid": "35240-ce104114-9c0b-4050-a4b3-21ccd16a1862"
+            },
+            {
+              "name": "Create A Corpus",
+              "id": "27d5e809-d116-4ebf-92e0-e35480af6d7a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"queries_are_answers\": \"<boolean>\",\n  \"documents_are_questions\": \"<boolean>\",\n  \"encoder_id\": \"<string>\",\n  \"filter_attributes\": [\n    {\n      \"name\": \"<string>\",\n      \"level\": \"document\",\n      \"indexed\": \"<boolean>\",\n      \"type\": \"text\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"level\": \"document\",\n      \"indexed\": \"<boolean>\",\n      \"type\": \"integer\"\n    }\n  ],\n  \"custom_dimensions\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\"\n    }\n  ],\n  \"enabled\": \"<boolean>\",\n  \"created_at\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v2/corpora",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "corpora"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "c7b0bff0-f740-4bcc-9add-60df5e19d9fe",
+                  "name": "Corpus created.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"queries_are_answers\": \"<boolean>\",\n  \"documents_are_questions\": \"<boolean>\",\n  \"encoder_id\": \"<string>\",\n  \"filter_attributes\": [\n    {\n      \"name\": \"<string>\",\n      \"level\": \"document\",\n      \"indexed\": \"<boolean>\",\n      \"type\": \"text\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"level\": \"document\",\n      \"indexed\": \"<boolean>\",\n      \"type\": \"integer\"\n    }\n  ],\n  \"custom_dimensions\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\"\n    }\n  ],\n  \"enabled\": \"<boolean>\",\n  \"created_at\": \"<dateTime>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/corpora",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "corpora"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"queries_are_answers\": \"<boolean>\",\n  \"documents_are_questions\": \"<boolean>\",\n  \"encoder_id\": \"<string>\",\n  \"filter_attributes\": [\n    {\n      \"name\": \"<string>\",\n      \"level\": \"document_part\",\n      \"indexed\": \"<boolean>\",\n      \"type\": \"text\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"level\": \"document_part\",\n      \"indexed\": \"<boolean>\",\n      \"type\": \"boolean\"\n    }\n  ],\n  \"custom_dimensions\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\"\n    }\n  ],\n  \"enabled\": \"<boolean>\",\n  \"created_at\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T03:26:47.000Z",
+                  "updatedAt": "2026-07-28T03:26:47.000Z",
+                  "uid": "35240-c7b0bff0-f740-4bcc-9add-60df5e19d9fe"
+                }
+              ],
+              "createdAt": "2026-07-28T03:26:47.000Z",
+              "updatedAt": "2026-07-28T03:26:47.000Z",
+              "uid": "35240-27d5e809-d116-4ebf-92e0-e35480af6d7a"
+            }
+          ],
+          "id": "f1997751-9c65-46f2-9ba5-471191029201",
+          "createdAt": "2026-07-28T03:26:47.000Z",
+          "updatedAt": "2026-07-28T03:26:47.000Z",
+          "uid": "35240-f1997751-9c65-46f2-9ba5-471191029201"
+        }
+      ],
+      "id": "d2bfbdf5-61d0-4245-a4ef-c8339a22b6f3",
+      "createdAt": "2026-07-28T03:26:47.000Z",
+      "updatedAt": "2026-07-28T03:26:47.000Z",
+      "uid": "35240-d2bfbdf5-61d0-4245-a4ef-c8339a22b6f3"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.vectara.io"
+    }
+  ]
+}

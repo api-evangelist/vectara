@@ -1,0 +1,26 @@
+{
+  "provider": "vectara",
+  "sources": [
+    "vectara-agents-api-openapi.yml",
+    "vectara-authentication-api-openapi.yml",
+    "vectara-corpora-api-openapi.yml",
+    "vectara-documents-api-openapi.yml",
+    "vectara-pipelines-api-openapi.yml",
+    "vectara-query-api-openapi.yml",
+    "vectara-tools-api-openapi.yml"
+  ],
+  "outputs": [
+    "vectara-agents-api-openapi.yml",
+    "vectara-authentication-api-openapi.yml",
+    "vectara-corpora-api-openapi.yml",
+    "vectara-documents-api-openapi.yml",
+    "vectara-pipelines-api-openapi.yml",
+    "vectara-query-api-openapi.yml",
+    "vectara-tools-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

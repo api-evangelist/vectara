@@ -1,0 +1,247 @@
+{
+  "info": {
+    "_postman_id": "c2f52e80-8841-49ec-9cb1-f5413f160519",
+    "name": "Vectara REST Agents Pipelines API",
+    "description": "Vectara REST API v2 is the unified interface for the Vectara Retrieval Augmented\nGeneration (RAG) platform. It exposes endpoints for managing corpora, uploading\nand indexing documents, running semantic and hybrid queries with grounded\ngeneration, managing agents, tools, pipelines, generation presets, and reading\nmetadata.\n\nThis OpenAPI 3.1 description is hand-curated from the public Vectara REST API\ndocumentation at https://docs.vectara.com/docs/rest-api/ and the published\nOpenAPI document at https://docs.vectara.com/vectara-oas-v2.yaml. It covers a\nrepresentative subset of endpoints across corpora, documents, query, agents,\ntools, pipelines, and OAuth.\n\n\nContact Support:\n Name: Vectara Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:26:48.000Z",
+    "updatedAt": "2026-07-28T03:26:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c2f52e80-8841-49ec-9cb1-f5413f160519"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "pipelines",
+          "item": [
+            {
+              "name": "List Pipelines",
+              "id": "b5c28da1-fa37-48f4-b634-ff7a49de95e9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/pipelines",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "pipelines"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "6d3c2fc1-f8e0-4604-aac6-b02927095128",
+                  "name": "Pipelines.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/pipelines",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "pipelines"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:26:49.000Z",
+                  "updatedAt": "2026-07-28T03:26:49.000Z",
+                  "uid": "35240-6d3c2fc1-f8e0-4604-aac6-b02927095128"
+                }
+              ],
+              "createdAt": "2026-07-28T03:26:49.000Z",
+              "updatedAt": "2026-07-28T03:26:49.000Z",
+              "uid": "35240-b5c28da1-fa37-48f4-b634-ff7a49de95e9"
+            },
+            {
+              "name": "Create A Pipeline",
+              "id": "c7f0356f-6882-489d-a5a9-ec44d9d93f0e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/pipelines",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "pipelines"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "6e375be6-81ea-4b62-bd00-f94754817b56",
+                  "name": "Pipeline created.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/pipelines",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "pipelines"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:26:49.000Z",
+                  "updatedAt": "2026-07-28T03:26:49.000Z",
+                  "uid": "35240-6e375be6-81ea-4b62-bd00-f94754817b56"
+                }
+              ],
+              "createdAt": "2026-07-28T03:26:49.000Z",
+              "updatedAt": "2026-07-28T03:26:49.000Z",
+              "uid": "35240-c7f0356f-6882-489d-a5a9-ec44d9d93f0e"
+            }
+          ],
+          "id": "b6ad6bb6-7257-48ae-90c4-9fbfbfc7c851",
+          "createdAt": "2026-07-28T03:26:49.000Z",
+          "updatedAt": "2026-07-28T03:26:49.000Z",
+          "uid": "35240-b6ad6bb6-7257-48ae-90c4-9fbfbfc7c851"
+        },
+        {
+          "name": "pipeline-runs",
+          "item": [
+            {
+              "name": "List Pipeline Runs",
+              "id": "5d721ae6-b26b-4aed-be02-b98d8ee18775",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/pipeline-runs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "pipeline-runs"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "818517df-d70a-4eb2-93de-eaa28dd781aa",
+                  "name": "Pipeline runs.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/pipeline-runs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "pipeline-runs"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:26:49.000Z",
+                  "updatedAt": "2026-07-28T03:26:49.000Z",
+                  "uid": "35240-818517df-d70a-4eb2-93de-eaa28dd781aa"
+                }
+              ],
+              "createdAt": "2026-07-28T03:26:49.000Z",
+              "updatedAt": "2026-07-28T03:26:49.000Z",
+              "uid": "35240-5d721ae6-b26b-4aed-be02-b98d8ee18775"
+            }
+          ],
+          "id": "fc1d4a0d-591b-4990-8981-047d95c3cc0b",
+          "createdAt": "2026-07-28T03:26:49.000Z",
+          "updatedAt": "2026-07-28T03:26:49.000Z",
+          "uid": "35240-fc1d4a0d-591b-4990-8981-047d95c3cc0b"
+        }
+      ],
+      "id": "dc9331e6-04b7-4677-85aa-20fbe9398e4c",
+      "createdAt": "2026-07-28T03:26:49.000Z",
+      "updatedAt": "2026-07-28T03:26:49.000Z",
+      "uid": "35240-dc9331e6-04b7-4677-85aa-20fbe9398e4c"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.vectara.io"
+    }
+  ]
+}

@@ -1,0 +1,307 @@
+{
+  "info": {
+    "_postman_id": "d35a0686-5d21-4036-8fe7-c97e473b46ca",
+    "name": "Vectara REST Agents Tools API",
+    "description": "Vectara REST API v2 is the unified interface for the Vectara Retrieval Augmented\nGeneration (RAG) platform. It exposes endpoints for managing corpora, uploading\nand indexing documents, running semantic and hybrid queries with grounded\ngeneration, managing agents, tools, pipelines, generation presets, and reading\nmetadata.\n\nThis OpenAPI 3.1 description is hand-curated from the public Vectara REST API\ndocumentation at https://docs.vectara.com/docs/rest-api/ and the published\nOpenAPI document at https://docs.vectara.com/vectara-oas-v2.yaml. It covers a\nrepresentative subset of endpoints across corpora, documents, query, agents,\ntools, pipelines, and OAuth.\n\n\nContact Support:\n Name: Vectara Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:26:59.000Z",
+    "updatedAt": "2026-07-28T03:27:00.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d35a0686-5d21-4036-8fe7-c97e473b46ca"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "tools",
+          "item": [
+            {
+              "name": "List Tools",
+              "id": "f790b522-62eb-4d34-99c2-8438752673cf",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/tools",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "tools"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "fb0ab20a-741b-4fc6-bd86-8de33c2ddbdb",
+                  "name": "Tools.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/tools",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "tools"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:27:00.000Z",
+                  "updatedAt": "2026-07-28T03:27:00.000Z",
+                  "uid": "35240-fb0ab20a-741b-4fc6-bd86-8de33c2ddbdb"
+                }
+              ],
+              "createdAt": "2026-07-28T03:27:00.000Z",
+              "updatedAt": "2026-07-28T03:27:00.000Z",
+              "uid": "35240-f790b522-62eb-4d34-99c2-8438752673cf"
+            },
+            {
+              "name": "Create A Tool",
+              "id": "b0e47c6c-1a62-4ff3-b72a-c752d980b3ad",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/tools",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "tools"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "a01039d2-463e-4298-948a-7c027546de9d",
+                  "name": "Tool created.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/tools",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "tools"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:27:00.000Z",
+                  "updatedAt": "2026-07-28T03:27:00.000Z",
+                  "uid": "35240-a01039d2-463e-4298-948a-7c027546de9d"
+                }
+              ],
+              "createdAt": "2026-07-28T03:27:00.000Z",
+              "updatedAt": "2026-07-28T03:27:00.000Z",
+              "uid": "35240-b0e47c6c-1a62-4ff3-b72a-c752d980b3ad"
+            }
+          ],
+          "id": "0e465759-24c9-478b-9f6e-6259eb324dd4",
+          "createdAt": "2026-07-28T03:27:00.000Z",
+          "updatedAt": "2026-07-28T03:27:00.000Z",
+          "uid": "35240-0e465759-24c9-478b-9f6e-6259eb324dd4"
+        },
+        {
+          "name": "tool-servers",
+          "item": [
+            {
+              "name": "List Tool Servers",
+              "id": "5f588c0f-a50b-4b5a-8f0a-c248f0cdc3b7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/tool-servers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "tool-servers"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "87620232-11d5-4cbd-8e5b-05152870044b",
+                  "name": "Tool servers.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/tool-servers",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "tool-servers"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:27:00.000Z",
+                  "updatedAt": "2026-07-28T03:27:00.000Z",
+                  "uid": "35240-87620232-11d5-4cbd-8e5b-05152870044b"
+                }
+              ],
+              "createdAt": "2026-07-28T03:27:00.000Z",
+              "updatedAt": "2026-07-28T03:27:00.000Z",
+              "uid": "35240-5f588c0f-a50b-4b5a-8f0a-c248f0cdc3b7"
+            },
+            {
+              "name": "Register A Tool Server",
+              "id": "7c9f7967-89ca-4c50-9341-8470c7ecf4e0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/tool-servers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "tool-servers"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "d5081eec-0165-42e6-b0f9-ea9ce36c17da",
+                  "name": "Tool server registered.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/tool-servers",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "tool-servers"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:27:00.000Z",
+                  "updatedAt": "2026-07-28T03:27:00.000Z",
+                  "uid": "35240-d5081eec-0165-42e6-b0f9-ea9ce36c17da"
+                }
+              ],
+              "createdAt": "2026-07-28T03:27:00.000Z",
+              "updatedAt": "2026-07-28T03:27:00.000Z",
+              "uid": "35240-7c9f7967-89ca-4c50-9341-8470c7ecf4e0"
+            }
+          ],
+          "id": "0cf5b79f-111e-4f54-9cde-fbe6c80927f9",
+          "createdAt": "2026-07-28T03:27:00.000Z",
+          "updatedAt": "2026-07-28T03:27:00.000Z",
+          "uid": "35240-0cf5b79f-111e-4f54-9cde-fbe6c80927f9"
+        }
+      ],
+      "id": "5174aebf-1526-468e-abae-802f5d6b266d",
+      "createdAt": "2026-07-28T03:27:00.000Z",
+      "updatedAt": "2026-07-28T03:27:00.000Z",
+      "uid": "35240-5174aebf-1526-468e-abae-802f5d6b266d"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.vectara.io"
+    }
+  ]
+}
