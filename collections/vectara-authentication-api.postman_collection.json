@@ -1,0 +1,189 @@
+{
+  "item": [
+    {
+      "id": "42f72a72-bc11-4b47-bb72-9ce293de8952",
+      "name": "Authentication",
+      "description": {
+        "content": "OAuth 2.0 client credentials flow for obtaining JWT tokens.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "038a741e-d222-460f-a858-357d7a67e0b4",
+          "name": "Obtain An OAuth 2.0 Access Token (Client Credentials)",
+          "request": {
+            "name": "Obtain An OAuth 2.0 Access Token (Client Credentials)",
+            "description": {},
+            "url": {
+              "path": [
+                "oauth2",
+                "token"
+              ],
+              "host": [
+                "{{oauth2-token-Url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "grant_type",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "client_secret",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f297f891-a86d-4049-a3d8-0991ecc2a5a5",
+              "name": "Token response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "token"
+                  ],
+                  "host": [
+                    "{{oauth2-token-Url}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "client_secret",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_token\": \"string\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 1800\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.vectara.io",
+      "key": "baseUrl"
+    },
+    {
+      "type": "string",
+      "value": "https://auth.vectara.io",
+      "key": "oauth2-token-Url"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f1728560-65bc-4609-ae35-936d9e36f56a",
+    "name": "Vectara REST Agents Authentication API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Vectara REST API v2 is the unified interface for the Vectara Retrieval Augmented\nGeneration (RAG) platform. It exposes endpoints for managing corpora, uploading\nand indexing documents, running semantic and hybrid queries with grounded\ngeneration, managing agents, tools, pipelines, generation presets, and reading\nmetadata.\n\nThis OpenAPI 3.1 description is hand-curated from the public Vectara REST API\ndocumentation at https://docs.vectara.com/docs/rest-api/ and the published\nOpenAPI document at https://docs.vectara.com/vectara-oas-v2.yaml. It covers a\nrepresentative subset of endpoints across corpora, documents, query, agents,\ntools, pipelines, and OAuth.\n\n\nContact Support:\n Name: Vectara Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Vectara REST Agents Corpora API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Corpora",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Corpora",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.vectara.io/v2/corpora",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page_key",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Corpora"
+        },
+        {
+          "info": {
+            "name": "Create A Corpus",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/corpora",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create A Corpus"
+        },
+        {
+          "info": {
+            "name": "Retrieve Corpus Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              }
+            ]
+          },
+          "docs": "Retrieve Corpus Metadata"
+        },
+        {
+          "info": {
+            "name": "Update A Corpus",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update A Corpus"
+        },
+        {
+          "info": {
+            "name": "Delete A Corpus",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              }
+            ]
+          },
+          "docs": "Delete A Corpus"
+        },
+        {
+          "info": {
+            "name": "Reset A Corpus",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key/reset",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              }
+            ]
+          },
+          "docs": "Remove all documents from the corpus while keeping the corpus itself."
+        },
+        {
+          "info": {
+            "name": "Compute Corpus Size",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key/compute_size",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              }
+            ]
+          },
+          "docs": "Compute Corpus Size"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

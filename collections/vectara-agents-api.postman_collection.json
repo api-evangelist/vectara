@@ -1,0 +1,814 @@
+{
+  "item": [
+    {
+      "id": "16165db6-f209-4d4f-a079-4fcecb06c9bf",
+      "name": "Agents",
+      "description": {
+        "content": "Build and operate agents over Vectara corpora.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8b739182-cb37-4669-a7f3-819fd125a0fa",
+          "name": "List Agents",
+          "request": {
+            "name": "List Agents",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "agents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8070d0e3-1b83-4c5b-a5b0-0021f0ae2d9d",
+              "name": "List of agents.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"agents\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"instructions\": \"string\",\n      \"tool_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"corpus_keys\": [\n        \"string\",\n        \"string\"\n      ],\n      \"enabled\": true\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"instructions\": \"string\",\n      \"tool_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"corpus_keys\": [\n        \"string\",\n        \"string\"\n      ],\n      \"enabled\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8fcb371-8ead-4565-9848-1af5c849628f",
+          "name": "Create An Agent",
+          "request": {
+            "name": "Create An Agent",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "agents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"instructions\": \"<string>\",\n  \"tool_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"corpus_keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"enabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "466e4d0d-3a90-44ae-8a4e-a39a7be0f71a",
+              "name": "Agent created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"instructions\": \"<string>\",\n  \"tool_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"corpus_keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"instructions\": \"string\",\n  \"tool_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"corpus_keys\": [\n    \"string\",\n    \"string\"\n  ],\n  \"enabled\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0aa943fb-d66b-4f98-962d-38d2b54689f3",
+          "name": "Retrieve An Agent",
+          "request": {
+            "name": "Retrieve An Agent",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "agents",
+                ":agent_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "agent_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c845e4ab-0b7a-40c6-b32f-9b3dc29e9f70",
+              "name": "Agent.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agent_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"instructions\": \"string\",\n  \"tool_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"corpus_keys\": [\n    \"string\",\n    \"string\"\n  ],\n  \"enabled\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9428789d-3a76-47fd-960d-fa0ef0f0fa84",
+          "name": "Update An Agent",
+          "request": {
+            "name": "Update An Agent",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "agents",
+                ":agent_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "agent_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"instructions\": \"<string>\",\n  \"tool_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"corpus_keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"enabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a257fe69-02f4-4c7c-8f24-aa4bafad35af",
+              "name": "Agent updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agent_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"instructions\": \"<string>\",\n  \"tool_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"corpus_keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba1f6061-8a03-4644-bcd9-1a6d9b742d64",
+          "name": "Delete An Agent",
+          "request": {
+            "name": "Delete An Agent",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "agents",
+                ":agent_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "agent_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb8c5591-cdde-4c3f-b9cc-79c70651c045",
+              "name": "Agent deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agent_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3fcc0572-87ef-4f18-a333-ade3991633dd",
+          "name": "List Agent Sessions",
+          "request": {
+            "name": "List Agent Sessions",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "agents",
+                ":agent_id",
+                "sessions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "agent_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7ae45377-2aa4-46f1-85d4-3e9e2074a8b4",
+              "name": "Sessions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id",
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agent_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6f8df5cf-f543-4546-aebf-eb9a03f2c26a",
+          "name": "Create An Agent Session",
+          "request": {
+            "name": "Create An Agent Session",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "agents",
+                ":agent_id",
+                "sessions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "agent_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c3faa084-a3e2-4451-ad1d-18afe1357325",
+              "name": "Session created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id",
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agent_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f2f97ee8-c061-411d-ba28-75df9ba83f5d",
+          "name": "Add A Turn To An Agent Session",
+          "request": {
+            "name": "Add A Turn To An Agent Session",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "agents",
+                ":agent_id",
+                "sessions",
+                ":session_id",
+                "turns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "agent_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "session_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "42578149-4927-4aab-8562-1d7f63848091",
+              "name": "Turn response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id",
+                    "sessions",
+                    ":session_id",
+                    "turns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agent_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "session_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.vectara.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c4a9a0aa-87a9-482f-814a-e589bf590aa5",
+    "name": "Vectara REST Agents API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Vectara REST API v2 is the unified interface for the Vectara Retrieval Augmented\nGeneration (RAG) platform. It exposes endpoints for managing corpora, uploading\nand indexing documents, running semantic and hybrid queries with grounded\ngeneration, managing agents, tools, pipelines, generation presets, and reading\nmetadata.\n\nThis OpenAPI 3.1 description is hand-curated from the public Vectara REST API\ndocumentation at https://docs.vectara.com/docs/rest-api/ and the published\nOpenAPI document at https://docs.vectara.com/vectara-oas-v2.yaml. It covers a\nrepresentative subset of endpoints across corpora, documents, query, agents,\ntools, pipelines, and OAuth.\n\n\nContact Support:\n Name: Vectara Support",
+      "type": "text/plain"
+    }
+  }
+}

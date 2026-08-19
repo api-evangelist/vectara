@@ -1,0 +1,317 @@
+{
+  "item": [
+    {
+      "id": "abd70053-6fb2-40ae-8719-a8986f08bb76",
+      "name": "Tools",
+      "description": {
+        "content": "Manage tools and tool servers used by agents.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3b155b9a-05d0-4c02-a7bb-c56e3123c175",
+          "name": "List Tools",
+          "request": {
+            "name": "List Tools",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "tools"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "344a24d0-93ed-4f41-b84b-1cdaf2eed585",
+              "name": "Tools.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tools"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7b3dcb00-0555-494b-b2b1-a2405f64f072",
+          "name": "Create A Tool",
+          "request": {
+            "name": "Create A Tool",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "tools"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f1db8064-64b4-4050-95b8-e20395d999a7",
+              "name": "Tool created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tools"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "05fc0010-34bb-445b-a662-2c88581f3291",
+          "name": "List Tool Servers",
+          "request": {
+            "name": "List Tool Servers",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "tool-servers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ea3ac6ce-e881-4a82-b5b0-11c7cb0ef9ee",
+              "name": "Tool servers.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tool-servers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "649a52dc-a848-4eb8-ab72-64fb98552019",
+          "name": "Register A Tool Server",
+          "request": {
+            "name": "Register A Tool Server",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "tool-servers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "04ae0300-fa3f-48d7-9364-749af42e4043",
+              "name": "Tool server registered.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tool-servers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.vectara.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d49cbc8e-ffc5-46f6-93fc-d66976ef158c",
+    "name": "Vectara REST Agents Tools API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Vectara REST API v2 is the unified interface for the Vectara Retrieval Augmented\nGeneration (RAG) platform. It exposes endpoints for managing corpora, uploading\nand indexing documents, running semantic and hybrid queries with grounded\ngeneration, managing agents, tools, pipelines, generation presets, and reading\nmetadata.\n\nThis OpenAPI 3.1 description is hand-curated from the public Vectara REST API\ndocumentation at https://docs.vectara.com/docs/rest-api/ and the published\nOpenAPI document at https://docs.vectara.com/vectara-oas-v2.yaml. It covers a\nrepresentative subset of endpoints across corpora, documents, query, agents,\ntools, pipelines, and OAuth.\n\n\nContact Support:\n Name: Vectara Support",
+      "type": "text/plain"
+    }
+  }
+}

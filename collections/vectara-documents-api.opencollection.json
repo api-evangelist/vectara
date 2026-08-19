@@ -1,0 +1,249 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Vectara REST Agents Documents API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Documents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Upload A File",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key/upload_file",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "metadata",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Upload an unstructured file (PDF, DOCX, HTML, etc.) to be parsed and indexed."
+        },
+        {
+          "info": {
+            "name": "List Corpus Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key/documents",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page_key",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metadata_filter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Corpus Documents"
+        },
+        {
+          "info": {
+            "name": "Add A Structured (Core) Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key/documents",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add A Structured (Core) Document"
+        },
+        {
+          "info": {
+            "name": "Bulk Delete Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key/documents",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              },
+              {
+                "name": "metadata_filter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Bulk Delete Documents"
+        },
+        {
+          "info": {
+            "name": "Retrieve A Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key/documents/:document_id",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              },
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of a document."
+              }
+            ]
+          },
+          "docs": "Retrieve A Document"
+        },
+        {
+          "info": {
+            "name": "Update Document Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key/documents/:document_id",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              },
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of a document."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Document Metadata"
+        },
+        {
+          "info": {
+            "name": "Delete A Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key/documents/:document_id",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              },
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of a document."
+              }
+            ]
+          },
+          "docs": "Delete A Document"
+        },
+        {
+          "info": {
+            "name": "Summarize A Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key/documents/:document_id/summarize",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              },
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of a document."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Summarize A Document"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,403 @@
+{
+  "item": [
+    {
+      "id": "b720c363-4088-4f28-b50f-1efdf58d71ae",
+      "name": "Query",
+      "description": {
+        "content": "Semantic, keyword, and hybrid queries with optional grounded generation.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "71899fda-19df-4c07-9725-13dc8020d69e",
+          "name": "Query A Single Corpus",
+          "request": {
+            "name": "Query A Single Corpus",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "corpora",
+                ":corpus_key",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "corpus_key",
+                  "description": "(Required) The unique key identifying a corpus."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"search\": {\n    \"limit\": 10,\n    \"offset\": 0,\n    \"metadata_filter\": \"<string>\",\n    \"lexical_interpolation\": \"<number>\",\n    \"reranker\": {\n      \"type\": \"<string>\"\n    }\n  },\n  \"generation\": {\n    \"generation_preset_name\": \"<string>\",\n    \"max_used_search_results\": \"<integer>\",\n    \"response_language\": \"<string>\",\n    \"enable_factual_consistency_score\": \"<boolean>\"\n  },\n  \"stream_response\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "da176d53-c06d-460f-9355-ee10f341fd5d",
+              "name": "Query results with optional grounded generation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "corpora",
+                    ":corpus_key",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "corpus_key",
+                      "description": "(Required) The unique key identifying a corpus."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"search\": {\n    \"limit\": 10,\n    \"offset\": 0,\n    \"metadata_filter\": \"<string>\",\n    \"lexical_interpolation\": \"<number>\",\n    \"reranker\": {\n      \"type\": \"<string>\"\n    }\n  },\n  \"generation\": {\n    \"generation_preset_name\": \"<string>\",\n    \"max_used_search_results\": \"<integer>\",\n    \"response_language\": \"<string>\",\n    \"enable_factual_consistency_score\": \"<boolean>\"\n  },\n  \"stream_response\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": \"string\",\n  \"factual_consistency_score\": 5677.907512067465,\n  \"search_results\": [\n    {\n      \"text\": \"string\",\n      \"score\": 6190.262982439234,\n      \"document_id\": \"string\",\n      \"part_metadata\": {\n        \"key_0\": 7954,\n        \"key_1\": \"string\",\n        \"key_2\": 7425.251196280797\n      },\n      \"document_metadata\": {\n        \"key_0\": 1449.134986064704\n      }\n    },\n    {\n      \"text\": \"string\",\n      \"score\": 4156.316182069125,\n      \"document_id\": \"string\",\n      \"part_metadata\": {\n        \"key_0\": \"string\"\n      },\n      \"document_metadata\": {\n        \"key_0\": 2912,\n        \"key_1\": 6925,\n        \"key_2\": 8822\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ec774691-56d5-456c-b393-fb27bd290fdb",
+          "name": "Search A Single Corpus",
+          "request": {
+            "name": "Search A Single Corpus",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "corpora",
+                ":corpus_key",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "corpus_key",
+                  "description": "(Required) The unique key identifying a corpus."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"search\": {\n    \"limit\": 10,\n    \"offset\": 0,\n    \"metadata_filter\": \"<string>\",\n    \"lexical_interpolation\": \"<number>\",\n    \"reranker\": {\n      \"type\": \"<string>\"\n    }\n  },\n  \"generation\": {\n    \"generation_preset_name\": \"<string>\",\n    \"max_used_search_results\": \"<integer>\",\n    \"response_language\": \"<string>\",\n    \"enable_factual_consistency_score\": \"<boolean>\"\n  },\n  \"stream_response\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1ff53374-767a-4f93-a3cd-af80406ba5fc",
+              "name": "Search results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "corpora",
+                    ":corpus_key",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "corpus_key",
+                      "description": "(Required) The unique key identifying a corpus."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"search\": {\n    \"limit\": 10,\n    \"offset\": 0,\n    \"metadata_filter\": \"<string>\",\n    \"lexical_interpolation\": \"<number>\",\n    \"reranker\": {\n      \"type\": \"<string>\"\n    }\n  },\n  \"generation\": {\n    \"generation_preset_name\": \"<string>\",\n    \"max_used_search_results\": \"<integer>\",\n    \"response_language\": \"<string>\",\n    \"enable_factual_consistency_score\": \"<boolean>\"\n  },\n  \"stream_response\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": \"string\",\n  \"factual_consistency_score\": 5677.907512067465,\n  \"search_results\": [\n    {\n      \"text\": \"string\",\n      \"score\": 6190.262982439234,\n      \"document_id\": \"string\",\n      \"part_metadata\": {\n        \"key_0\": 7954,\n        \"key_1\": \"string\",\n        \"key_2\": 7425.251196280797\n      },\n      \"document_metadata\": {\n        \"key_0\": 1449.134986064704\n      }\n    },\n    {\n      \"text\": \"string\",\n      \"score\": 4156.316182069125,\n      \"document_id\": \"string\",\n      \"part_metadata\": {\n        \"key_0\": \"string\"\n      },\n      \"document_metadata\": {\n        \"key_0\": 2912,\n        \"key_1\": 6925,\n        \"key_2\": 8822\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7550c060-1fee-49a7-82cd-ca6eae4463d8",
+          "name": "Run A Multi-Stage Query",
+          "request": {
+            "name": "Run A Multi-Stage Query",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "corpora",
+                ":corpus_key",
+                "queries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "corpus_key",
+                  "description": "(Required) The unique key identifying a corpus."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"search\": {\n    \"limit\": 10,\n    \"offset\": 0,\n    \"metadata_filter\": \"<string>\",\n    \"lexical_interpolation\": \"<number>\",\n    \"reranker\": {\n      \"type\": \"<string>\"\n    }\n  },\n  \"generation\": {\n    \"generation_preset_name\": \"<string>\",\n    \"max_used_search_results\": \"<integer>\",\n    \"response_language\": \"<string>\",\n    \"enable_factual_consistency_score\": \"<boolean>\"\n  },\n  \"stream_response\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6195a89d-7af5-4e1a-982a-db00cf7728c0",
+              "name": "Query results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "corpora",
+                    ":corpus_key",
+                    "queries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "corpus_key",
+                      "description": "(Required) The unique key identifying a corpus."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"search\": {\n    \"limit\": 10,\n    \"offset\": 0,\n    \"metadata_filter\": \"<string>\",\n    \"lexical_interpolation\": \"<number>\",\n    \"reranker\": {\n      \"type\": \"<string>\"\n    }\n  },\n  \"generation\": {\n    \"generation_preset_name\": \"<string>\",\n    \"max_used_search_results\": \"<integer>\",\n    \"response_language\": \"<string>\",\n    \"enable_factual_consistency_score\": \"<boolean>\"\n  },\n  \"stream_response\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": \"string\",\n  \"factual_consistency_score\": 5677.907512067465,\n  \"search_results\": [\n    {\n      \"text\": \"string\",\n      \"score\": 6190.262982439234,\n      \"document_id\": \"string\",\n      \"part_metadata\": {\n        \"key_0\": 7954,\n        \"key_1\": \"string\",\n        \"key_2\": 7425.251196280797\n      },\n      \"document_metadata\": {\n        \"key_0\": 1449.134986064704\n      }\n    },\n    {\n      \"text\": \"string\",\n      \"score\": 4156.316182069125,\n      \"document_id\": \"string\",\n      \"part_metadata\": {\n        \"key_0\": \"string\"\n      },\n      \"document_metadata\": {\n        \"key_0\": 2912,\n        \"key_1\": 6925,\n        \"key_2\": 8822\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.vectara.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "54345d6a-8bb1-4d78-a1b3-0eaad326aaa4",
+    "name": "Vectara REST Agents Query API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Vectara REST API v2 is the unified interface for the Vectara Retrieval Augmented\nGeneration (RAG) platform. It exposes endpoints for managing corpora, uploading\nand indexing documents, running semantic and hybrid queries with grounded\ngeneration, managing agents, tools, pipelines, generation presets, and reading\nmetadata.\n\nThis OpenAPI 3.1 description is hand-curated from the public Vectara REST API\ndocumentation at https://docs.vectara.com/docs/rest-api/ and the published\nOpenAPI document at https://docs.vectara.com/vectara-oas-v2.yaml. It covers a\nrepresentative subset of endpoints across corpora, documents, query, agents,\ntools, pipelines, and OAuth.\n\n\nContact Support:\n Name: Vectara Support",
+      "type": "text/plain"
+    }
+  }
+}

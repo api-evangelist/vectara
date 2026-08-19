@@ -1,0 +1,95 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Vectara REST Agents Query API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Query",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query A Single Corpus",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key/query",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Query A Single Corpus"
+        },
+        {
+          "info": {
+            "name": "Search A Single Corpus",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key/search",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search A Single Corpus"
+        },
+        {
+          "info": {
+            "name": "Run A Multi-Stage Query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/corpora/:corpus_key/queries",
+            "params": [
+              {
+                "name": "corpus_key",
+                "value": "",
+                "type": "path",
+                "description": "The unique key identifying a corpus."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run A Multi-Stage Query"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

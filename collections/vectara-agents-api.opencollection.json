@@ -1,0 +1,173 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Vectara REST Agents API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Agents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.vectara.io/v2/agents"
+          },
+          "docs": "List Agents"
+        },
+        {
+          "info": {
+            "name": "Create An Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/agents",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create An Agent"
+        },
+        {
+          "info": {
+            "name": "Retrieve An Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.vectara.io/v2/agents/:agent_id",
+            "params": [
+              {
+                "name": "agent_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve An Agent"
+        },
+        {
+          "info": {
+            "name": "Update An Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.vectara.io/v2/agents/:agent_id",
+            "params": [
+              {
+                "name": "agent_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update An Agent"
+        },
+        {
+          "info": {
+            "name": "Delete An Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.vectara.io/v2/agents/:agent_id",
+            "params": [
+              {
+                "name": "agent_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete An Agent"
+        },
+        {
+          "info": {
+            "name": "List Agent Sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.vectara.io/v2/agents/:agent_id/sessions",
+            "params": [
+              {
+                "name": "agent_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List Agent Sessions"
+        },
+        {
+          "info": {
+            "name": "Create An Agent Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/agents/:agent_id/sessions",
+            "params": [
+              {
+                "name": "agent_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Create An Agent Session"
+        },
+        {
+          "info": {
+            "name": "Add A Turn To An Agent Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/v2/agents/:agent_id/sessions/:session_id/turns",
+            "params": [
+              {
+                "name": "agent_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add A Turn To An Agent Session"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

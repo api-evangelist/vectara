@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Vectara REST Agents Authentication API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Obtain An OAuth 2.0 Access Token (Client Credentials)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vectara.io/oauth2/token",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "grant_type",
+                  "value": ""
+                },
+                {
+                  "name": "client_id",
+                  "value": ""
+                },
+                {
+                  "name": "client_secret",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Obtain An OAuth 2.0 Access Token (Client Credentials)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
