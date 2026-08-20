@@ -29,6 +29,22 @@ type: Index
 kind: contract
 access: 3rd-Party
 tags:
+  - Artificial Intelligence
+  - Agents
+  - Corpora
+  - Embeddings
+  - Enterprise Search
+  - Generative AI
+  - Grounded Generation
+  - Hallucination Detection
+  - LLM
+  - MCP
+  - RAG
+  - Retrieval
+  - Search
+  - Semantic Search
+  - Vector Search
+tags_raw:
   - AI
   - Agents
   - Corpora
@@ -67,6 +83,9 @@ apis:
   humanURL: https://docs.vectara.com/docs/learn/authentication/oauth-2
   baseURL: https://auth.vectara.io
   tags:
+  - Authentication
+  - Tokens
+  tags_raw:
   - Authentication
   - OAuth2
   - Tokens
