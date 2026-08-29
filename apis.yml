@@ -408,13 +408,13 @@ common:
   - type: Tools
     name: Vectara Agent Skills
     url: https://github.com/vectara/agent-skills
-  - type: Samples
+  - type: Examples
     name: Getting Started Examples
     url: https://github.com/vectara/getting-started
-  - type: Samples
+  - type: Examples
     name: Example Notebooks
     url: https://github.com/vectara/example-notebooks
-  - type: Samples
+  - type: Examples
     name: Design Patterns
     url: https://github.com/vectara/design-patterns
   - type: GitHub
