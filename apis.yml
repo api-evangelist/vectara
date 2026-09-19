@@ -82,6 +82,11 @@ apis:
   baseURL: https://api.vectara.io/v2
   tags:
   - Chat
+  - Conversations
+  - Generation
+  - RAG
+  tags_raw:
+  - Chat
   - Conversation
   - Generation
   - RAG
