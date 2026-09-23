@@ -1,28 +1,9 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Vectara REST Agents Pipelines API
+  title: Vectara REST Pipelines API
   description: 'Vectara REST API v2 is the unified interface for the Vectara Retrieval Augmented
 
-    Generation (RAG) platform. It exposes endpoints for managing corpora, uploading
-
-    and indexing documents, running semantic and hybrid queries with grounded
-
-    generation, managing agents, tools, pipelines, generation presets, and reading
-
-    metadata.
-
-
-    This OpenAPI 3.1 description is hand-curated from the public Vectara REST API
-
-    documentation at https://docs.vectara.com/docs/rest-api/ and the published
-
-    OpenAPI document at https://docs.vectara.com/vectara-oas-v2.yaml. It covers a
-
-    representative subset of endpoints across corpora, documents, query, agents,
-
-    tools, pipelines, and OAuth.
-
-    '
+    Generation (RAG) platform.'
   version: '2.0'
   contact:
     name: Vectara Support
