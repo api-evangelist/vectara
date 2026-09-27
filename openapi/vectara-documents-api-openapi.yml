@@ -187,13 +187,6 @@ paths:
                     type: string
 components:
   parameters:
-    DocumentId:
-      in: path
-      name: document_id
-      required: true
-      schema:
-        type: string
-      description: The unique identifier of a document.
     CorpusKey:
       in: path
       name: corpus_key
@@ -201,6 +194,13 @@ components:
       schema:
         type: string
       description: The unique key identifying a corpus.
+    DocumentId:
+      in: path
+      name: document_id
+      required: true
+      schema:
+        type: string
+      description: The unique identifier of a document.
   schemas:
     PageMetadata:
       type: object
@@ -209,15 +209,6 @@ components:
           type: string
         next_page_key:
           type: string
-    ListDocumentsResponse:
-      type: object
-      properties:
-        documents:
-          type: array
-          items:
-            $ref: '#/components/schemas/Document'
-        metadata:
-          $ref: '#/components/schemas/PageMetadata'
     Document:
       type: object
       properties:
@@ -241,6 +232,15 @@ components:
               metadata:
                 type: object
                 additionalProperties: true
+    ListDocumentsResponse:
+      type: object
+      properties:
+        documents:
+          type: array
+          items:
+            $ref: '#/components/schemas/Document'
+        metadata:
+          $ref: '#/components/schemas/PageMetadata'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

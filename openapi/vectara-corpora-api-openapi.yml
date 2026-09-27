@@ -142,6 +142,25 @@ paths:
                     type: integer
 components:
   schemas:
+    FilterAttribute:
+      type: object
+      properties:
+        name:
+          type: string
+        level:
+          type: string
+          enum:
+          - document
+          - document_part
+        indexed:
+          type: boolean
+        type:
+          type: string
+          enum:
+          - text
+          - integer
+          - real
+          - boolean
     PageMetadata:
       type: object
       properties:
@@ -149,6 +168,24 @@ components:
           type: string
         next_page_key:
           type: string
+    ListCorporaResponse:
+      type: object
+      properties:
+        corpora:
+          type: array
+          items:
+            $ref: '#/components/schemas/Corpus'
+        metadata:
+          $ref: '#/components/schemas/PageMetadata'
+    UpdateCorpusRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        enabled:
+          type: boolean
     Corpus:
       type: object
       properties:
@@ -182,15 +219,6 @@ components:
         created_at:
           type: string
           format: date-time
-    UpdateCorpusRequest:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        enabled:
-          type: boolean
     CreateCorpusRequest:
       allOf:
       - $ref: '#/components/schemas/Corpus'
@@ -198,34 +226,6 @@ components:
         required:
         - key
         - name
-    ListCorporaResponse:
-      type: object
-      properties:
-        corpora:
-          type: array
-          items:
-            $ref: '#/components/schemas/Corpus'
-        metadata:
-          $ref: '#/components/schemas/PageMetadata'
-    FilterAttribute:
-      type: object
-      properties:
-        name:
-          type: string
-        level:
-          type: string
-          enum:
-          - document
-          - document_part
-        indexed:
-          type: boolean
-        type:
-          type: string
-          enum:
-          - text
-          - integer
-          - real
-          - boolean
   parameters:
     CorpusKey:
       in: path

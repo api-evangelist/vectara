@@ -86,14 +86,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/QueryResponse'
 components:
-  parameters:
-    CorpusKey:
-      in: path
-      name: corpus_key
-      required: true
-      schema:
-        type: string
-      description: The unique key identifying a corpus.
   schemas:
     QueryRequest:
       type: object
@@ -158,6 +150,14 @@ components:
               document_metadata:
                 type: object
                 additionalProperties: true
+  parameters:
+    CorpusKey:
+      in: path
+      name: corpus_key
+      required: true
+      schema:
+        type: string
+      description: The unique key identifying a corpus.
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
