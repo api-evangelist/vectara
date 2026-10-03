@@ -186,21 +186,6 @@ paths:
                   summary:
                     type: string
 components:
-  parameters:
-    CorpusKey:
-      in: path
-      name: corpus_key
-      required: true
-      schema:
-        type: string
-      description: The unique key identifying a corpus.
-    DocumentId:
-      in: path
-      name: document_id
-      required: true
-      schema:
-        type: string
-      description: The unique identifier of a document.
   schemas:
     PageMetadata:
       type: object
@@ -241,6 +226,21 @@ components:
             $ref: '#/components/schemas/Document'
         metadata:
           $ref: '#/components/schemas/PageMetadata'
+  parameters:
+    DocumentId:
+      in: path
+      name: document_id
+      required: true
+      schema:
+        type: string
+      description: The unique identifier of a document.
+    CorpusKey:
+      in: path
+      name: corpus_key
+      required: true
+      schema:
+        type: string
+      description: The unique key identifying a corpus.
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

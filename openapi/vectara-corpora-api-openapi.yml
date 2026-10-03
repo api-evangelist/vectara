@@ -142,25 +142,6 @@ paths:
                     type: integer
 components:
   schemas:
-    FilterAttribute:
-      type: object
-      properties:
-        name:
-          type: string
-        level:
-          type: string
-          enum:
-          - document
-          - document_part
-        indexed:
-          type: boolean
-        type:
-          type: string
-          enum:
-          - text
-          - integer
-          - real
-          - boolean
     PageMetadata:
       type: object
       properties:
@@ -177,15 +158,6 @@ components:
             $ref: '#/components/schemas/Corpus'
         metadata:
           $ref: '#/components/schemas/PageMetadata'
-    UpdateCorpusRequest:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        enabled:
-          type: boolean
     Corpus:
       type: object
       properties:
@@ -219,6 +191,34 @@ components:
         created_at:
           type: string
           format: date-time
+    FilterAttribute:
+      type: object
+      properties:
+        name:
+          type: string
+        level:
+          type: string
+          enum:
+          - document
+          - document_part
+        indexed:
+          type: boolean
+        type:
+          type: string
+          enum:
+          - text
+          - integer
+          - real
+          - boolean
+    UpdateCorpusRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        enabled:
+          type: boolean
     CreateCorpusRequest:
       allOf:
       - $ref: '#/components/schemas/Corpus'
