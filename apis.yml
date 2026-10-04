@@ -348,6 +348,9 @@ apis:
   - type: JSONSchema
     url: json-schema/vectara-agent-schema.json
 common:
+  - type: CapabilityMap
+    url: capabilities/vectara-capability-edges.yml
+    name: Vectara Business Capability Map
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/vectara/overview
   - type: AgenticAccess
