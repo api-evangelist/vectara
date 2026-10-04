@@ -87,6 +87,30 @@ paths:
                 $ref: '#/components/schemas/QueryResponse'
 components:
   schemas:
+    QueryResponse:
+      type: object
+      properties:
+        summary:
+          type: string
+        factual_consistency_score:
+          type: number
+        search_results:
+          type: array
+          items:
+            type: object
+            properties:
+              text:
+                type: string
+              score:
+                type: number
+              document_id:
+                type: string
+              part_metadata:
+                type: object
+                additionalProperties: true
+              document_metadata:
+                type: object
+                additionalProperties: true
     QueryRequest:
       type: object
       required:
@@ -126,30 +150,6 @@ components:
               type: boolean
         stream_response:
           type: boolean
-    QueryResponse:
-      type: object
-      properties:
-        summary:
-          type: string
-        factual_consistency_score:
-          type: number
-        search_results:
-          type: array
-          items:
-            type: object
-            properties:
-              text:
-                type: string
-              score:
-                type: number
-              document_id:
-                type: string
-              part_metadata:
-                type: object
-                additionalProperties: true
-              document_metadata:
-                type: object
-                additionalProperties: true
   parameters:
     CorpusKey:
       in: path
