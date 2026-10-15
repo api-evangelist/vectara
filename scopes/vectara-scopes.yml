@@ -1,17 +1,51 @@
-generated: '2026-07-11'
-method: derived
-source: openapi/vectara-openapi.yml
-docs: https://docs.vectara.com/docs/security/authentication/oauth-2
-note: >-
-  Vectara's OAuth 2.0 supports only the client credentials grant and does not
-  use or document OAuth scopes; permissions are governed by role-based access
-  assigned to app clients at creation
-  (https://docs.vectara.com/docs/security/authentication/oauth-2).
+generated: '2026-10-14'
+method: none
+source: openapi/vectara-agents-api-openapi.yml, openapi/vectara-authentication-api-openapi.yml,
+  openapi/vectara-corpora-api-openapi.yml, openapi/vectara-documents-api-openapi.yml, openapi/vectara-pipelines-api-openapi.yml,
+  openapi/vectara-query-api-openapi.yml, openapi/vectara-tools-api-openapi.yml
 schemes:
 - name: OAuth2
-  source: openapi/vectara-openapi.yml
+  source: openapi/vectara-agents-api-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://auth.vectara.io/oauth2/token
+  description: OAuth 2.0 client credentials flow.
+- name: OAuth2
+  source: openapi/vectara-authentication-api-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://auth.vectara.io/oauth2/token
+  description: OAuth 2.0 client credentials flow.
+- name: OAuth2
+  source: openapi/vectara-corpora-api-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://auth.vectara.io/oauth2/token
+  description: OAuth 2.0 client credentials flow.
+- name: OAuth2
+  source: openapi/vectara-documents-api-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://auth.vectara.io/oauth2/token
+  description: OAuth 2.0 client credentials flow.
+- name: OAuth2
+  source: openapi/vectara-pipelines-api-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://auth.vectara.io/oauth2/token
+  description: OAuth 2.0 client credentials flow.
+- name: OAuth2
+  source: openapi/vectara-query-api-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://auth.vectara.io/oauth2/token
+  description: OAuth 2.0 client credentials flow.
+- name: OAuth2
+  source: openapi/vectara-tools-api-openapi.yml
   flows:
   - flow: clientCredentials
     tokenUrl: https://auth.vectara.io/oauth2/token
   description: OAuth 2.0 client credentials flow.
 scopes: []
+note: The OAuth2 security scheme(s) in the OpenAPI declare no scopes, and no security requirement
+  references one.
