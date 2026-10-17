@@ -142,6 +142,13 @@ paths:
                     type: integer
 components:
   schemas:
+    PageMetadata:
+      type: object
+      properties:
+        page_key:
+          type: string
+        next_page_key:
+          type: string
     UpdateCorpusRequest:
       type: object
       properties:
@@ -151,25 +158,6 @@ components:
           type: string
         enabled:
           type: boolean
-    FilterAttribute:
-      type: object
-      properties:
-        name:
-          type: string
-        level:
-          type: string
-          enum:
-          - document
-          - document_part
-        indexed:
-          type: boolean
-        type:
-          type: string
-          enum:
-          - text
-          - integer
-          - real
-          - boolean
     ListCorporaResponse:
       type: object
       properties:
@@ -179,13 +167,6 @@ components:
             $ref: '#/components/schemas/Corpus'
         metadata:
           $ref: '#/components/schemas/PageMetadata'
-    PageMetadata:
-      type: object
-      properties:
-        page_key:
-          type: string
-        next_page_key:
-          type: string
     Corpus:
       type: object
       properties:
@@ -226,6 +207,25 @@ components:
         required:
         - key
         - name
+    FilterAttribute:
+      type: object
+      properties:
+        name:
+          type: string
+        level:
+          type: string
+          enum:
+          - document
+          - document_part
+        indexed:
+          type: boolean
+        type:
+          type: string
+          enum:
+          - text
+          - integer
+          - real
+          - boolean
   parameters:
     CorpusKey:
       in: path
