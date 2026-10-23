@@ -86,6 +86,40 @@ edges:
     detected: '2026-10-21'
   detected_by: sweep-browser-extension-stores.py
   first_seen: '2026-10-21'
+- partner_name: Hugging Face (hugging-face-hub)
+  partner: hugging-face
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: hugging-face-hub
+  evidence: https://huggingface.co/vectara
+  mirror_of: hugging-face/integrations/hugging-face-integration-edges.yml
+  apps:
+  - vectara/open_ragbench
+  - vectara/results
+  - vectara/hcm-examples-aug-2024
+  - vectara/hhem_leaderboard_datasets
+  - vectara/leaderboard_results
+  - vectara/miracl_llama70B_filter_langs
+  - vectara/nomiracl_mistral7B_filter_langs
+  - vectara/hallucination_evaluation_model
+  - vectara/leaderboard
+  - vectara/Hallucination-evaluation-leaderboard
+  - vectara/debate-bot
+  - vectara/Ask-Langchain
+  - vectara/physics-bot
+  - vectara/hhem-2.1-open-demo
+  - vectara/media-demo
+  - vectara/cfpb-assistant
+  listing_count: 3
+  detected: '2026-10-23'
+  detected_by: mirror-platform-listings.py
+  category: Hugging Face Hub datasets
+  badges:
+  - Verified publisher (Hugging Face verified organisation)
 method: searched
 checked:
 - https://connectors.airbyte.com/files/registries/v0/cloud_registry.json
@@ -94,5 +128,6 @@ checked:
 - https://addons.mozilla.org/api/v5/addons/addon/<slug>/
 - https://addons.mozilla.org/api/v5/addons/search/?type=extension&app=firefox
 - https://chromewebstore.google.com/sitemap
+- hugging-face/integrations/hugging-face-integration-edges.yml
 source:
 - https://zapier.com/api/v4/apps/
