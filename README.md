@@ -1,4 +1,4 @@
-# Vectara (vectara)
+# Vectara
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,235 +66,194 @@
 
 Vectara is a Retrieval Augmented Generation (RAG) as a service platform that provides grounded generative AI for enterprises. The API-first platform exposes a unified REST API v2 for managing corpora, ingesting documents, performing semantic and hybrid search, generating answers with hallucination detection via the Hughes Hallucination Evaluation Model (HHEM), and building agents and pipelines on top of enterprise data. Headquartered in Mountain View, California and founded by former Google Search engineers, Vectara ships first-party Python and TypeScript SDKs, a public MCP server, React UI widgets, and an open ingestion framework.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/vectara/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/vectara/refs/heads/main/apis.yml)
+**Areas:** Artificial Intelligence · Agents · Corpora · Embeddings · Enterprise Search · Generative AI · Grounded Generation · Hallucination Detection · LLM · MCP · RAG · Retrieval
 
-## Scope
+## Vectara on APIs.io
 
-- **Type:** Index
-- **Access:** 3rd-Party
+Everything profiled for Vectara is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/vectara/](https://apis.io/providers/vectara/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (9)
 
-- AI
-- Agents
-- Corpora
-- Embeddings
-- Enterprise Search
-- Generative AI
-- Grounded Generation
-- Hallucination Detection
-- LLM
-- MCP
-- RAG
-- Retrieval
-- Search
-- Semantic Search
-- Vector Search
+- [Vectara Chat API](https://apis.io/apis/vectara/vectara-chat-api/) — Multi-turn conversational interface over a Vectara corpus that maintains chat history and produces grounded, cited answers with optional streaming.
+- [Vectara OAuth 2.0 Token API](https://apis.io/apis/vectara/vectara-oauth2-api/) — OAuth 2.0 client credentials flow used to obtain a short-lived JWT for calling the Vectara REST API.
+- [Vectara Agents API](https://apis.io/apis/vectara/vectara-agents-api/) — Build and operate agents over Vectara corpora.
+- [Vectara Authentication API](https://apis.io/apis/vectara/vectara-authentication-api/) — OAuth 2.0 client credentials flow for obtaining JWT tokens.
+- [Vectara Corpora API](https://apis.io/apis/vectara/vectara-corpora-api/) — Create, list, update, and delete corpora that hold indexed documents.
+- [Vectara Documents API](https://apis.io/apis/vectara/vectara-documents-api/) — Upload, index, retrieve, update, and delete documents in a corpus.
+- [Vectara Pipelines API](https://apis.io/apis/vectara/vectara-pipelines-api/) — Manage pipelines and inspect pipeline runs.
+- [Vectara Query API](https://apis.io/apis/vectara/vectara-query-api/) — Semantic, keyword, and hybrid queries with optional grounded generation.
+- [Vectara Tools API](https://apis.io/apis/vectara/vectara-tools-api/) — Manage tools and tool servers used by agents.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-23
-- **Modified:** 2026-05-25
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Vectara REST API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Vectara REST API v2 is the unified interface for the Vectara RAG platform. It exposes endpoints for managing corpora, uploading and indexing documents, running semantic and hybrid queries with grounded generation, managing agents and pipelines, configuring generation presets, evaluating hallucinations, controlling access, and reading analytics.
+- [Vectara Agentic Access](https://apis.io/agentic-access/vectara/vectara-agentic-access/)
 
-- **Human URL:** [https://docs.vectara.com/docs/rest-api/](https://docs.vectara.com/docs/rest-api/)
-- **Base URL:** `https://api.vectara.io/v2`
+#### JSON Schema (4)
 
-#### Tags
+The data models the API reads and writes.
 
-- Agents
-- Analytics
-- Corpora
-- Documents
-- Generation
-- Pipelines
-- Query
-- RAG
-- Search
+- [Vectara Agent](https://apis.io/schemas/vectara/vectara-agent/)
+- [Vectara Corpus](https://apis.io/schemas/vectara/vectara-corpus/)
+- [Vectara Document](https://apis.io/schemas/vectara/vectara-document/)
+- [Vectara Query Request](https://apis.io/schemas/vectara/vectara-query/)
 
-#### Properties
+#### JSON Structure (1)
 
-- [Documentation](https://docs.vectara.com/docs/rest-api/)
-- [Authentication](https://docs.vectara.com/docs/learn/authentication/oauth-2)
-- [OpenAPI](openapi/vectara-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/vectara.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/vectara.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [OpenAPI](https://docs.vectara.com/vectara-oas-v2.yaml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+Data models expressed in JSON Structure.
 
-### Vectara Corpora API
+- [Vectara Corpus Structure](https://apis.io/json-structure/vectara/vectara-corpus-structure/)
 
-Create, list, update, and delete corpora that hold indexed documents for retrieval and grounded generation.
+#### JSON-LD (1)
 
-- **Human URL:** [https://docs.vectara.com/docs/api-reference/admin-apis/corpora](https://docs.vectara.com/docs/api-reference/admin-apis/corpora)
-- **Base URL:** `https://api.vectara.io/v2`
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags
+- [Vectara Context](https://apis.io/jsonld/vectara/vectara-context/)
 
-- Admin
-- Corpora
-- Index
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [Documentation](https://docs.vectara.com/docs/api-reference/admin-apis/corpora)
-- [OpenAPI](openapi/vectara-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/vectara.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/vectara.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/vectara-corpus-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/vectara-corpus-structure.json)
-- [JSON-LD](json-ld/vectara-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
+- [Vectara Vocabulary](https://apis.io/vocabularies/vectara/vectara-vocabulary/)
 
-### Vectara Indexing API
+#### Examples (4)
 
-Upload and index documents into a Vectara corpus using either structured Core indexing or unstructured file upload. Supports add, replace, and delete operations on documents.
+Example requests and responses.
 
-- **Human URL:** [https://docs.vectara.com/docs/api-reference/indexing-apis/indexing](https://docs.vectara.com/docs/api-reference/indexing-apis/indexing)
-- **Base URL:** `https://api.vectara.io/v2`
+- [Vectara Add Document Example](https://apis.io/examples/vectara/vectara-add-document-example/)
+- [Vectara Create Corpus Example](https://apis.io/examples/vectara/vectara-create-corpus-example/)
+- [Vectara Oauth Token Example](https://apis.io/examples/vectara/vectara-oauth-token-example/)
+- [Vectara Query Corpus Example](https://apis.io/examples/vectara/vectara-query-corpus-example/)
 
-#### Tags
+#### Collections (15)
 
-- Documents
-- Index
-- Upload
+Postman and Open Collection request collections.
 
-#### Properties
+- [Vectara REST API](https://apis.io/collections/vectara/open-vectara/)
+- [Vectara REST Agents API](https://apis.io/collections/vectara/open-vectara-agents-api/)
+- [Vectara REST Agents Authentication API](https://apis.io/collections/vectara/open-vectara-authentication-api/)
+- [Vectara REST Agents Corpora API](https://apis.io/collections/vectara/open-vectara-corpora-api/)
+- [Vectara REST Agents Documents API](https://apis.io/collections/vectara/open-vectara-documents-api/)
+- [Vectara REST Agents Pipelines API](https://apis.io/collections/vectara/open-vectara-pipelines-api/)
+- [Vectara REST Agents Query API](https://apis.io/collections/vectara/open-vectara-query-api/)
+- [Vectara REST Agents Tools API](https://apis.io/collections/vectara/open-vectara-tools-api/)
+- [Vectara REST Agents API](https://apis.io/collections/vectara/postman-vectara-agents-api/)
+- [Vectara REST Agents Authentication API](https://apis.io/collections/vectara/postman-vectara-authentication-api/)
+- [Vectara REST Agents Corpora API](https://apis.io/collections/vectara/postman-vectara-corpora-api/)
+- [Vectara REST Agents Documents API](https://apis.io/collections/vectara/postman-vectara-documents-api/)
+- [Vectara REST Agents Pipelines API](https://apis.io/collections/vectara/postman-vectara-pipelines-api/)
+- [Vectara REST Agents Query API](https://apis.io/collections/vectara/postman-vectara-query-api/)
+- [Vectara REST Agents Tools API](https://apis.io/collections/vectara/postman-vectara-tools-api/)
 
-- [Documentation](https://docs.vectara.com/docs/api-reference/indexing-apis/indexing)
-- [OpenAPI](openapi/vectara-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/vectara.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/vectara.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/vectara-document-schema.json) — [JSON Schema](https://json-schema.org/specification)
+#### Governance rules (2)
 
-### Vectara Query API
+Spectral rulesets for the provider's contracts.
 
-Run semantic, keyword, and hybrid queries across one or more corpora with optional grounded generation, citations, reranking, and Hughes Hallucination Evaluation Model (HHEM) factual-consistency scoring.
+- [Vectara — jsonschema rules](https://apis.io/rules/vectara/vectara-jsonschema-spectral-rules/)
+- [Vectara API Rules](https://apis.io/rules/vectara/vectara-rules/)
 
-- **Human URL:** [https://docs.vectara.com/docs/api-reference/search-apis/search](https://docs.vectara.com/docs/api-reference/search-apis/search)
-- **Base URL:** `https://api.vectara.io/v2`
+#### Security (3)
 
-#### Tags
+Authentication, trust centre, and vulnerability disclosure.
 
-- Generation
-- Grounded Generation
-- Hybrid Search
-- Query
-- Search
+- [Vectara Authentication](https://apis.io/security/vectara/vectara-authentication/)
+- [Vectara Domain Security](https://apis.io/security/vectara/vectara-domain-security/)
+- [Vectara Trust Center](https://apis.io/security/vectara/vectara-trust-center/)
 
-#### Properties
+#### OAuth scopes (1)
 
-- [Documentation](https://docs.vectara.com/docs/api-reference/search-apis/search)
-- [OpenAPI](openapi/vectara-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/vectara.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/vectara.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/vectara-query-schema.json) — [JSON Schema](https://json-schema.org/specification)
+The permissions the API asks for.
 
-### Vectara Chat API
+- [Vectara Scopes](https://apis.io/scopes/vectara/vectara-scopes/)
 
-Multi-turn conversational interface over a Vectara corpus that maintains chat history and produces grounded, cited answers with optional streaming.
+#### Plans and pricing (1)
 
-- **Human URL:** [https://docs.vectara.com/docs/api-reference/chat-apis/chat-apis](https://docs.vectara.com/docs/api-reference/chat-apis/chat-apis)
-- **Base URL:** `https://api.vectara.io/v2`
+Published plans, tiers and prices.
 
-#### Tags
+- [Vectara Plans Pricing](https://apis.io/plans/vectara/vectara-plans-pricing/)
 
-- Chat
-- Conversation
-- Generation
-- RAG
+#### Rate limits (1)
 
-#### Properties
+Published request limits.
 
-- [Documentation](https://docs.vectara.com/docs/api-reference/chat-apis/chat-apis)
-- [Postman Collection](collections/vectara.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/vectara.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Vectara Rate Limits](https://apis.io/rate-limits/vectara/vectara-rate-limits/)
 
-### Vectara Agents API
+#### FinOps (1)
 
-Build and operate agents over Vectara corpora with tools, tool servers (MCP-compatible), planning, sessions, and grounded generation.
+What the API costs to run, by operation.
 
-- **Human URL:** [https://docs.vectara.com/docs/api-reference/agents-api/agents](https://docs.vectara.com/docs/api-reference/agents-api/agents)
-- **Base URL:** `https://api.vectara.io/v2`
+- [Vectara Finops](https://apis.io/finops/vectara/vectara-finops/)
 
-#### Tags
+## Where to find this API
 
-- Agents
-- AI
-- Tools
-
-#### Properties
-
-- [Documentation](https://docs.vectara.com/docs/api-reference/agents-api/agents)
-- [OpenAPI](openapi/vectara-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/vectara.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/vectara.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/vectara-agent-schema.json) — [JSON Schema](https://json-schema.org/specification)
-
-### Vectara OAuth 2.0 Token API
-
-OAuth 2.0 client credentials flow used to obtain a short-lived JWT for calling the Vectara REST API.
-
-- **Human URL:** [https://docs.vectara.com/docs/learn/authentication/oauth-2](https://docs.vectara.com/docs/learn/authentication/oauth-2)
-- **Base URL:** `https://auth.vectara.io`
-
-#### Tags
-
-- Authentication
-- OAuth2
-- Tokens
-
-#### Properties
-
-- [Documentation](https://docs.vectara.com/docs/learn/authentication/oauth-2)
-- [Postman Collection](collections/vectara.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/vectara.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.vectara.com/)
-- [Developer](https://docs.vectara.com/docs)
 - [Documentation](https://docs.vectara.com/docs/rest-api/)
-- [OpenAPI](https://docs.vectara.com/vectara-oas-v2.yaml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [SDK](https://github.com/vectara/python-sdk)
-- [SDK](https://github.com/vectara/typescript-sdk)
-- [SDK](https://github.com/vectara/py-vectara-agentic)
-- [SDK](https://github.com/vectara/langchain-vectara)
-- [Tools](https://github.com/vectara/vectara-mcp)
-- [Tools](https://github.com/vectara/vectara-ingest)
-- [Tools](https://github.com/vectara/vectara-ui)
-- [Tools](https://github.com/vectara/react-search)
-- [Tools](https://github.com/vectara/react-chatbot)
-- [Tools](https://github.com/vectara/stream-query-client)
-- [Tools](https://github.com/vectara/create-ui)
-- [Tools](https://github.com/vectara/vectara-answer)
-- [Tools](https://github.com/vectara/open-rag-eval)
-- [Tools](https://github.com/vectara/hallucination-leaderboard)
-- [Tools](https://github.com/vectara/agent-skills)
-- [Samples](https://github.com/vectara/getting-started)
-- [Samples](https://github.com/vectara/example-notebooks)
-- [Samples](https://github.com/vectara/design-patterns)
-- [Git Hub](https://github.com/vectara)
-- [Blog](https://www.vectara.com/blog)
 - [Pricing](https://www.vectara.com/pricing)
-- [Status Page](https://status.vectara.com/)
 - [Support](https://docs.vectara.com/docs/support)
-- [Privacy Policy](https://vectara.com/legal/privacy-policy/)
-- [Terms of Service](https://vectara.com/legal/terms-of-service/)
-- [LinkedIn](https://www.linkedin.com/company/vectara/)
 - [Changelog](https://docs.vectara.com/docs/release-notes)
-- [Integrations](https://docs.vectara.com/docs/integrations)
-- [L L Ms Txt](https://docs.vectara.com/llms.txt)
-- [Rate Limits](rate-limits/vectara-rate-limits.yml)
-- [Plans](plans/vectara-plans-pricing.yml)
-- [Fin Ops](finops/vectara-finops.yml)
-- [Rules](rules/vectara-rules.yml)
-- [Vocabulary](vocabulary/vectara-vocabulary.yml)
+- [Blog](https://www.vectara.com/blog)
+- [Terms of service](https://vectara.com/legal/terms-of-service/)
+- [Privacy policy](https://vectara.com/legal/privacy-policy/)
+- [Status](https://status.vectara.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 48.4** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 61.4 |
+| Contract governance | 27.3 |
+| Operational transparency | 42.1 |
+| Developer ergonomics | 29.8 |
+| Access clarity | 44.7 |
+
+**Agent readiness 22.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 36.4** — AI & Biometrics
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/vectara/](https://apis.io/providers/vectara/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Vectara: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/vectara/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
